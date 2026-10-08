@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<radialGradient id="alchemist-g1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d4ff7a" stop-opacity="0.9"/><stop offset="1" stop-color="#58d68d" stop-opacity="0"/></radialGradient>
+<linearGradient id="alchemist-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6ff6a"/><stop offset="1" stop-color="#3cb36b"/></linearGradient>
+<linearGradient id="alchemist-g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9a6a3c"/><stop offset="1" stop-color="#6b4a2f"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-body">
+<path d="M78 200 L78 222 L98 222 L98 200 Z" fill="#3d2b52"/>
+<path d="M104 200 L104 222 L124 222 L124 200 Z" fill="#3d2b52"/>
+<path d="M72 216 L98 216 L98 228 L68 228 Q66 220 72 216 Z" fill="#4a3322"/>
+<path d="M104 216 L130 216 Q142 220 142 228 L104 228 Z" fill="#4a3322"/>
+<path d="M72 128 Q100 114 130 128 Q142 170 128 206 Q100 214 74 206 Q60 170 72 128 Z" fill="#5a3f86"/>
+<path d="M82 132 Q100 124 120 132 L126 204 Q100 210 80 204 Z" fill="url(#alchemist-g3)"/>
+<path d="M82 140 Q101 150 122 140" fill="none" stroke="#4a3322" stroke-width="3"/>
+<rect x="76" y="170" width="52" height="9" rx="3" fill="#2d2540"/>
+<rect x="98" y="168" width="10" height="13" rx="2" fill="#c8d0de" stroke-width="3"/>
+<g stroke-width="3">
+<path d="M84 180 L84 186 Q78 190 79 198 Q80 203 85 203 Q90 203 91 198 Q92 190 86 186 L86 180 Z" fill="#d63a3a"/>
+<path d="M112 180 L112 188 Q106 192 107 199 Q108 205 114 205 Q120 205 120 199 Q120 192 114 188 L114 180 Z" fill="#4aa3ff"/>
+<path d="M99 180 L99 188 Q96 192 97 197 Q98 201 101 201 Q104 201 105 197 Q106 192 103 188 L103 180 Z" fill="#f2c94c"/>
+</g>
+<circle cx="100" cy="150" r="5" fill="#8e96a8" stroke-width="3"/>
+</g>
+<g class="part-arm-l">
+<path d="M76 134 Q58 146 62 166 Q66 176 80 172 L84 160 L88 142 Z" fill="#5a3f86"/>
+<path d="M60 162 L82 170 L80 178 L60 172 Z" fill="#6b4a2f" stroke-width="3"/>
+<circle cx="76" cy="176" r="7.5" fill="#8a6244"/>
+</g>
+<g class="part-head">
+<g transform="translate(-4 4)">
+<path d="M74 66 Q66 42 88 36 Q92 22 108 28 Q128 18 134 40 Q144 52 130 66 Q104 58 74 66 Z" fill="#e8742a"/>
+<path d="M82 40 Q96 34 108 40" fill="none" stroke="#ffb06b" stroke-width="2.4"/>
+<ellipse cx="106" cy="86" rx="29" ry="26" fill="#e8c9a0"/>
+<ellipse cx="94" cy="100" rx="8" ry="4" fill="#d98e8e" stroke="none" opacity="0.5"/>
+<path d="M70 82 Q104 76 138 82 L138 90 Q104 84 70 90 Z" fill="#4a3322" stroke-width="3.5"/>
+<circle cx="112" cy="86" r="13" fill="#2d2540"/>
+<circle cx="112" cy="86" r="9.5" fill="url(#alchemist-g2)" stroke-width="2.6"/>
+<circle cx="135" cy="86" r="11" fill="#2d2540"/>
+<circle cx="135" cy="86" r="8" fill="url(#alchemist-g2)" stroke-width="2.6"/>
+<circle cx="113" cy="87" r="3.5" fill="#14101c" stroke="none"/>
+<circle cx="136" cy="87" r="3" fill="#14101c" stroke="none"/>
+<circle cx="109" cy="82" r="2.4" fill="#fff" stroke="none"/>
+<circle cx="132" cy="83" r="2" fill="#fff" stroke="none"/>
+<path d="M118 106 Q128 112 138 104" fill="none" stroke-width="2.8"/>
+<path d="M124 108 L127 112 L130 108" fill="#fff" stroke-width="1.6"/>
+</g>
+</g>
+<g class="part-arm-r"><g transform="translate(12 6)">
+<g class="part-weapon">
+<circle cx="158" cy="76" r="34" fill="url(#alchemist-g1)" stroke="none"/>
+<path d="M150 52 L166 52 L166 66 Q184 76 180 94 Q176 106 158 106 Q140 106 136 94 Q132 76 150 66 Z" fill="#e8f4ff" fill-opacity="0.55"/>
+<path d="M141 82 Q158 76 176 82 Q182 94 176 99 Q158 106 140 99 Q136 92 141 82 Z" fill="url(#alchemist-g2)" stroke-width="2.4" stroke="none"/>
+<path d="M150 52 L166 52 L166 66 Q184 76 180 94 Q176 106 158 106 Q140 106 136 94 Q132 76 150 66 Z" fill="none"/>
+<rect x="148" y="44" width="20" height="10" rx="3" fill="#8a6244" stroke-width="3.5"/>
+<path d="M148 50 L168 50" stroke="#c9a070" stroke-width="2" fill="none"/>
+<circle cx="150" cy="92" r="3.5" fill="#d4ff7a" stroke="none"/>
+<circle cx="165" cy="86" r="2.5" fill="#d4ff7a" stroke="none"/>
+<circle cx="170" cy="96" r="2" fill="#fff" stroke="none"/>
+<path d="M146 78 Q142 88 146 96" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.8"/>
+<path d="M174 108 Q176 114 174 120" stroke="#9fe85a" stroke-width="3.5" fill="none"/>
+</g>
+<path d="M118 130 Q138 128 142 112 L150 108 L156 118 Q152 142 128 150 Q114 146 112 138 Z" fill="#5a3f86"/>
+<path d="M140 108 L160 114 L158 122 L138 118 Z" fill="#6b4a2f" stroke-width="3"/>
+<circle cx="154" cy="102" r="9" fill="#8a6244"/>
+</g></g>
+</g>
+</svg>

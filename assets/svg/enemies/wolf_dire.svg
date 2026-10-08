@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="wolfd-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b6878"/><stop offset="1" stop-color="#3a3648"/></linearGradient></defs>
+<g class="part-extra">
+<path d="M150 110 Q196 90 192 40 Q180 74 156 84Z" fill="#4a4658"/>
+<path d="M150 110 Q186 96 190 56" fill="none" stroke="#8a869a" stroke-width="3"/>
+</g>
+<g class="part-body">
+<path d="M146 168 L156 202 L142 214 L170 216 L168 196 L160 166Z" fill="#3a3648"/>
+<path d="M62 168 L56 204 L40 214 L74 216 L80 170Z" fill="#3a3648"/>
+<path d="M54 118 Q52 90 80 90 L132 92 Q164 96 162 140 Q160 176 130 180 L80 180 Q56 172 54 118Z" fill="url(#wolfd-g1)"/>
+<path d="M88 86 L92 70 L100 86 M106 86 L112 68 L120 88 M124 90 L132 74 L138 94" fill="#3a3648" stroke-width="3.5"/>
+<path d="M108 128 L100 214 L84 224 L116 226 L124 128Z" fill="#4a4658"/>
+<path d="M132 130 L138 216 L124 226 L156 226 L150 130Z" fill="#555064"/>
+<path d="M96 120 Q116 112 136 124 M92 142 Q116 134 140 146" fill="none" stroke="#8a869a" stroke-width="3"/>
+</g>
+<g class="part-head">
+<path d="M64 108 L52 62 L80 78 L98 70 L108 104 Q88 128 64 108Z" fill="#555064"/>
+<path d="M30 112 Q20 94 42 88 L72 82 Q100 76 108 102 Q112 134 86 142 L40 144 Q28 136 30 112Z" fill="url(#wolfd-g1)"/>
+<path d="M60 76 L52 56 L74 70Z" fill="#3a3648" stroke-width="3.5"/>
+<path d="M22 112 L6 108 L8 124 L26 126Z" fill="#14101c"/>
+<path d="M44 124 Q66 138 96 130 L92 140 Q66 150 40 134Z" fill="#a82b35"/>
+<path d="M46 126 L50 138 L56 128 L62 140 L70 130 L78 140 L84 130 L92 134" fill="#f1ead2" stroke-width="3"/>
+<path d="M62 100 Q74 90 88 98 L86 108 Q72 104 62 106Z" fill="#fff6c8" stroke-width="3.5"/>
+<circle cx="76" cy="100" r="4" fill="#ff3a3a" stroke="none"/>
+<path d="M58 94 L86 92" stroke-width="4.5" fill="none"/>
+<path d="M64 110 L74 112" stroke="#8a869a" stroke-width="3"/>
+<ellipse cx="14" cy="112" rx="4" ry="3" fill="#6b6878" stroke="none"/>
+</g>
+</svg>

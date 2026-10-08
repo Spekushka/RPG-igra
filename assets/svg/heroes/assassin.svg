@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="assassin-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3c3158"/><stop offset="1" stop-color="#1e1830"/></linearGradient>
+<linearGradient id="assassin-g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8e96a8"/><stop offset="0.5" stop-color="#e6ecf6"/><stop offset="1" stop-color="#8e96a8"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-extra">
+<path d="M82 112 Q50 108 30 132 L44 134 L26 152 L48 148 L40 166 L70 140 L96 130 Z" fill="#c0392b"/>
+<path d="M60 124 Q44 128 34 140" fill="none" stroke="#e8705e" stroke-width="2.4"/>
+</g>
+<g class="part-body">
+<path d="M84 176 Q70 198 62 210 L44 218 Q36 226 44 228 L72 228 Q82 214 98 190 Z" fill="#2d2540"/>
+<path d="M108 176 Q132 180 142 198 L150 214 Q166 218 164 228 L134 228 Q126 214 112 206 L98 196 Z" fill="#3a2f56"/>
+<path d="M134 210 L148 214 L150 222 L134 222 Z" fill="#14101c" stroke-width="2"/>
+<path d="M60 206 L72 214 L72 224 L56 224 Z" fill="#14101c" stroke-width="2"/>
+<path d="M76 130 Q100 112 128 122 L126 164 L120 184 L82 188 Q70 160 76 130 Z" fill="url(#assassin-g1)"/>
+<path d="M82 160 L124 164 L122 176 L80 172 Z" fill="#14101c"/>
+<rect x="98" y="162" width="11" height="12" rx="2" fill="#8e96a8" stroke-width="3" transform="rotate(4 103 168)"/>
+<path d="M82 136 L112 164 M96 124 L116 150" stroke="#14101c" stroke-width="3" fill="none"/>
+<path d="M122 124 L130 140" stroke="#c0392b" stroke-width="3" fill="none"/>
+</g>
+<g class="part-arm-l">
+<g class="part-weapon">
+<path d="M58 70 L70 100 L72 122 L66 124 L60 100 Z" fill="url(#assassin-g2)" stroke-width="3.4" transform="rotate(14 66 100)"/>
+<path d="M60 126 L78 120 L80 128 L62 134 Z" fill="#5d6577" stroke-width="3.4" transform="rotate(14 66 100)"/>
+</g>
+<path d="M82 126 Q70 124 66 134 L68 148 Q76 152 82 144 L90 140 Z" fill="#2d2540"/>
+<circle cx="68" cy="126" r="7.5" fill="#6b4a2f" transform="rotate(14 66 100)"/>
+</g>
+<g class="part-head">
+<path d="M80 74 Q80 38 112 34 Q144 38 142 74 Q142 106 118 112 L84 106 Q78 90 80 74 Z" fill="url(#assassin-g1)"/>
+<path d="M92 74 Q120 62 142 76 L142 92 Q118 100 96 92 Z" fill="#c9a07a"/>
+<path d="M92 74 Q120 62 142 76" fill="none" stroke-width="3"/>
+<path d="M98 78 L118 82 L116 90 L98 86 Z" fill="#14101c" stroke="none"/>
+<path d="M124 82 L140 80 L138 88 L124 90 Z" fill="#14101c" stroke="none"/>
+<ellipse cx="111" cy="83" rx="4.2" ry="2.6" fill="#ff5a4a" stroke="none"/>
+<ellipse cx="131" cy="84" rx="3.6" ry="2.4" fill="#ff5a4a" stroke="none"/>
+<circle cx="112" cy="82.4" r="1.2" fill="#fff" stroke="none"/>
+<circle cx="132" cy="83.4" r="1" fill="#fff" stroke="none"/>
+<path d="M98 72 L116 80 M140 76 L126 82" stroke="#14101c" stroke-width="3.4" fill="none"/>
+<path d="M88 94 Q116 90 144 92 L142 106 Q118 118 92 108 Z" fill="#c0392b"/>
+<path d="M96 100 Q118 104 138 98" stroke="#e8705e" stroke-width="2.2" fill="none"/>
+<path d="M82 60 Q94 48 112 46" stroke="#4a3d6e" stroke-width="2.4" fill="none"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M160 138 L196 150 L162 152 L150 148 Z" fill="url(#assassin-g2)" stroke-width="3.4" transform="rotate(-8 150 146)"/>
+<path d="M146 134 L152 134 L154 156 L148 156 Z" fill="#5d6577" stroke-width="3.4" transform="rotate(-8 150 146)"/>
+<path d="M164 144 L186 148" stroke="#fff" stroke-width="1.8" fill="none" opacity="0.9"/>
+</g>
+<path d="M112 126 Q132 120 142 134 L150 146 L138 154 Q126 142 112 142 Z" fill="#2d2540"/>
+<path d="M134 134 L146 140 L142 152 L130 146 Z" fill="#14101c" stroke-width="3"/>
+<circle cx="150" cy="146" r="8" fill="#6b4a2f"/>
+</g>
+</g>
+</svg>

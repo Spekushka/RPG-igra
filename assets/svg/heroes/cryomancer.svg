@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="cryomancer-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4aa3ff"/><stop offset="1" stop-color="#23468f"/></linearGradient>
+<linearGradient id="cryomancer-g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0fbff"/><stop offset="0.5" stop-color="#9fe0ff"/><stop offset="1" stop-color="#3b8fd8"/></linearGradient>
+<radialGradient id="cryomancer-g3"><stop offset="0" stop-color="#d8f6ff" stop-opacity="0.9"/><stop offset="1" stop-color="#4aa3ff" stop-opacity="0"/></radialGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-extra">
+<path d="M70 88 Q40 80 28 104 Q24 126 38 140 Q36 118 52 112 Q50 126 62 134 Q76 120 84 100 Z" fill="#e8f6ff"/>
+<path d="M34 98 L22 90 L30 108 Z M50 70 L40 54 L58 66 Z" fill="url(#cryomancer-g2)" stroke-width="3"/>
+</g>
+<g class="part-arm-l">
+<circle cx="52" cy="144" r="26" fill="url(#cryomancer-g3)" stroke="none"/>
+<path d="M82 128 Q64 134 56 146 L66 156 Q80 150 92 142 Z" fill="url(#cryomancer-g1)"/>
+<path d="M44 134 L52 120 L60 134 L52 152 Z" fill="url(#cryomancer-g2)" stroke-width="3.5"/>
+<path d="M40 148 L28 144 L40 156 Z M62 150 L72 142 L66 158 Z" fill="url(#cryomancer-g2)" stroke-width="3"/>
+<circle cx="58" cy="156" r="7" fill="#c9cbd6" stroke-width="3.5"/>
+</g>
+<g class="part-body">
+<path d="M84 206 Q72 208 68 224 H98 Z M116 206 L132 224 H104 Z" fill="#23468f"/>
+<path d="M76 118 Q100 108 124 118 Q146 180 156 226 Q100 236 46 226 Q64 180 76 118 Z" fill="url(#cryomancer-g1)"/>
+<path d="M46 226 L52 212 L60 226 L70 208 L78 228 L90 212 L100 230 L112 212 L122 228 L132 208 L140 226 L148 212 L156 226 Q100 236 46 226 Z" fill="url(#cryomancer-g2)" stroke-width="4"/>
+<path d="M90 120 L112 120 L120 214 L84 214 Z" fill="#e8f6ff" stroke-width="3.5"/>
+<path d="M96 150 L102 140 L108 150 L102 162 Z M96 184 L102 176 L108 184 L102 194 Z" fill="#4aa3ff" stroke-width="3"/>
+<path d="M70 170 Q100 182 134 168 L134 180 Q100 192 68 182 Z" fill="#8e5cf0" stroke-width="3.5"/>
+<path d="M60 214 Q70 190 80 150" fill="none" stroke="#9fe0ff" stroke-width="3" opacity="0.6"/>
+<path d="M70 126 L62 98 L82 116 Z M132 126 L142 96 L120 114 Z" fill="url(#cryomancer-g2)" stroke-width="4"/>
+<path d="M76 124 Q100 114 126 124 L128 136 Q100 126 74 136 Z" fill="#e8f6ff" stroke-width="3.5"/>
+</g>
+<g class="part-head">
+<path d="M64 74 Q66 40 100 36 Q138 36 146 70 L148 100 Q146 122 118 120 Q92 120 74 108 Q60 96 64 74 Z" fill="#e8f6ff"/>
+<path d="M82 80 Q82 66 98 66 L132 66 Q140 70 140 82 L138 98 Q132 110 108 110 Q86 108 82 94 Z" fill="#c9cbd6"/>
+<path d="M74 62 Q70 40 100 34 Q134 32 142 56 Q120 44 100 54 Q84 60 82 76 Z" fill="#e8f6ff" stroke-width="4"/>
+<path d="M82 40 L78 20 L92 34 L100 12 L108 34 L122 18 L120 40 Z" fill="url(#cryomancer-g2)" stroke-width="4"/>
+<path d="M100 14 L100 32" stroke="#fff" stroke-width="2.5" opacity="0.8"/>
+<ellipse cx="108" cy="86" rx="5.4" ry="6" fill="#d8f6ff" stroke-width="3"/>
+<ellipse cx="128" cy="86" rx="4.4" ry="6" fill="#d8f6ff" stroke-width="3"/>
+<circle cx="110" cy="87" r="3.2" fill="#2a7bff" stroke="none"/>
+<circle cx="129" cy="87" r="2.8" fill="#2a7bff" stroke="none"/>
+<path d="M104 78 L116 78 M122 78 L134 78" stroke-width="3" fill="none"/>
+<path d="M116 100 Q124 104 130 99" fill="none" stroke-width="3.5"/>
+<path d="M135 91 Q139 94 134 97" fill="none" stroke-width="3"/>
+<path d="M92 58 L98 52 L104 58 L98 64 Z" fill="#9fe0ff" stroke-width="2.5"/>
+<path d="M72 56 Q80 44 94 40" fill="none" stroke="#fff" stroke-width="3" opacity="0.8"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M158 232 L162 70" stroke="#14101c" stroke-width="13" fill="none"/>
+<path d="M158 232 L162 70" stroke="#c8d0de" stroke-width="6" fill="none"/>
+<path d="M162 66 L146 46 L162 4 L180 46 Z" fill="url(#cryomancer-g2)" stroke-width="5"/>
+<path d="M162 8 L162 66 M146 46 L180 46" stroke="#fff" stroke-width="2.5" opacity="0.7"/>
+<path d="M146 46 L130 56 L148 66 L154 56 Z M180 46 L196 58 L178 68 L172 56 Z" fill="url(#cryomancer-g2)" stroke-width="4"/>
+<path d="M144 78 L162 70 L178 78 L162 88 Z" fill="#c8d0de" stroke-width="3.5"/>
+</g>
+<path d="M116 124 L142 140 L156 158 L142 166 L126 152 L110 138 Z" fill="url(#cryomancer-g1)"/>
+<path d="M104 120 L128 112 L130 138 L108 142 Z" fill="url(#cryomancer-g2)" stroke-width="4"/>
+<circle cx="158" cy="156" r="8" fill="#c9cbd6" stroke-width="4"/>
+</g>
+</g>
+<g fill="#fff" stroke="none" opacity="0.9"><circle cx="30" cy="190" r="2.5"/><circle cx="176" cy="120" r="2.5"/><circle cx="20" cy="150" r="2"/><path d="M180 180 l3 -7 l3 7 l-7 -3 h8 z"/><path d="M26 60 l2 -6 l2 6 l-6 -2 h8 z"/></g>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="ghoul-g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a9b0a2"/><stop offset="1" stop-color="#66705f"/></linearGradient></defs>
+<g class="part-extra">
+<path d="M130 150 Q164 176 168 214 Q150 200 140 206 Q138 180 124 168Z" fill="#4a5444"/>
+</g>
+<g class="part-body">
+<path d="M84 168 L76 208 L54 220 L60 228 L92 228 L98 208 L104 176Z" fill="#7d876f"/>
+<path d="M112 170 L124 208 L118 222 L126 228 L156 228 L146 210 L132 172Z" fill="#6a7360"/>
+<path d="M78 116 Q70 150 84 178 L128 178 Q142 150 130 112 Q104 100 78 116Z" fill="url(#ghoul-g1)"/>
+<path d="M84 128 L100 132 M82 144 L102 148 M86 160 L106 162 M114 126 L124 130 M118 142 L128 146" fill="none" stroke-width="3" stroke="#3e4638"/>
+<path d="M72 170 L136 174 L134 188 L74 184Z" fill="#4a3a2e" stroke-width="3.5"/>
+</g>
+<g class="part-arm-l">
+<path d="M128 118 Q150 140 148 176" fill="none" stroke-width="14"/>
+<path d="M128 118 Q150 140 148 176" fill="none" stroke="#7d876f" stroke-width="7"/>
+<path d="M142 176 L146 196 L152 178 L160 194 L160 174Z" fill="#e8e0cc" stroke-width="3.5"/>
+</g>
+<g class="part-head">
+<path d="M58 78 Q50 40 90 36 Q132 34 134 74 Q136 100 118 110 Q104 120 78 112 Q60 104 58 78Z" fill="url(#ghoul-g1)"/>
+<path d="M66 44 Q58 26 74 34 M120 40 Q130 24 134 40" fill="none" stroke-width="4"/>
+<path d="M60 56 L70 40 L84 48Z M110 40 L128 38 L128 54Z" fill="#7d876f" stroke-width="3.5"/>
+<circle cx="80" cy="74" r="13" fill="#ffe14a"/>
+<circle cx="112" cy="72" r="10" fill="#ffe14a"/>
+<ellipse cx="77" cy="75" rx="3" ry="9" fill="#14101c" stroke="none"/>
+<ellipse cx="110" cy="73" rx="2.5" ry="7" fill="#14101c" stroke="none"/>
+<path d="M68 62 L90 70 M122 60 L104 68" stroke-width="4" fill="none"/>
+<path d="M62 94 Q86 118 124 98 L118 108 Q90 122 66 104Z" fill="#2d1a22"/>
+<path d="M70 98 L74 108 L80 100 L84 110 L90 102 L96 110 L100 102 L106 108 L110 100 L116 104" fill="#f1ead2" stroke-width="3"/>
+<path d="M96 86 L90 92 L98 94Z" fill="#3e4638" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M82 120 Q54 130 34 154" fill="none" stroke-width="14"/>
+<path d="M82 120 Q54 130 34 154" fill="none" stroke="#7d876f" stroke-width="7"/>
+<circle cx="82" cy="120" r="9" fill="#a9b0a2"/>
+<g class="part-weapon">
+<path d="M38 150 L10 148 L14 154 L4 162 L16 164 L12 174 L28 168 L40 164Z" fill="#e8e0cc" stroke-width="3.5"/>
+<path d="M22 158 L10 150 M24 162 L14 170" stroke="#b9ad90" fill="none" stroke-width="2.5"/>
+<ellipse cx="42" cy="158" rx="10" ry="9" fill="#a9b0a2"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<radialGradient id="witchhunter-g1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe9a0" stop-opacity="0.9"/><stop offset="1" stop-color="#ff7a2a" stop-opacity="0"/></radialGradient>
+<linearGradient id="witchhunter-g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a4638"/><stop offset="1" stop-color="#2b2028"/></linearGradient>
+<linearGradient id="witchhunter-g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8e96a8"/><stop offset="0.5" stop-color="#eef2fa"/><stop offset="1" stop-color="#8e96a8"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-extra">
+<path d="M78 118 Q54 170 46 226 L62 218 L72 228 L86 216 L100 224 L104 130 Z" fill="url(#witchhunter-g2)"/>
+<path d="M62 150 Q56 190 56 214 L72 214 L82 140 Z" fill="#c0392b" stroke="none" opacity="0.9"/>
+<path d="M78 118 Q54 170 46 226 L62 218 L72 228 L86 216 L100 224 L104 130 Z" fill="none"/>
+</g>
+<g class="part-body">
+<path d="M82 176 L82 216 L100 216 L100 178 Z" fill="#2b2028"/>
+<path d="M106 178 L106 216 L124 216 L120 176 Z" fill="#2b2028"/>
+<path d="M76 208 L100 208 L100 228 L68 228 Q64 214 76 208 Z" fill="#3a2a20"/>
+<path d="M106 208 L128 208 Q144 214 144 228 L106 228 Z" fill="#3a2a20"/>
+<rect x="76" y="212" width="24" height="6" fill="#8e96a8" stroke-width="3"/>
+<rect x="106" y="212" width="22" height="6" fill="#8e96a8" stroke-width="3"/>
+<path d="M78 126 Q102 114 128 124 L134 192 Q104 202 74 192 Z" fill="url(#witchhunter-g2)"/>
+<path d="M98 130 L106 196" stroke="#14101c" stroke-width="3" fill="none"/>
+<circle cx="94" cy="148" r="3" fill="#c8d0de" stroke-width="2"/>
+<circle cx="96" cy="168" r="3" fill="#c8d0de" stroke-width="2"/>
+<path d="M76 168 L132 172 L132 182 L76 178 Z" fill="#14101c"/>
+<rect x="100" y="166" width="12" height="14" rx="2" fill="#c8d0de" stroke-width="3"/>
+<path d="M112 178 L148 204 L146 210 L108 186 Z" fill="url(#witchhunter-g3)" stroke-width="3.4"/><path d="M104 172 L116 170 L120 188 L106 190 Z" fill="#6b4a2f" stroke-width="3.4"/>
+<path d="M84 124 Q104 140 124 122 L128 134 Q104 152 80 136 Z" fill="#c0392b"/>
+</g>
+<g class="part-arm-l">
+<g class="part-weapon">
+<path d="M46 132 L62 38" stroke="#4a3322" stroke-width="9" fill="none"/>
+<path d="M46 132 L62 38" stroke="#9a6a3c" stroke-width="3" fill="none"/>
+<circle cx="62" cy="30" r="30" fill="url(#witchhunter-g1)" stroke="none"/>
+<path d="M62 4 Q82 22 78 38 Q76 52 62 54 Q46 52 46 38 Q46 28 56 16 Q56 28 62 30 Q58 14 62 4 Z" fill="#ff7a2a" stroke-width="3.4"/>
+<path d="M62 24 Q72 34 68 44 Q64 50 60 46 Q54 40 62 24 Z" fill="#ffd45a" stroke="none"/>
+<path d="M50 52 L74 52 L72 60 L52 60 Z" fill="#6b4a2f" stroke-width="3"/>
+</g>
+<path d="M84 128 Q64 130 56 146 L52 150 L66 162 Q72 148 90 146 Z" fill="#3a2f2a"/>
+<circle cx="52" cy="140" r="8" fill="#e8c9a0"/>
+</g>
+<g class="part-head">
+<path d="M82 100 Q100 124 118 112 L116 96 Z" fill="#3a2a20" stroke="none"/>
+<ellipse cx="108" cy="90" rx="23" ry="22" fill="#e8c9a0"/>
+<path d="M132 82 L136 96" stroke="#b9936b" stroke-width="2.6" fill="none"/>
+<path d="M92 104 Q104 116 122 108" fill="none" stroke="#14101c" stroke-width="0"/>
+<ellipse cx="118" cy="90" rx="3.4" ry="4.6" fill="#14101c" stroke="none"/>
+<ellipse cx="130" cy="90" rx="3" ry="4.2" fill="#14101c" stroke="none"/>
+<circle cx="119" cy="88.4" r="1.2" fill="#fff" stroke="none"/>
+<circle cx="131" cy="88.6" r="1" fill="#fff" stroke="none"/>
+<path d="M112 80 L124 85 M126 85 L134 80" stroke-width="3" fill="none"/>
+<path d="M120 102 L130 101" stroke-width="2.6" fill="none"/>
+<path d="M100 98 Q104 106 112 106" stroke="#b9936b" stroke-width="2" fill="none"/>
+<g transform="translate(2 -11)">
+<path d="M54 76 Q56 62 82 66 Q110 70 140 64 Q166 60 168 76 Q150 84 110 82 Q70 84 54 76 Z" fill="#2b2028"/>
+<path d="M66 70 Q108 76 156 68" fill="none" stroke="#5a4638" stroke-width="2.4"/>
+<path d="M84 68 Q82 30 108 26 Q134 30 130 68 Q108 76 84 68 Z" fill="#3a2a20"/>
+<path d="M84 60 Q108 68 130 60 L130 68 Q108 76 84 68 Z" fill="#14101c"/>
+<rect x="100" y="58" width="16" height="14" rx="2" fill="#c8d0de" stroke-width="3"/>
+<rect x="104" y="62" width="8" height="6" fill="#14101c" stroke="none"/>
+<path d="M92 40 Q104 32 116 36" fill="none" stroke="#6b5a4a" stroke-width="2.4"/>
+</g>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M122 128 L170 128" stroke="#4a3322" stroke-width="0"/>
+<path d="M112 148 L176 138 L178 148 L116 160 Z" fill="#8a5a34" stroke-width="3.6"/>
+<path d="M150 98 Q184 118 180 140 Q182 162 150 182" fill="none" stroke="#14101c" stroke-width="10"/>
+<path d="M150 98 Q184 118 180 140 Q182 162 150 182" fill="none" stroke="#c8d0de" stroke-width="4.4"/>
+<path d="M150 98 L142 140 L150 182" fill="none" stroke="#e8e0c8" stroke-width="2.2"/>
+<rect x="144" y="132" width="14" height="14" rx="3" fill="#5d6577" stroke-width="3"/>
+<path d="M142 140 L192 138" stroke="url(#witchhunter-g3)" stroke-width="5"/>
+<path d="M138 140 L192 138" stroke="#14101c" stroke-width="1.4" fill="none"/>
+<path d="M188 132 L198 138 L188 144 Z" fill="#eef2fa" stroke-width="2.6"/>
+<path d="M138 140 L130 134 M138 140 L130 146" stroke="#c0392b" stroke-width="3.4"/>
+</g>
+<path d="M112 126 Q132 122 142 138 L146 152 L130 156 Q120 146 108 142 Z" fill="#3a2f2a"/>
+<circle cx="142" cy="150" r="8" fill="#e8c9a0"/>
+</g>
+</g>
+</svg>

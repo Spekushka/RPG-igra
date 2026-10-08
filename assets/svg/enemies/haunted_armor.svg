@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="harm-g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8d0de"/><stop offset=".5" stop-color="#8e96a8"/><stop offset="1" stop-color="#5d6577"/></linearGradient>
+<radialGradient id="harm-g2"><stop offset="0" stop-color="#c9a8ff"/><stop offset="1" stop-color="#6a3ad0"/></radialGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-body">
+<path d="M78 170 L76 226 L50 226 Q48 214 62 210 L64 170Z" fill="url(#harm-g1)"/>
+<path d="M112 170 L116 226 L142 226 Q144 214 130 210 L128 170Z" fill="url(#harm-g1)"/>
+<path d="M64 170 L128 170 L124 196 L68 196Z" fill="#5d6577"/>
+<path d="M62 112 L130 112 L126 176 L68 176Z" fill="url(#harm-g1)"/>
+<path d="M64 150 L128 150" stroke-width="3" fill="none"/>
+<path d="M96 116 L96 176" stroke-width="3" fill="none" opacity=".6"/>
+<circle cx="96" cy="132" r="8" fill="url(#harm-g2)" stroke-width="3"/>
+<path d="M72 190 L120 190" stroke-width="3" fill="none"/>
+</g>
+<g class="part-arm-l">
+<path d="M70 114 Q52 118 46 142 L44 160 L62 162 L66 146 Q80 140 84 124Z" fill="url(#harm-g1)"/>
+<ellipse cx="54" cy="166" rx="10" ry="9" fill="#5d6577"/>
+<path d="M44 108 Q62 98 78 112 L72 128 Q58 122 46 126Z" fill="#c8d0de"/>
+</g>
+<g class="part-head">
+<path d="M70 96 L70 66 Q70 30 98 28 Q126 30 126 66 L126 96 Q98 108 70 96Z" fill="url(#harm-g1)"/>
+<path d="M98 8 Q110 0 122 14 Q112 20 104 28Z" fill="#c0392b"/>
+<path d="M72 60 L124 60 L124 74 L72 74Z" fill="#14101c"/>
+<path d="M72 60 L124 60" stroke="#c8d0de" stroke-width="3"/>
+<circle cx="86" cy="67" r="4" fill="#b36bff" stroke="none"/><circle cx="108" cy="67" r="4" fill="#b36bff" stroke="none"/>
+<path d="M84 82 L84 96 M98 82 L98 98 M112 82 L112 96" stroke-width="3" fill="none"/>
+<path d="M80 38 Q88 32 96 36" stroke="#fff" stroke-width="3" fill="none" opacity=".6"/>
+</g>
+<g class="part-arm-r">
+<path d="M124 114 Q146 120 150 146 L138 152 Q128 140 114 134Z" fill="url(#harm-g1)"/>
+<ellipse cx="146" cy="156" rx="10" ry="9" fill="#5d6577"/>
+<path d="M114 106 Q132 98 150 114 L142 128 Q128 120 116 126Z" fill="#c8d0de"/>
+<g class="part-weapon">
+<path d="M146 160 L28 128" stroke="#14101c" stroke-width="14" fill="none"/>
+<path d="M144 158 L32 129" stroke="#c8d0de" stroke-width="7" fill="none"/>
+<path d="M28 128 L16 125" stroke="#c8d0de" stroke-width="5"/>
+<path d="M150 140 L138 178 L146 180 L158 142Z" fill="#8e96a8" stroke-width="4"/>
+<path d="M146 158 L162 164" stroke-width="8" fill="none"/>
+</g>
+</g>
+</g>
+</svg>

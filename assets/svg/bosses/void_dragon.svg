@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="void_dragon-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a3fa0"/><stop offset="1" stop-color="#1e1534"/></linearGradient>
+<linearGradient id="void_dragon-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b55c8"/><stop offset="1" stop-color="#3b2a6b"/></linearGradient>
+<radialGradient id="void_dragon-g3"><stop offset="0" stop-color="#f0d8ff" stop-opacity=".95"/><stop offset="1" stop-color="#b36bff" stop-opacity="0"/></radialGradient>
+<linearGradient id="void_dragon-g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1d4a"/><stop offset="1" stop-color="#0e0a18"/></linearGradient>
+</defs>
+<g class="part-extra">
+<g transform="translate(-8 8)"><path d="M198 140 C200 90 214 40 250 6 C256 40 268 52 282 56 C284 80 296 92 314 96 C300 114 296 134 300 154 C282 150 268 158 262 178 C250 164 232 168 222 188 C214 172 204 164 198 140 Z" fill="url(#void_dragon-g4)"/>
+<path d="M204 146 C214 100 236 50 252 8 M208 150 C240 120 280 100 314 96 M210 156 C240 150 270 160 300 154 M212 164 C236 170 250 180 262 178" fill="none" stroke="#14101c" stroke-width="7"/>
+<path d="M204 146 C214 100 236 50 252 8 M208 150 C240 120 280 100 314 96 M210 156 C240 150 270 160 300 154" fill="none" stroke="#6b4aa8" stroke-width="2.5"/>
+<path d="M232 60 C246 70 262 70 270 62 M246 112 C262 112 280 108 290 100 M240 166 C256 164 272 160 284 152" fill="none" stroke="#b36bff" stroke-width="2" opacity=".6"/>
+<path d="M252 8 L260 -2 L250 14 Z M314 96 L320 92 L312 102 Z" fill="#e6c8ff" stroke-width="2.5"/>
+</g>
+<path d="M232 252 C262 262 286 250 296 262 C306 276 300 296 284 300 C274 304 262 300 256 306 L232 308 Z" fill="url(#void_dragon-g1)"/>
+<path d="M290 270 L316 256 L296 288 Z" fill="#b36bff" stroke-width="3"/>
+<path d="M246 262 L250 250 M262 262 L268 252 M278 264 L286 256" stroke="#b36bff" stroke-width="5" fill="none"/>
+<circle cx="296" cy="230" r="3" fill="#b36bff" stroke="none"/><circle cx="48" cy="296" r="3" fill="#b36bff" stroke="none"/><circle cx="308" cy="196" r="2" fill="#e6c8ff" stroke="none"/>
+</g>
+<g class="part-body">
+<path d="M196 226 C214 224 238 232 244 262 L246 298 L270 300 L270 308 L214 308 L222 296 C216 280 202 268 180 262 Z" fill="url(#void_dragon-g1)"/>
+<path d="M240 300 L274 300 M248 308 l-2 -8 M258 308 l-1 -8 M268 308 l1 -8" stroke="#e6c8ff" stroke-width="4" fill="none"/>
+<path d="M130 232 C112 236 104 262 112 286 L108 300 L88 300 L84 308 L148 308 L146 298 L160 274 L176 244 Z" fill="url(#void_dragon-g1)"/>
+<path d="M82 308 L92 298 M94 308 L102 298 M106 308 L112 298" stroke="#e6c8ff" stroke-width="4" fill="none"/>
+<path d="M104 130 C86 170 96 214 128 238 C160 262 214 260 232 232 C250 200 244 160 224 130 C200 110 130 108 104 130 Z" fill="url(#void_dragon-g1)"/>
+<path d="M112 140 C98 180 110 214 136 232 C150 240 168 242 178 240 C150 210 140 180 144 146 Z" fill="url(#void_dragon-g2)"/>
+<path d="M114 158 L152 164 M112 176 L150 182 M116 194 L152 200 M124 212 L158 216 M134 228 L166 230" fill="none" stroke="#14101c" stroke-width="3" opacity=".7"/>
+<path d="M214 118 L226 98 L232 126 L246 112 L246 142 L262 134 L254 164" fill="none" stroke="#14101c" stroke-width="3" opacity="0"/>
+<path d="M214 124 L220 100 L234 124 L246 108 L248 140 L264 130 L250 164 L252 190 L236 196 Z" fill="#b36bff" stroke-width="3.5"/>
+<path d="M160 224 C170 208 186 206 198 214 M190 170 C200 156 214 158 220 168" fill="none" stroke="#b36bff" stroke-width="3" opacity=".8"/>
+<path d="M184 150 l-10 18 10 18 10 -18 Z" fill="#b36bff" stroke-width="3"/>
+<circle cx="184" cy="168" r="10" fill="url(#void_dragon-g3)" stroke="none"/>
+<path d="M116 132 C132 118 168 116 196 120" fill="none" stroke="#c9a8ff" stroke-opacity=".6" stroke-width="3"/>
+<path d="M104 250 C110 240 124 240 130 250 M200 246 C210 236 224 238 230 248" fill="none" stroke="#b36bff" stroke-width="2.5" opacity=".6"/>
+</g>
+<g class="part-head">
+<path d="M118 86 C130 58 160 30 196 22 C178 40 168 56 164 76 Z" fill="#e6d8ff" stroke-width="4"/>
+<path d="M104 80 C108 54 128 28 156 14 C144 34 138 52 138 72 Z" fill="#b9a2e8" stroke-width="4"/>
+<path d="M126 126 C100 116 84 90 80 56 C94 70 108 74 120 74 C130 90 148 108 164 122 Z" fill="url(#void_dragon-g1)"/>
+<path d="M88 76 C94 96 108 112 126 124 L158 126 L150 94 Z" fill="url(#void_dragon-g1)"/>
+<path d="M90 62 L84 40 L98 54 L98 30 L110 52 L118 28 L124 56 L136 40 L136 66" fill="#b36bff" stroke-width="3" transform="translate(-6 0) rotate(-14 110 70)"/>
+<path d="M92 66 C86 40 60 28 36 32 C22 34 12 46 14 60 C16 74 30 82 46 82 L58 84 C60 100 74 108 92 106 C112 106 134 96 142 76 C142 56 120 46 92 66 Z" transform="translate(6 -4)" fill="url(#void_dragon-g1)"/>
+<path d="M30 84 C40 96 66 100 88 98 C104 98 124 94 134 84 C124 106 100 116 74 114 C50 112 34 100 30 84 Z" transform="translate(6 -4)" fill="url(#void_dragon-g2)"/>
+<path d="M34 78 C48 90 80 88 100 80" fill="none" stroke-width="3.5" transform="translate(0 0)"/>
+<path d="M36 82 L40 92 L45 82 M50 85 L54 96 L59 85 M66 87 L70 98 L74 87" fill="#f4eaff" stroke-width="2.5" transform="translate(0 0)"/>
+<path d="M44 32 L48 20 L52 32 M34 36 L30 26" fill="none" stroke="#14101c" stroke-width="3" opacity="0"/>
+<circle cx="26" cy="52" r="3" fill="#14101c" stroke="none"/><circle cx="36" cy="48" r="3" fill="#14101c" stroke="none" opacity="0"/>
+<path d="M60 52 C70 40 94 40 104 52 C90 62 72 62 60 52 Z" fill="#14101c"/>
+<path d="M65 52 C73 44 90 44 98 52 C88 58 74 58 65 52 Z" fill="#e6a8ff" stroke="none"/>
+<ellipse cx="82" cy="51" rx="3" ry="6" fill="#14101c" stroke="none"/>
+<circle cx="82" cy="51" r="22" fill="url(#void_dragon-g3)" stroke="none" opacity=".45"/>
+<path d="M56 40 L98 38" fill="none" stroke="#14101c" stroke-width="5"/>
+<path d="M62 38 C74 30 90 30 100 36" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+<path d="M14 62 C4 70 6 82 14 86" fill="none" stroke="#b36bff" stroke-width="3" opacity=".8"/>
+</g>
+<g class="part-arm-r">
+<path d="M112 140 C88 148 76 170 76 192 L96 202 C98 184 108 172 122 166 Z" fill="url(#void_dragon-g2)"/>
+<path d="M118 128 C100 116 82 128 90 148 L122 152 Z" fill="#2a1d4a"/>
+<path d="M96 126 L88 108 L106 122" fill="#b36bff" stroke-width="3"/>
+<path d="M66 196 C62 182 76 178 90 184 L102 198 C104 212 92 220 78 218 C70 216 66 208 66 196 Z" fill="url(#void_dragon-g2)"/>
+<path d="M68 210 L52 226 M78 218 L68 238 M90 214 L86 236" fill="none" stroke="#14101c" stroke-width="9"/>
+<path d="M68 210 L52 226 M78 218 L68 238 M90 214 L86 236" fill="none" stroke="#f4eaff" stroke-width="3.5"/>
+<g class="part-weapon">
+<circle cx="78" cy="170" r="34" fill="url(#void_dragon-g3)" stroke="none" opacity=".7"/>
+<circle cx="78" cy="170" r="16" fill="#14101c"/>
+<path d="M78 170 m-16 0 a16 16 0 0 1 32 0" fill="none" stroke="#e6c8ff" stroke-width="3"/>
+<path d="M66 176 a12 12 0 0 0 24 -2" fill="none" stroke="#b36bff" stroke-width="3"/>
+<circle cx="78" cy="170" r="5" fill="#b36bff" stroke="none"/>
+</g>
+</g>
+<g class="part-arm-l">
+<path d="M222 138 C244 146 252 170 246 196 L226 194 C226 178 220 164 210 156 Z" fill="url(#void_dragon-g1)"/>
+<path d="M204 130 C216 116 240 124 238 144 L206 152 Z" fill="#2a1d4a"/>
+<path d="M216 122 L222 104 L232 126" fill="#b36bff" stroke-width="3"/>
+<path d="M226 200 C222 188 234 182 246 188 L258 200 C258 214 246 222 234 220 C228 216 226 208 226 200 Z" fill="url(#void_dragon-g2)"/>
+<path d="M232 218 L224 238 M244 220 L242 240 M254 214 L260 232" fill="none" stroke="#14101c" stroke-width="9"/>
+<path d="M232 218 L224 238 M244 220 L242 240 M254 214 L260 232" fill="none" stroke="#f4eaff" stroke-width="3.5"/>
+</g>
+</svg>

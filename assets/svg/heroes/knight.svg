@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="knight-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8d0de"/><stop offset="0.5" stop-color="#8e96a8"/><stop offset="1" stop-color="#5d6577"/></linearGradient>
+<linearGradient id="knight-g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2574a"/><stop offset="1" stop-color="#8e1f17"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-arm-l">
+<path d="M70 126 L56 150 L74 160 L86 134 Z" fill="#5d6577"/>
+<path d="M22 112 Q22 104 30 104 L76 104 Q84 104 84 112 L84 156 Q84 192 53 214 Q22 192 22 156 Z" fill="url(#knight-g2)"/>
+<path d="M30 112 L76 112 L76 156 Q76 184 53 202 Q30 184 30 156 Z" fill="none" stroke="#c8d0de" stroke-width="4"/>
+<path d="M47 118 H59 V140 H72 V152 H59 V190 H47 V152 H34 V140 H47 Z" fill="#c8d0de" stroke-width="3"/>
+<path d="M36 114 L46 114 L38 150 Z" fill="#fff" opacity="0.25" stroke="none"/>
+<ellipse cx="66" cy="152" rx="9" ry="8" fill="#8e96a8"/>
+</g>
+<g class="part-body">
+<path d="M80 186 L80 216 Q80 228 92 228 L68 228 Q64 214 78 210 Z" fill="#5d6577" stroke="none"/>
+<path d="M80 184 H98 V222 Q98 228 92 228 H72 Q70 216 80 212 Z" fill="url(#knight-g1)"/>
+<path d="M104 184 H122 V212 Q134 214 130 228 H110 Q104 228 104 222 Z" fill="url(#knight-g1)"/>
+<path d="M72 124 Q100 112 130 124 L136 190 Q103 202 68 190 Z" fill="url(#knight-g1)"/>
+<path d="M92 128 L108 128 L110 196 Q100 198 90 196 Z" fill="url(#knight-g2)" stroke-width="3.5"/>
+<rect x="68" y="178" width="68" height="13" rx="4" fill="#3a2f14" stroke-width="3.5"/>
+<rect x="94" y="177" width="16" height="15" rx="3" fill="#f2c94c" stroke-width="3"/>
+<path d="M78 134 Q84 128 92 130" fill="none" stroke="#fff" stroke-width="3" opacity="0.5"/>
+</g>
+<g class="part-head">
+<path d="M86 104 L120 104 L122 120 Q104 128 84 120 Z" fill="#5d6577"/>
+<path d="M78 70 Q56 16 14 40 Q40 36 52 66 Q60 86 74 88 Z" fill="url(#knight-g2)"/>
+<path d="M60 56 Q44 40 28 42" fill="none" stroke="#14101c" stroke-width="3" opacity="0.5"/>
+<path d="M66 82 Q64 44 104 42 Q142 44 142 82 L142 106 Q142 116 130 116 L80 116 Q66 116 66 100 Z" fill="url(#knight-g1)"/>
+<path d="M98 42 Q104 36 110 42 L112 60 L96 60 Z" fill="#c0392b"/>
+<path d="M100 40 Q96 28 82 26 Q96 18 106 30 Q116 18 130 24 Q116 28 112 42 Z" fill="url(#knight-g2)" stroke-width="4"/>
+<path d="M146 76 Q148 70 142 70 L96 70 Q90 72 90 80 L90 92 Q90 98 98 98 L142 98 Q148 98 146 90 Z" fill="#1e1830"/>
+<path d="M98 76 H140 V80 H98 Z" fill="#c8d0de" stroke="none" opacity="0.2"/>
+<ellipse cx="116" cy="85" rx="5" ry="3.5" fill="#ffe9a8" stroke="none"/>
+<ellipse cx="132" cy="85" rx="4" ry="3.5" fill="#ffe9a8" stroke="none"/>
+<path d="M112 98 V114 M124 98 V114 M136 98 V112" stroke-width="3" fill="none"/>
+<path d="M74 60 Q82 48 98 48" fill="none" stroke="#fff" stroke-width="4" opacity="0.6"/>
+</g>
+<g class="part-arm-r">
+<path d="M120 128 L140 146 L152 150 L148 166 L128 160 L114 140 Z" fill="#5d6577"/>
+<g class="part-weapon">
+<path d="M150 162 L146 148 L150 38 L160 20 L170 38 L166 148 L162 162 Z" fill="#c8d0de"/>
+<path d="M160 22 L160 150" stroke="#8e96a8" stroke-width="3" fill="none"/>
+<path d="M164 40 L164 140 L168 140 L168 40 Z" fill="#8e96a8" stroke="none"/>
+<rect x="136" y="148" width="40" height="10" rx="4" fill="#f2c94c"/>
+<rect x="152" y="158" width="10" height="26" rx="3" fill="#6b3a1e"/>
+<circle cx="157" cy="190" r="7" fill="#f2c94c"/>
+</g>
+<rect x="144" y="158" width="26" height="20" rx="8" fill="#8e96a8"/>
+<path d="M148 164 H166 M148 171 H166" stroke-width="2.5"/>
+<circle cx="124" cy="130" r="17" fill="url(#knight-g1)"/>
+<path d="M114 124 Q120 116 130 120" fill="none" stroke="#fff" stroke-width="3" opacity="0.6"/>
+<circle cx="124" cy="130" r="5" fill="#c0392b" stroke-width="3"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="chaos_cultist-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4e3a8a"/><stop offset="1" stop-color="#271a4a"/></linearGradient>
+<radialGradient id="chaos_cultist-g2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14101c"/><stop offset=".6" stop-color="#3b2a6b"/><stop offset="1" stop-color="#b36bff"/></radialGradient>
+</defs>
+<g class="part-extra">
+<path d="M126 134 C148 150 160 190 152 226 L132 226 Z" fill="#271a4a"/>
+<path d="M140 150 C146 170 146 200 142 224" fill="none" stroke="#4e3a8a" stroke-width="3"/>
+</g>
+<g class="part-arm-l">
+<path d="M112 120 C128 128 134 144 130 156" fill="none" stroke-width="22"/>
+<path d="M112 120 C128 128 134 144 130 156" fill="none" stroke="#3b2a6b" stroke-width="14"/>
+<circle cx="130" cy="162" r="8" fill="#c9cbd6"/>
+<path d="M126 156 L124 146 M132 154 L134 144" fill="none" stroke-width="3"/>
+</g>
+<g class="part-body">
+<path d="M80 226 L80 214 L98 214 L96 226 Z M104 226 L106 214 L124 214 L124 226 Z" fill="#14101c" stroke-width="3"/>
+<path d="M82 112 C96 104 112 106 122 112 L136 226 L62 226 Z" fill="url(#chaos_cultist-g1)"/>
+<path d="M70 226 L90 140 L98 226 Z" fill="#3b2a6b" stroke="none" opacity=".7"/>
+<path d="M76 222 L80 196 M96 224 L98 180 M118 224 L116 190" fill="none" stroke="#b36bff" stroke-width="2.5" opacity=".8"/>
+<path d="M82 150 L122 144 L124 156 L80 164 Z" fill="#2a1a3a" stroke-width="3"/>
+<circle cx="102" cy="152" r="5" fill="#b36bff" stroke-width="2.5"/>
+<path d="M84 112 L100 134 L120 112" fill="#14101c"/>
+<path d="M64 224 C70 232 82 232 88 224" fill="none" stroke-width="3" opacity="0"/>
+</g>
+<g class="part-head">
+<path d="M66 112 C54 90 62 54 94 48 C122 46 130 80 118 112 C106 120 80 122 66 112 Z" fill="url(#chaos_cultist-g1)"/>
+<path d="M70 98 C64 78 74 62 92 60 C110 60 114 82 108 100 C98 108 80 108 70 98 Z" fill="#0c0814"/>
+<circle cx="82" cy="86" r="5" fill="#fff" stroke-width="2"/>
+<circle cx="80" cy="87" r="2" fill="#b36bff" stroke="none"/>
+<circle cx="98" cy="84" r="4" fill="#fff" stroke-width="2"/>
+<circle cx="97" cy="85" r="1.8" fill="#b36bff" stroke="none"/>
+<path d="M76 98 C82 104 94 104 100 98" fill="none" stroke="#b36bff" stroke-width="2.5"/>
+<path d="M76 80 L88 80 M92 76 L104 80" fill="none" stroke="#b36bff" stroke-width="2"/>
+<path d="M100 52 C116 52 124 66 120 80" fill="none" stroke="#6a52b0" stroke-width="3"/>
+<path d="M72 58 L66 42 L84 52 Z" fill="#4e3a8a" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M82 118 C66 126 50 138 42 150" fill="none" stroke-width="22"/>
+<path d="M82 118 C66 126 50 138 42 150" fill="none" stroke="#3b2a6b" stroke-width="14"/>
+<path d="M74 124 C64 130 56 136 50 142" fill="none" stroke="#6a52b0" stroke-width="3"/>
+<g class="part-weapon">
+<circle cx="32" cy="148" r="24" fill="url(#chaos_cultist-g2)"/>
+<circle cx="32" cy="148" r="12" fill="#0c0814" stroke="none"/>
+<path d="M32 118 L36 108 M10 132 L2 128 M10 164 L4 172 M54 132 L60 126 M32 178 L30 188 M56 160 L64 164" fill="none" stroke="#b36bff" stroke-width="3"/>
+<path d="M20 140 C26 134 34 132 40 136" fill="none" stroke="#e0b8ff" stroke-width="2.5"/>
+</g>
+<circle cx="44" cy="154" r="8" fill="#c9cbd6"/>
+<path d="M40 160 L40 168 M46 160 L48 168" fill="none" stroke-width="3"/>
+</g>
+</svg>

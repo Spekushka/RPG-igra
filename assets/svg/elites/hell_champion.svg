@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" stroke="#14101c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="hell_champion-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a4050"/><stop offset="1" stop-color="#2a1a2a"/></linearGradient>
+<linearGradient id="hell_champion-g2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d63a3a"/><stop offset=".55" stop-color="#ff7a2a"/><stop offset="1" stop-color="#ffd24a"/></linearGradient>
+<linearGradient id="hell_champion-g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e65a4a"/><stop offset="1" stop-color="#8e1f24"/></linearGradient>
+</defs>
+<g class="part-extra">
+<path d="M150 118 C186 126 214 170 222 262 L204 248 L196 266 L178 244 L164 262 L146 200 Z" fill="url(#hell_champion-g3)"/>
+<path d="M170 140 C190 170 204 210 208 248" fill="none" stroke="#e65a4a" stroke-width="3"/>
+<path d="M176 100 C170 84 182 76 184 62 C192 76 200 88 190 104 Z" fill="url(#hell_champion-g2)" stroke-width="3.5"/>
+</g>
+<g class="part-arm-l">
+<path d="M164 122 C186 134 194 158 190 182" fill="none" stroke-width="36"/>
+<path d="M164 122 C186 134 194 158 190 182" fill="none" stroke="#4a3444" stroke-width="27"/>
+<path d="M170 124 C184 134 188 148 188 160" fill="none" stroke="#8a6a7a" stroke-width="4"/>
+<path d="M174 186 C174 172 206 172 208 188 C210 204 200 214 188 212 C178 210 174 198 174 186 Z" fill="#3a2a3a"/>
+<path d="M182 174 L180 160 L190 172 Z M196 174 L202 160 L204 176 Z M208 190 L222 188 L210 200 Z" fill="#c8d0de" stroke-width="3.5"/>
+</g>
+<g class="part-body">
+<path d="M104 196 L96 242 M140 196 L148 242" fill="none" stroke-width="40"/>
+<path d="M104 196 L96 242 M140 196 L148 242" fill="none" stroke="#3a2a3a" stroke-width="31"/>
+<path d="M82 214 L116 214 L112 232 L84 232 Z M128 214 L162 214 L158 232 L130 232 Z" fill="url(#hell_champion-g3)" stroke-width="4"/>
+<path d="M64 268 L66 250 L112 248 L116 268 Z M126 268 L132 248 L180 250 L180 268 Z" fill="#2a1a2a"/>
+<path d="M66 268 L52 262 L64 252 Z" fill="#c8d0de" stroke-width="3.5"/>
+<path d="M78 120 C94 102 150 102 166 122 L170 190 C150 214 96 214 74 190 Z" fill="url(#hell_champion-g1)"/>
+<path d="M94 126 C106 118 140 118 150 126 L146 170 C134 180 108 180 98 170 Z" fill="#2a1a2a" stroke-width="4"/>
+<path d="M122 122 L116 146 L128 154 L120 176 M104 140 L116 146 M134 150 L128 154" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<circle cx="122" cy="152" r="7" fill="#ffd24a" stroke-width="3"/>
+<path d="M74 190 C100 210 146 210 170 190 L172 206 C146 226 100 226 72 206 Z" fill="#8e1f24"/>
+<path d="M112 196 L132 196 L128 216 L116 216 Z" fill="#c8a24a" stroke-width="3.5"/>
+<circle cx="164" cy="124" r="22" fill="#4a3444"/>
+<path d="M156 108 L168 82 L178 112 Z M172 118 L196 108 L182 134 Z" fill="#c8d0de" stroke-width="3.5"/>
+</g>
+<g class="part-head">
+<path d="M82 66 C54 68 38 40 46 8 C52 32 66 44 90 46 Z" fill="#f2e6c9"/>
+<path d="M130 60 C156 62 172 36 164 6 C158 28 146 38 124 42 Z" fill="#e8d8b8"/>
+<path d="M76 104 C64 74 74 44 102 40 C132 38 146 68 134 102 C120 112 92 112 76 104 Z" fill="url(#hell_champion-g1)"/>
+<path d="M82 62 C90 50 112 46 126 52" fill="none" stroke="#8a6a7a" stroke-width="4"/>
+<path d="M78 80 L100 86 L98 94 L80 90 Z" fill="#ffd24a"/>
+<path d="M108 86 L132 78 L130 90 L110 94 Z" fill="#ffd24a"/>
+<path d="M74 76 L102 84 M106 84 L134 72" fill="none" stroke-width="5"/>
+<path d="M82 100 C96 108 118 108 130 98 L128 112 C112 120 94 120 82 112 Z" fill="#14101c"/>
+<path d="M86 102 L90 110 L94 103 M100 106 L104 114 L108 107 M116 106 L120 112 L124 104" fill="#fff" stroke="#fff" stroke-width="2"/>
+<path d="M82 116 L76 134 L90 120 Z" fill="#f2e6c9" stroke-width="3.5"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon" transform="translate(18,16) rotate(-6 50 176)">
+<path d="M52 176 L14 40 L30 28 L44 36 L72 170 Z" fill="#c8d0de"/>
+<path d="M32 40 L58 170" fill="none" stroke="#8e96a8" stroke-width="3"/>
+<path d="M20 38 L28 30" fill="none" stroke="#fff" stroke-width="3"/>
+<path d="M40 176 L84 164 L88 178 L44 192 Z" fill="#8e1f24"/>
+<path d="M56 190 L64 224 L76 222 L68 186 Z" fill="#3a2a3a" stroke-width="4"/>
+<path d="M12 44 C0 32 8 20 6 8 C16 16 20 28 22 40 Z M24 58 C12 66 6 52 -2 52 Z M34 78 C22 84 18 100 20 110 C30 104 38 94 38 84 Z" fill="url(#hell_champion-g2)" stroke-width="3.5"/>
+<path d="M46 54 C54 64 52 80 60 88 C64 76 62 62 54 48 Z" fill="url(#hell_champion-g2)" stroke-width="3.5"/>
+</g>
+<path d="M86 130 C68 138 58 154 56 172" fill="none" stroke-width="36"/>
+<path d="M86 130 C68 138 58 154 56 172" fill="none" stroke="#4a3444" stroke-width="27"/>
+<path d="M82 126 C70 134 64 144 62 156" fill="none" stroke="#8a6a7a" stroke-width="4"/>
+<circle cx="58" cy="178" r="15" fill="#3a2a3a"/>
+<circle cx="86" cy="128" r="24" fill="#5a4050"/>
+<path d="M76 112 L74 86 L92 108 Z M66 124 L42 116 L64 138 Z" fill="#c8d0de" stroke-width="3.5"/>
+</g>
+</svg>

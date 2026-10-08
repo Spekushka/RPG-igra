@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="thrall-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6d8e4"/><stop offset="1" stop-color="#9a9db2"/></linearGradient>
+<linearGradient id="thrall-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a1a2a"/><stop offset="1" stop-color="#2d1020"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-body">
+<path d="M88 190 L84 226 L62 226 Q60 218 72 214 L74 190Z" fill="#9a9db2"/>
+<path d="M118 190 L122 226 L144 226 Q146 218 134 214 L132 190Z" fill="#9a9db2"/>
+<path d="M72 112 Q70 150 74 196 L132 196 Q138 150 126 108 Q100 96 72 112Z" fill="url(#thrall-g2)"/>
+<path d="M74 180 L80 196 L90 184 L100 198 L112 184 L122 198 L132 190 L130 176Z" fill="#14101c" stroke="none" opacity=".45"/>
+<path d="M92 112 L100 150 L108 112" fill="#c9cbd6" stroke-width="3"/>
+<path d="M82 132 Q100 140 118 132" fill="none" stroke="#8a2a3a" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M122 116 Q144 128 142 160 L150 176 L136 180 L128 164 Q112 144 114 122Z" fill="url(#thrall-g1)"/>
+<path d="M142 160 L152 178 M144 164 L158 170" stroke-width="3" fill="none"/>
+</g>
+<g class="part-head">
+<path d="M58 62 L40 46 L52 76Z" fill="url(#thrall-g1)"/>
+<path d="M114 62 L130 44 L122 78Z" fill="url(#thrall-g1)"/>
+<path d="M84 22 Q122 22 118 66 Q116 100 88 108 Q58 104 54 72 Q52 28 84 22Z" fill="url(#thrall-g1)"/>
+<path d="M62 56 Q72 48 84 56 L84 62 Q72 64 62 62Z" fill="#14101c" stroke-width="3"/>
+<path d="M92 56 Q102 48 112 56 L112 62 Q102 64 92 62Z" fill="#14101c" stroke-width="3"/>
+<circle cx="72" cy="58" r="3" fill="#ff3a4a" stroke="none"/><circle cx="102" cy="58" r="3" fill="#ff3a4a" stroke="none"/>
+<path d="M60 48 L84 54 M112 48 L92 54" stroke-width="3.5" fill="none"/>
+<path d="M66 84 Q86 94 108 82 Q100 100 86 100 Q72 98 66 84Z" fill="#3a1020"/>
+<path d="M72 86 L75 98 L79 88Z M98 86 L96 98 L92 89Z" fill="#fff" stroke-width="2.5"/>
+<path d="M76 38 Q88 30 98 36" fill="none" stroke="#e8e9f2" stroke-width="3" opacity=".7"/>
+</g>
+<g class="part-arm-l">
+<path d="M76 118 Q50 126 38 148 L26 156 L30 168 L44 164 L54 160 Q74 150 84 132Z" fill="url(#thrall-g1)"/>
+<path d="M26 156 L16 150 M28 162 L14 164 M30 168 L20 178" stroke-width="3" fill="none"/>
+</g>
+</g>
+</svg>

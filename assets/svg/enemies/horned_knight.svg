@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="horned_knight-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a8298"/><stop offset="1" stop-color="#3a3350"/></linearGradient>
+<linearGradient id="horned_knight-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d63a3a"/><stop offset="1" stop-color="#7a1f26"/></linearGradient>
+</defs>
+<g class="part-extra">
+<path d="M120 100 C150 110 164 160 158 224 L146 214 L138 226 L124 210 L112 220 Z" fill="url(#horned_knight-g2)"/>
+<path d="M130 120 C142 150 142 190 138 214" fill="none" stroke="#a02a2e" stroke-width="3"/>
+</g>
+<g class="part-arm-l">
+<path d="M112 108 C128 116 134 134 130 150" fill="none" stroke-width="20"/>
+<path d="M112 108 C128 116 134 134 130 150" fill="none" stroke="#5d6577" stroke-width="12"/>
+<circle cx="130" cy="154" r="9" fill="#3a3350"/>
+</g>
+<g class="part-body">
+<path d="M80 176 L76 212 M112 176 L116 212" fill="none" stroke-width="26"/>
+<path d="M80 176 L76 212 M112 176 L116 212" fill="none" stroke="#5d6577" stroke-width="18"/>
+<path d="M60 228 L60 216 L90 214 L92 228 Z M104 228 L104 214 L134 216 L136 228 Z" fill="#2d2540"/>
+<path d="M74 190 L92 190 L92 200 L74 200 Z M104 190 L122 190 L122 200 L104 200 Z" fill="#8e96a8" stroke-width="3"/>
+<path d="M72 106 C86 96 118 96 128 108 L128 172 C118 188 82 188 72 172 Z" fill="url(#horned_knight-g1)"/>
+<path d="M100 100 L100 184 M76 134 L124 134" fill="none" stroke="#2d2540" stroke-width="3"/>
+<path d="M88 112 L100 126 L112 112" fill="url(#horned_knight-g2)" stroke-width="3"/>
+<path d="M72 168 C88 184 112 184 128 168 L128 180 C112 194 88 194 72 180 Z" fill="#3a3350"/>
+<circle cx="100" cy="150" r="7" fill="#d63a3a" stroke-width="3"/>
+</g>
+<g class="part-head">
+<path d="M66 60 C42 60 30 34 40 10 C44 30 58 42 76 44 Z" fill="#e8d8b8"/>
+<path d="M112 58 C134 58 146 34 138 10 C132 30 122 40 104 42 Z" fill="#d8c8a8"/>
+<path d="M62 100 C54 70 66 44 90 42 C116 42 126 70 118 100 Z" fill="url(#horned_knight-g1)"/>
+<path d="M66 82 L84 80 L84 90 L100 90 L100 80 L120 80 L118 100 L66 100 Z" fill="#2d2540" stroke-width="3"/>
+<path d="M68 84 L84 86 L82 92 L68 90 Z" fill="#ff5a2a" stroke-width="2.5"/>
+<path d="M100 86 L116 84 L116 90 L100 92 Z" fill="#ff5a2a" stroke-width="2.5"/>
+<path d="M90 44 L90 80" fill="none" stroke="#2d2540" stroke-width="3"/>
+<path d="M66 62 C70 52 80 46 90 46" fill="none" stroke="#c8d0de" stroke-width="3"/>
+<path d="M72 96 L76 106 M84 96 L86 106 M96 96 L98 106" fill="none" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M82 108 C66 116 54 128 48 142" fill="none" stroke-width="22"/>
+<path d="M82 108 C66 116 54 128 48 142" fill="none" stroke="#5d6577" stroke-width="14"/>
+<circle cx="80" cy="108" r="14" fill="#8e96a8"/>
+<path d="M72 102 L62 90 L84 98 Z" fill="#c8d0de" stroke-width="3"/>
+<g class="part-weapon">
+<path d="M46 144 L16 56 L26 46 L40 54 L58 140 Z" fill="#c8d0de"/>
+<path d="M30 60 L46 136" fill="none" stroke="#8e96a8" stroke-width="3"/>
+<path d="M22 56 L26 46" fill="none" stroke="#fff" stroke-width="2"/>
+<path d="M32 144 L66 134 L68 144 L36 156 Z" fill="#8e1f24" stroke-width="3.5"/>
+<path d="M44 152 L50 178 L58 176 L56 148 Z" fill="#3a3350" stroke-width="3.5"/>
+<path d="M24 52 C20 36 26 24 30 18 C34 30 36 42 34 52 Z" fill="#ff7a2a" stroke-width="3"/>
+</g>
+<circle cx="50" cy="146" r="10" fill="#3a3350"/>
+</g>
+</svg>

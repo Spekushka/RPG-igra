@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="hellhound-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a2a2a"/><stop offset="1" stop-color="#2a1a1a"/></linearGradient>
+<linearGradient id="hellhound-g2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d63a3a"/><stop offset=".6" stop-color="#ff7a2a"/><stop offset="1" stop-color="#ffd24a"/></linearGradient>
+</defs>
+<g class="part-extra">
+<path d="M150 152 C172 150 188 138 190 112 C196 128 198 148 186 164 C176 176 160 176 150 172 Z" fill="url(#hellhound-g2)"/>
+<path d="M174 150 C182 144 184 134 184 126 C190 138 188 150 178 158 Z" fill="#ffd24a" stroke="none"/>
+<path d="M92 118 L98 92 L108 110 L116 84 L124 108 L136 90 L138 120 Z" fill="url(#hellhound-g2)"/>
+<path d="M110 114 L116 96 L122 112 L130 100 L132 116 Z" fill="#ffd24a" stroke="none"/>
+<path d="M30 140 C18 130 10 134 4 124 C14 124 14 116 10 108 C22 112 26 120 34 128 Z" fill="url(#hellhound-g2)"/>
+<path d="M30 148 C20 150 10 160 2 158 C10 152 8 146 4 142 C16 140 24 142 30 142 Z" fill="url(#hellhound-g2)"/>
+<path d="M28 136 C20 132 16 130 14 124 C22 126 26 128 30 132 Z" fill="#ffd24a" stroke="none"/>
+</g>
+<g class="part-body">
+<path d="M146 176 L152 224 L172 226 L168 218 L160 216 L158 176 Z" fill="#2a1a1a"/>
+<path d="M60 176 L56 224 L78 226 L74 218 L68 216 L74 176 Z" fill="#2a1a1a"/>
+<path d="M82 180 L84 224 L106 226 L100 218 L96 216 L100 180 Z" fill="#3a2424"/>
+<path d="M118 180 L120 224 L142 226 L136 218 L130 216 L134 180 Z" fill="#3a2424"/>
+<path d="M62 140 C70 112 100 108 130 112 C160 114 172 136 166 162 C162 184 130 190 100 190 C72 190 58 172 62 140 Z" fill="url(#hellhound-g1)"/>
+<path d="M76 180 C100 190 140 192 160 176" fill="none" stroke="#14101c" stroke-width="3" opacity=".5"/>
+<path d="M104 128 L112 150 L100 150 Z M130 124 L140 150 L126 148 Z M150 134 L156 156 L144 154 Z" fill="#d63a3a" stroke-width="3"/>
+<path d="M116 110 C130 108 140 112 150 118" fill="none" stroke="#6a4040" stroke-width="3"/>
+<path d="M70 226 L52 226 L52 218 L70 218 Z M156 226 L174 226 L174 218 L156 218 Z" fill="#14101c" stroke-width="2" opacity="0"/>
+</g>
+<g class="part-head">
+<path d="M70 86 L62 56 L88 76 Z" fill="#2a1a1a"/>
+<path d="M92 82 L100 52 L112 84 Z" fill="#3a2424"/>
+<path d="M54 160 C70 176 100 172 112 152 L116 140 L80 140 Z" fill="#8e1f24"/>
+<path d="M32 138 C44 158 78 164 100 150 L96 140 L34 134 Z" fill="#3a2424"/>
+<path d="M44 142 L48 152 L54 144 M62 146 L68 156 L74 146" fill="#fff" stroke-width="2.5"/>
+<path d="M54 90 C34 98 20 108 18 118 C16 128 24 134 34 134 L96 142 C112 130 116 110 108 98 C98 84 74 82 54 90 Z" fill="url(#hellhound-g1)"/>
+<path d="M60 92 C46 100 34 106 28 112" fill="none" stroke="#6a4040" stroke-width="3"/>
+<path d="M30 134 L96 142 L90 132 L36 126 Z" fill="#8e1f24" stroke-width="3"/>
+<path d="M38 128 L42 138 L47 129 M56 130 L60 140 L65 131 M76 133 L80 142 L85 133" fill="#fff" stroke-width="2.5"/>
+<ellipse cx="20" cy="118" rx="7" ry="6" fill="#14101c"/>
+<path d="M62 98 L88 100 L84 112 L64 108 Z" fill="#ffd24a"/>
+<circle cx="72" cy="104" r="3.5" fill="#d63a3a" stroke="none"/>
+<path d="M56 94 L92 96" fill="none" stroke-width="5"/>
+<path d="M96 104 L104 120 L96 130" fill="none" stroke="#d63a3a" stroke-width="3"/>
+</g>
+</svg>

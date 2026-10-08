@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="fire_elemental-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb02a"/><stop offset=".55" stop-color="#ff6a1a"/><stop offset="1" stop-color="#c62a1a"/></linearGradient>
+<linearGradient id="fire_elemental-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0a0"/><stop offset="1" stop-color="#ffc03a"/></linearGradient>
+</defs>
+<g class="part-arm-l">
+<path d="M122 130 C146 124 160 140 162 156 C150 150 148 160 150 170 C140 160 130 158 120 164 Z" fill="url(#fire_elemental-g1)"/>
+<path d="M130 138 C142 136 150 142 152 152" fill="none" stroke="#ffd24a" stroke-width="4"/>
+</g>
+<g class="part-body">
+<path d="M100 226 C60 226 44 210 48 186 C50 170 62 162 66 146 C70 126 62 112 74 96 C76 110 84 112 88 104 C88 120 100 124 104 114 C108 126 116 130 122 120 C124 140 142 150 146 172 C150 200 140 226 100 226 Z" fill="url(#fire_elemental-g1)"/>
+<path d="M100 220 C74 220 64 206 68 190 C70 176 82 170 86 156 C90 148 92 140 96 132 C100 146 112 152 116 168 C122 192 124 220 100 220 Z" fill="url(#fire_elemental-g2)" stroke="none"/>
+<path d="M60 196 C54 186 60 176 66 170 M138 196 C146 184 140 174 134 168" fill="none" stroke="#ffd24a" stroke-width="3"/>
+<path d="M54 212 C40 214 38 200 46 196 M146 212 C160 214 162 200 154 196" fill="none" stroke-width="3"/>
+</g>
+<g class="part-head">
+<path d="M52 108 C44 86 54 64 70 52 C70 62 76 66 80 62 C82 46 92 34 100 24 C104 40 112 44 118 38 C124 52 140 66 136 90 C134 108 118 120 92 120 C72 120 56 116 52 108 Z" fill="url(#fire_elemental-g1)"/>
+<path d="M66 100 C62 84 70 70 84 62 C88 72 96 76 102 70 C112 82 116 98 106 108 C94 114 76 112 66 100 Z" fill="url(#fire_elemental-g2)" stroke="none"/>
+<path d="M60 84 L82 92 L78 100 L60 94 Z" fill="#2a0a0a"/>
+<path d="M88 92 L110 84 L112 94 L92 100 Z" fill="#2a0a0a"/>
+<circle cx="71" cy="94" r="2.5" fill="#fff" stroke="none"/><circle cx="100" cy="93" r="2.5" fill="#fff" stroke="none"/>
+<path d="M68 106 Q84 120 104 104 Q86 112 68 106 Z" fill="#2a0a0a" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M70 132 C52 128 38 140 34 158 C46 152 46 164 42 174 C54 164 64 160 76 164 Z" fill="url(#fire_elemental-g1)"/>
+<path d="M62 140 C50 138 42 146 40 156" fill="none" stroke="#ffd24a" stroke-width="4"/>
+<g class="part-weapon">
+<path d="M20 160 C10 146 14 128 26 118 C26 128 34 130 36 122 C46 134 48 152 38 164 C32 170 24 168 20 160 Z" fill="url(#fire_elemental-g2)"/>
+<path d="M26 156 C22 148 26 140 32 136 C34 144 38 148 34 156 Z" fill="#ff7a2a" stroke="none"/>
+</g>
+</g>
+</svg>

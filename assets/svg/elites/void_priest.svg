@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" stroke="#14101c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="void_priest-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4e3a8a"/><stop offset="1" stop-color="#1e1440"/></linearGradient>
+<radialGradient id="void_priest-g2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0c0814"/><stop offset=".55" stop-color="#3b2a6b"/><stop offset="1" stop-color="#b36bff"/></radialGradient>
+</defs>
+<g class="part-extra">
+<ellipse cx="128" cy="76" rx="52" ry="52" fill="none" stroke="#3b2a6b" stroke-width="10"/>
+<ellipse cx="128" cy="76" rx="52" ry="52" fill="none" stroke="#b36bff" stroke-width="3" stroke-dasharray="6 10"/>
+<path d="M92 104 L80 70 L100 86 L96 54 L114 82 L128 46 L140 82 L160 54 L158 88 L178 70 L164 106 Z" fill="#271a4a" stroke-width="4" opacity="0"/>
+<circle cx="196" cy="44" r="9" fill="url(#void_priest-g2)"/><circle cx="212" cy="112" r="7" fill="url(#void_priest-g2)"/><circle cx="62" cy="24" r="7" fill="url(#void_priest-g2)"/><circle cx="206" cy="190" r="8" fill="url(#void_priest-g2)"/>
+</g>
+<g class="part-arm-l">
+<path d="M150 124 C176 130 190 118 198 98" fill="none" stroke-width="34"/>
+<path d="M150 124 C176 130 190 118 198 98" fill="none" stroke="#3b2a6b" stroke-width="25"/>
+<path d="M156 122 C174 124 186 116 192 106" fill="none" stroke="#6a52b0" stroke-width="4"/>
+<circle cx="204" cy="86" r="11" fill="#c9cbd6"/>
+<path d="M198 78 L196 66 M204 76 L206 64 M210 80 L216 70" fill="none" stroke-width="4"/>
+<circle cx="204" cy="52" r="24" fill="url(#void_priest-g2)"/>
+<circle cx="204" cy="52" r="11" fill="#0c0814" stroke="none"/>
+<path d="M204 20 L206 10 M180 40 L172 36 M228 40 L236 34" fill="none" stroke="#b36bff" stroke-width="3.5"/>
+</g>
+<g class="part-body">
+<path d="M96 108 C108 98 148 98 158 110 L192 252 C170 258 90 258 56 252 Z" fill="url(#void_priest-g1)"/>
+<path d="M56 252 L60 268 L74 258 L86 268 L100 260 L116 268 L130 260 L146 268 L160 260 L176 268 L192 252 Z" fill="#1e1440" stroke-width="4"/>
+<path d="M84 140 L72 254 M112 130 L104 256 M140 130 L150 256 M164 140 L178 254" fill="none" stroke="#b36bff" stroke-width="3" opacity=".55"/>
+<path d="M96 134 L160 134 L164 150 L92 150 Z" fill="#271a4a" stroke-width="4"/>
+<circle cx="128" cy="142" r="8" fill="#b36bff" stroke-width="3.5"/>
+<path d="M94 112 C110 124 146 124 160 110 L156 100 C140 108 114 108 98 100 Z" fill="#c9cbd6" stroke-width="4"/>
+<path d="M100 114 L96 134 M156 114 L158 134" fill="none" stroke-width="3" opacity="0"/>
+</g>
+<g class="part-head">
+<path d="M82 100 C72 70 92 24 130 14 C142 36 152 40 152 56 C158 70 150 92 140 104 C122 114 96 112 82 100 Z" fill="url(#void_priest-g1)"/>
+<path d="M130 14 L138 4 L140 28 Z" fill="#4e3a8a" stroke-width="3.5"/>
+<path d="M92 92 C84 70 96 48 118 44 C140 44 146 72 138 94 C124 102 104 102 92 92 Z" fill="#0c0814" stroke-width="4"/>
+<ellipse cx="106" cy="70" rx="7" ry="8" fill="#fff" stroke-width="2.5"/>
+<ellipse cx="126" cy="68" rx="6" ry="7" fill="#fff" stroke-width="2.5"/>
+<circle cx="105" cy="71" r="3" fill="#b36bff" stroke="none"/><circle cx="125" cy="69" r="2.8" fill="#b36bff" stroke="none"/>
+<circle cx="116" cy="54" r="4" fill="#b36bff" stroke-width="2"/>
+<path d="M104 88 Q116 96 128 86" fill="none" stroke="#b36bff" stroke-width="3"/>
+<path d="M92 44 C104 22 118 20 130 20" fill="none" stroke="#6a52b0" stroke-width="4"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M52 262 L48 52" fill="none" stroke-width="12"/>
+<path d="M52 262 L48 52" fill="none" stroke="#3a2a4a" stroke-width="6"/>
+<circle cx="46" cy="34" r="24" fill="none" stroke-width="12"/>
+<circle cx="46" cy="34" r="24" fill="none" stroke="#6a52b0" stroke-width="6"/>
+<circle cx="46" cy="34" r="14" fill="url(#void_priest-g2)"/>
+<circle cx="46" cy="34" r="6" fill="#0c0814" stroke="none"/>
+<path d="M34 62 L46 54 L58 62 L50 70 L42 70 Z" fill="#b36bff" stroke-width="3.5"/>
+</g>
+<path d="M104 124 C84 130 66 146 54 170" fill="none" stroke-width="34"/>
+<path d="M104 124 C84 130 66 146 54 170" fill="none" stroke="#3b2a6b" stroke-width="25"/>
+<path d="M98 120 C84 128 74 138 66 150" fill="none" stroke="#6a52b0" stroke-width="4"/>
+<circle cx="52" cy="172" r="11" fill="#c9cbd6"/>
+</g>
+</svg>

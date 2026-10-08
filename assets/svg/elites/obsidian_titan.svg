@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" stroke="#14101c" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="obsidian_titan-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a5a9a"/><stop offset="1" stop-color="#241c3a"/></linearGradient>
+<linearGradient id="obsidian_titan-g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#43386a"/><stop offset="1" stop-color="#1e1830"/></linearGradient>
+<radialGradient id="obsidian_titan-g3" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff0a0"/><stop offset=".5" stop-color="#ff7a2a"/><stop offset="1" stop-color="#c62a1a"/></radialGradient>
+</defs>
+<g class="part-extra">
+<path d="M168 100 L190 54 L196 104 Z M186 112 L220 80 L212 128 Z M92 96 L82 60 L112 88 Z" fill="#5a4a7a" stroke-width="5"/>
+<path d="M200 200 C206 220 196 236 204 252" fill="none" stroke="#ff7a2a" stroke-width="4" opacity="0"/>
+</g>
+<g class="part-arm-l">
+<path d="M170 104 L206 110 L222 164 L226 214 L184 220 L176 164 L160 136 Z" fill="url(#obsidian_titan-g2)"/>
+<path d="M180 218 L228 212 L234 254 L184 262 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M194 124 L210 140 L204 168 M200 232 L214 246" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<path d="M206 168 L214 192" fill="none" stroke="#ffd24a" stroke-width="3"/>
+<path d="M200 212 L208 196 M214 252 C216 258 212 262 214 266" fill="none" stroke="#ff7a2a" stroke-width="3" opacity="0"/>
+</g>
+<g class="part-body">
+<path d="M78 190 L72 268 L126 268 L128 196 Z" fill="url(#obsidian_titan-g2)"/>
+<path d="M126 196 L128 268 L178 268 L170 190 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M68 268 L66 248 L126 248 L128 268 Z M128 268 L130 248 L182 248 L184 268 Z" fill="#1e1830" stroke-width="4"/>
+<path d="M86 214 L100 230 L94 246 M150 214 L142 232 L156 244" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<path d="M62 116 L98 86 L148 88 L186 118 L186 186 L158 218 L92 218 L62 188 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M98 86 L110 132 L148 88 M62 116 L110 132 L92 218 M110 132 L158 218 M186 118 L146 150 L186 186" fill="none" stroke="#14101c" stroke-width="3.5" opacity=".55"/>
+<path d="M72 126 L96 150 L84 176 M168 128 L150 152 L172 172" fill="none" stroke="#ff7a2a" stroke-width="5"/>
+<circle cx="122" cy="156" r="22" fill="url(#obsidian_titan-g3)" stroke-width="5"/>
+<path d="M108 144 L100 130 M136 144 L146 128 M138 170 L150 184 M106 170 L98 186" fill="none" stroke="#ff7a2a" stroke-width="4.5"/>
+<path d="M122 134 L124 120" fill="none" stroke="#ffd24a" stroke-width="3"/>
+</g>
+<g class="part-head">
+<path d="M90 92 L84 62 L96 48 L120 40 L146 50 L150 78 L140 96 L100 100 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M96 50 L88 22 L108 44 L112 12 L124 42 L138 16 L142 48 Z" fill="#5a4a7a" stroke-width="5"/>
+<path d="M92 66 L116 74 L112 84 L92 76 Z" fill="#ffb02a"/>
+<path d="M126 74 L148 64 L148 76 L130 86 Z" fill="#ffb02a"/>
+<path d="M100 92 L112 96 L124 92 L138 94" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<path d="M104 52 L108 64 M138 56 L132 70" fill="none" stroke="#ffd24a" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M50 222 L14 120 L26 46 L40 112 L44 28 L62 118 L74 76 L70 214 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M26 50 L22 120 L40 210 M44 34 L50 118" fill="none" stroke="#14101c" stroke-width="3" opacity=".5"/>
+<path d="M32 130 L44 160 L38 190" fill="none" stroke="#ff7a2a" stroke-width="3.5"/>
+<path d="M28 60 L32 50" fill="none" stroke="#c8b8ff" stroke-width="3"/>
+</g>
+<path d="M82 106 L60 112 L40 162 L32 218 L76 224 L84 164 L98 138 Z" fill="url(#obsidian_titan-g2)"/>
+<path d="M28 214 L84 222 L80 256 L26 250 Z" fill="url(#obsidian_titan-g1)"/>
+<path d="M54 132 L64 150 L52 176 M46 232 L58 240" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<path d="M92 112 L74 80 L64 112 Z M72 110 L46 94 L52 124 Z" fill="#5a4a7a" stroke-width="5"/>
+</g>
+</svg>

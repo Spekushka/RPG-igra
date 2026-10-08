@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="wolf-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a7a8e"/><stop offset="1" stop-color="#4a3e58"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-extra">
+<path d="M138 170 Q176 176 184 140 Q170 150 152 148Z" fill="#6a5c78"/>
+</g>
+<g class="part-body">
+<path d="M84 180 L70 206 L52 214 L54 226 L90 226 L96 196Z" fill="#6a5c78"/>
+<path d="M116 180 L130 206 L146 214 L146 226 L112 226 L106 196Z" fill="#6a5c78"/>
+<path d="M54 226 L50 232 M64 226 L62 234 M76 226 L76 234 M148 226 L152 232 M138 226 L140 234" stroke-width="3" fill="none"/>
+<path d="M62 110 Q52 150 78 192 L126 192 Q150 150 130 100 Q96 86 62 110Z" fill="url(#wolf-g1)"/>
+<path d="M76 150 L90 164 L100 148 L112 166 L122 150" fill="#c9bfd0" stroke-width="3"/>
+<path d="M84 186 L126 186 L130 196 L82 198Z" fill="#3a2d30" stroke-width="3.5"/>
+<path d="M70 120 L62 130 M72 138 L62 146 M120 118 L130 128" stroke-width="3" fill="none" opacity=".6"/>
+</g>
+<g class="part-arm-r">
+<path d="M124 108 Q148 120 142 154 L150 172 L132 172 L124 156 Q108 140 112 114Z" fill="url(#wolf-g1)"/>
+<path d="M150 172 L156 184 M142 174 L144 186 M134 174 L134 186" stroke="#e8e9f2" stroke-width="4"/>
+</g>
+<g class="part-head">
+<path d="M64 46 L58 14 L84 32Z" fill="#6a5c78"/>
+<path d="M100 32 L124 10 L122 48Z" fill="#6a5c78"/>
+<path d="M62 22 L64 36 L72 30Z" fill="#c8758a" stroke="none"/>
+<path d="M70 38 Q106 22 124 50 Q132 84 108 100 Q84 108 66 92Z" fill="url(#wolf-g1)"/>
+<path d="M72 70 Q44 62 22 78 Q14 90 24 98 L38 106 Q60 110 76 100Z" fill="#8a7a8e"/>
+<path d="M24 98 Q50 106 76 100 L74 92 Q50 98 28 92Z" fill="#2a1a24"/>
+<path d="M30 96 L34 108 L40 98Z M46 98 L50 110 L54 100Z M62 100 L66 108 L70 98Z" fill="#fff" stroke-width="2.5"/>
+<path d="M32 78 Q36 90 26 82" fill="#2a1a24" stroke-width="3"/>
+<ellipse cx="22" cy="80" rx="6" ry="5" fill="#14101c" stroke-width="2"/>
+<path d="M76 56 L100 62 L96 76 L78 70Z" fill="#ffd02a"/>
+<circle cx="86" cy="66" r="3.2" fill="#14101c" stroke="none"/>
+<path d="M72 48 L102 58" stroke-width="5" fill="none"/>
+<path d="M112 70 L122 80 M110 84 L118 92" stroke-width="3" fill="none" opacity=".5"/>
+</g>
+<g class="part-arm-l">
+<path d="M70 112 Q42 122 30 148 L16 152 L22 168 L40 166 L52 162 Q76 152 82 130Z" fill="url(#wolf-g1)"/>
+<path d="M16 152 L8 144 M20 160 L6 160 M24 168 L14 178" stroke="#e8e9f2" stroke-width="4" fill="none"/>
+</g>
+</g>
+</svg>

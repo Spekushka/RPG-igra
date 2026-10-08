@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="obsidian_golem-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a5a9a"/><stop offset="1" stop-color="#1e1830"/></linearGradient>
+<linearGradient id="obsidian_golem-g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#43386a"/><stop offset="1" stop-color="#241c3a"/></linearGradient>
+</defs>
+<g class="part-arm-l">
+<path d="M132 92 L164 100 L170 150 L172 182 L148 186 L144 150 L128 120 Z" fill="url(#obsidian_golem-g2)"/>
+<path d="M148 184 L174 184 L180 212 L152 218 Z" fill="url(#obsidian_golem-g1)"/>
+<path d="M150 106 L162 116 M158 140 L152 160" fill="none" stroke="#ff7a2a" stroke-width="3"/>
+</g>
+<g class="part-body">
+<path d="M66 176 L62 226 L102 226 L104 180 Z" fill="url(#obsidian_golem-g2)"/>
+<path d="M104 180 L108 226 L150 226 L144 176 Z" fill="url(#obsidian_golem-g1)"/>
+<path d="M62 226 L58 214 L100 214 L102 226 Z M108 226 L110 214 L152 214 L152 226 Z" fill="#14101c" stroke-width="3"/>
+<path d="M66 100 L90 80 L126 82 L148 104 L150 168 L132 190 L84 190 L64 168 Z" fill="url(#obsidian_golem-g1)"/>
+<path d="M90 80 L100 110 L126 82 M66 100 L100 110 L84 190 M100 110 L132 190" fill="none" stroke="#14101c" stroke-width="3" opacity=".6"/>
+<path d="M76 108 L96 132 L88 150 L102 168 M118 112 L112 138 L128 156" fill="none" stroke="#ff7a2a" stroke-width="4"/>
+<path d="M96 132 L110 140 M102 168 L98 184" fill="none" stroke="#ffd24a" stroke-width="2.5"/>
+<path d="M74 224 L72 214 M120 224 L124 214" fill="none" stroke="#ff7a2a" stroke-width="3"/>
+</g>
+<g class="part-head">
+<path d="M64 78 L72 52 L96 44 L116 56 L120 80 L104 92 L74 92 Z" fill="url(#obsidian_golem-g1)"/>
+<path d="M72 52 L66 36 L82 48 Z M112 54 L124 36 L120 62 Z" fill="#5a4a7a" stroke-width="4"/>
+<path d="M64 66 L88 74 L84 82 L64 76 Z" fill="#ff7a2a"/>
+<path d="M96 74 L118 66 L118 76 L100 84 Z" fill="#ff7a2a"/>
+<path d="M70 70 L72 56 M100 88 L110 80 M82 48 L90 60" fill="none" stroke="#ffd24a" stroke-width="2.5"/>
+<path d="M76 90 L100 90" fill="none" stroke="#ff7a2a" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M68 90 L40 104 L34 142 L30 178 L56 182 L62 140 L78 118 Z" fill="url(#obsidian_golem-g1)"/>
+<path d="M30 178 L58 182 L56 214 L22 208 Z" fill="url(#obsidian_golem-g2)"/>
+<path d="M34 118 L50 128 M40 160 L44 190 M26 190 L50 196" fill="none" stroke="#ff7a2a" stroke-width="3"/>
+<path d="M70 92 L58 70 L48 96 Z M54 100 L36 88 L36 106 Z" fill="#5a4a7a" stroke-width="4"/>
+<g class="part-weapon">
+<path d="M24 212 L14 222 L28 224 Z M40 214 L40 226 L50 214 Z" fill="#ff7a2a" stroke-width="3"/>
+</g>
+</g>
+</svg>

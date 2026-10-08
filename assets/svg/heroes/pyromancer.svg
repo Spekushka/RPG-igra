@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+<linearGradient id="pyromancer-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c23a2a"/><stop offset="1" stop-color="#6a1612"/></linearGradient>
+<linearGradient id="pyromancer-g2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8381a"/><stop offset="0.5" stop-color="#ff7a2a"/><stop offset="1" stop-color="#ffd24a"/></linearGradient>
+<radialGradient id="pyromancer-g3"><stop offset="0" stop-color="#ffd24a" stop-opacity="0.9"/><stop offset="1" stop-color="#ff7a2a" stop-opacity="0"/></radialGradient>
+</defs>
+<g stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-arm-l">
+<circle cx="40" cy="104" r="30" fill="url(#pyromancer-g3)" stroke="none"/>
+<path d="M82 128 Q60 130 50 116 L46 126 Q58 146 84 146 Z" fill="url(#pyromancer-g1)"/>
+<path d="M54 112 Q40 112 38 120 Q40 134 54 130 Z" fill="#2a1a1a"/>
+<path d="M30 112 Q28 92 40 76 Q40 90 48 92 Q52 80 46 68 Q64 84 58 104 Q56 114 44 116 Q34 118 30 112 Z" fill="url(#pyromancer-g2)"/>
+<path d="M40 108 Q38 98 44 92 Q50 100 46 108 Z" fill="#ffe9a8" stroke="none"/>
+<path d="M44 120 Q40 124 46 128" fill="#e8c9a0" stroke-width="3"/>
+</g>
+<g class="part-body">
+<path d="M82 206 Q70 204 66 212 L72 228 H98 Z M118 206 L132 228 H108 Z" fill="#2a1a1a"/>
+<path d="M72 120 Q100 108 128 120 Q142 190 150 226 Q100 236 52 226 Q62 180 72 120 Z" fill="url(#pyromancer-g1)"/>
+<path d="M52 226 Q64 214 76 226 Q88 214 100 228 Q112 214 124 226 Q136 214 150 226" fill="#2a1a1a" stroke-width="4"/>
+<path d="M96 126 L104 126 L110 226 L90 226 Z" fill="#2a1a1a" stroke-width="3"/>
+<path d="M95 156 L105 156 M94 186 L106 186" stroke="#ff7a2a" stroke-width="3" fill="none"/>
+<rect x="68" y="168" width="66" height="12" rx="4" fill="#2a1a1a" stroke-width="3.5"/>
+<circle cx="102" cy="174" r="7" fill="#ff7a2a" stroke-width="3"/>
+<path d="M60 218 Q70 190 80 150" fill="none" stroke="#e2574a" stroke-width="3" opacity="0.5"/>
+<path d="M76 128 Q100 116 126 128 L126 138 Q100 128 76 138 Z" fill="#2a1a1a" stroke-width="3.5"/>
+</g>
+<g class="part-head">
+<path d="M70 70 Q70 54 90 52 L128 50 Q146 54 144 74 L142 100 Q136 120 104 120 Q74 118 70 94 Z" fill="#2a1a1a"/>
+<path d="M82 78 Q82 66 98 66 L132 66 Q138 70 138 80 L136 98 Q130 110 108 110 Q86 108 82 94 Z" fill="#e8c9a0"/>
+<path d="M82 66 L134 62 L138 76 Q108 70 82 82 Z" fill="#2a1a1a" stroke="none"/>
+<path d="M44 66 L146 66 Q154 66 150 74 L150 76 Q150 80 142 80 L52 76 Q38 76 44 66 Z" fill="url(#pyromancer-g1)"/>
+<path d="M62 66 Q64 30 96 12 Q92 38 110 46 Q118 30 130 24 Q134 50 132 66 Z" fill="url(#pyromancer-g1)"/>
+<path d="M64 62 Q100 54 132 62" fill="none" stroke="#2a1a1a" stroke-width="6"/>
+<path d="M92 56 Q100 52 108 56" fill="none" stroke="#ff7a2a" stroke-width="3" opacity="0"/>
+<path d="M84 76 Q92 68 100 76" fill="none" stroke="#fff" stroke-width="0"/>
+<ellipse cx="108" cy="88" rx="5" ry="5.5" fill="#fff" stroke-width="3"/>
+<ellipse cx="128" cy="88" rx="4.2" ry="5.5" fill="#fff" stroke-width="3"/>
+<circle cx="110" cy="89" r="3" fill="#ff7a2a" stroke="none"/>
+<circle cx="129" cy="89" r="2.6" fill="#ff7a2a" stroke="none"/>
+<path d="M104 80 L116 82 M122 82 L134 80" stroke-width="3.5" fill="none"/>
+<path d="M114 102 Q124 108 132 100" fill="none" stroke-width="3.5"/>
+<path d="M135 92 Q139 95 134 98" fill="none" stroke-width="3"/>
+<path d="M108 106 L110 118 L106 112 Z" fill="#14101c" stroke-width="2"/>
+<path d="M70 66 Q78 56 96 54" fill="none" stroke="#fff" stroke-width="3" opacity="0.4"/>
+</g>
+<g class="part-arm-r">
+<g class="part-weapon">
+<path d="M154 232 L160 40" stroke="#14101c" stroke-width="13" fill="none"/>
+<path d="M154 232 L160 40" stroke="#6b3a1e" stroke-width="6" fill="none"/>
+<path d="M136 52 Q132 36 148 26 Q150 34 156 34 Q156 18 168 8 Q172 22 184 28 Q190 44 180 58 Q170 66 160 64 Q142 66 136 52 Z" fill="url(#pyromancer-g2)"/>
+<path d="M148 54 Q146 44 156 38 Q158 46 166 44 Q174 50 170 58 Q160 64 148 54 Z" fill="#ffe9a8" stroke="none"/>
+<path d="M146 68 L174 68 L168 76 L152 76 Z" fill="#2a1a1a" stroke-width="3.5"/>
+</g>
+<path d="M118 124 L142 138 L152 156 L138 164 L124 150 L112 138 Z" fill="url(#pyromancer-g1)"/>
+<circle cx="120" cy="130" r="14" fill="#2a1a1a"/>
+<path d="M114 124 Q120 118 126 122" fill="none" stroke="#e2574a" stroke-width="3"/>
+<circle cx="154" cy="152" r="8" fill="#e8c9a0" stroke-width="4"/>
+<path d="M146 148 Q152 140 160 148" fill="url(#pyromancer-g1)" stroke-width="3.5"/>
+</g>
+</g>
+</svg>

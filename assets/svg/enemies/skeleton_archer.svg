@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="skarcher-g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e6ddc4"/><stop offset="1" stop-color="#b3a888"/></linearGradient></defs>
+<g class="part-extra">
+<path d="M130 112 Q160 150 146 206 L128 190 Q134 150 122 120Z" fill="#2f6b4f"/>
+<path d="M146 206 L140 214 L134 200" fill="#2f6b4f"/>
+</g>
+<g class="part-body">
+<path d="M90 170 L88 214 L72 222 Q68 228 76 228 L100 228 L102 214 L102 176Z" fill="url(#skarcher-g1)"/>
+<path d="M112 170 L116 214 L108 222 Q106 228 114 228 L136 228 L130 214 L124 176Z" fill="#b3a888"/>
+<ellipse cx="104" cy="170" rx="22" ry="12" fill="#d0c7aa"/>
+<path d="M76 114 Q72 150 90 164 L122 164 Q138 150 132 114 Q104 104 76 114Z" fill="#3b4a2f"/>
+<path d="M82 122 Q104 130 126 122 M84 140 Q104 148 124 140" fill="none" stroke="#d0c7aa" stroke-width="3"/>
+<path d="M82 116 L92 164 M126 116 L116 164" fill="none" stroke="#6b4a2f" stroke-width="5"/>
+</g>
+<g class="part-arm-l">
+<path d="M122 120 Q136 140 128 156" fill="none" stroke-width="12"/>
+<path d="M122 120 Q136 140 128 156" fill="none" stroke="#b3a888" stroke-width="5"/>
+<circle cx="128" cy="158" r="7" fill="#d0c7aa"/>
+</g>
+<g class="part-head">
+<path d="M72 96 Q64 42 102 38 Q142 36 138 90 Q136 102 124 104 L120 114 L84 114 L80 104 Q74 102 72 96Z" fill="url(#skarcher-g1)"/>
+<path d="M82 100 L84 114 L120 114 L122 100" fill="#d0c7aa"/>
+<path d="M92 102 V114 M102 102 V114 M112 102 V114" stroke-width="3"/>
+<ellipse cx="88" cy="74" rx="13" ry="14" fill="#14101c"/>
+<ellipse cx="122" cy="74" rx="11" ry="12" fill="#14101c"/>
+<circle cx="86" cy="75" r="4.5" fill="#ffd34a" stroke="none"/>
+<circle cx="121" cy="75" r="3.8" fill="#ffd34a" stroke="none"/>
+<path d="M104 86 L99 96 L109 96Z" fill="#14101c"/>
+<path d="M64 62 Q68 36 104 26 Q140 30 140 62 Q120 46 100 48 Q80 48 64 62Z" fill="#2f6b4f"/>
+<path d="M136 56 L156 44 L150 66Z" fill="#2f6b4f"/>
+<path d="M82 40 Q92 32 104 32" fill="none" stroke="#58d68d" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M82 120 Q56 132 40 150" fill="none" stroke-width="12"/>
+<path d="M82 120 Q56 132 40 150" fill="none" stroke="#d0c7aa" stroke-width="5"/>
+<circle cx="82" cy="120" r="8" fill="#e6ddc4"/>
+<g class="part-weapon">
+<path d="M52 92 Q14 150 52 208" fill="none" stroke="#6b4a2f" stroke-width="9"/>
+<path d="M52 92 Q14 150 52 208" fill="none" stroke="#a8744a" stroke-width="4"/>
+<path d="M52 92 L52 208" fill="none" stroke="#e8e0cc" stroke-width="2"/>
+<path d="M40 150 L74 150 L84 146 M74 150 L84 154" fill="none" stroke="#8e96a8" stroke-width="3"/>
+<path d="M84 146 L96 150 L84 154Z" fill="#c8d0de" stroke-width="3"/>
+<circle cx="40" cy="150" r="8" fill="#e6ddc4"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" stroke="#14101c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="wraith-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9cbd6"/><stop offset="1" stop-color="#6a7090" stop-opacity=".85"/></linearGradient>
+<linearGradient id="wraith-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a6b"/><stop offset="1" stop-color="#1e1830"/></linearGradient></defs>
+<g class="part-extra">
+<path d="M126 108 Q176 130 170 190 L160 176 L158 204 L146 184 L138 214 L128 170Z" fill="url(#wraith-g2)" opacity=".92"/>
+<circle cx="170" cy="120" r="4" fill="#b36bff" stroke="none"/>
+<circle cx="22" cy="170" r="3" fill="#b36bff" stroke="none"/>
+</g>
+<g class="part-body">
+<path d="M66 118 Q52 170 56 212 L66 196 L74 226 L88 200 L100 228 L112 202 L124 224 L130 196 L144 214 Q146 160 134 118 Q100 98 66 118Z" fill="url(#wraith-g1)"/>
+<path d="M66 118 Q52 170 56 212 L66 196 L74 226 L88 200 L100 228 L112 202 L124 224 L130 196 L144 214 Q146 160 134 118" fill="none"/>
+<path d="M84 140 Q90 176 82 202 M110 138 Q118 170 112 198" fill="none" stroke="#6a7090" stroke-width="3"/>
+<path d="M72 150 L96 156 L90 168Z" fill="#6a7090" stroke="none" opacity=".4"/>
+<path d="M76 130 Q104 120 128 130" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/>
+</g>
+<g class="part-arm-l">
+<path d="M128 124 Q152 146 148 176 L142 168 L142 184 L134 170 L126 178 Q124 150 120 134Z" fill="#8a90ac"/>
+<path d="M148 176 L152 192 M142 184 L142 198" stroke-width="3" fill="none"/>
+</g>
+<g class="part-head">
+<path d="M62 96 Q52 38 100 32 Q150 36 142 98 Q140 120 118 124 L84 124 Q64 118 62 96Z" fill="url(#wraith-g2)"/>
+<path d="M72 92 Q70 54 100 52 Q128 54 130 92 Q124 112 100 114 Q78 112 72 92Z" fill="#0c0814"/>
+<ellipse cx="88" cy="84" rx="8" ry="11" fill="#b9fff0" stroke="none"/>
+<ellipse cx="114" cy="84" rx="8" ry="11" fill="#b9fff0" stroke="none"/>
+<ellipse cx="88" cy="86" rx="3" ry="5" fill="#14101c" stroke="none"/>
+<ellipse cx="114" cy="86" rx="3" ry="5" fill="#14101c" stroke="none"/>
+<ellipse cx="101" cy="104" rx="9" ry="8" fill="#14101c" stroke="#b36bff" stroke-width="3"/>
+<path d="M76 46 Q90 36 108 38" fill="none" stroke="#b36bff" stroke-width="3"/>
+<path d="M62 110 L56 132 L68 122 M142 108 L146 130 L134 120" fill="#3b2a6b" stroke-width="3.5"/>
+</g>
+<g class="part-arm-r">
+<path d="M76 124 Q48 134 30 148 L36 158 L26 160 L24 148 L16 146 L24 138 Q40 110 70 112Z" fill="#a9aec2"/>
+<path d="M26 140 L8 136 M26 146 L10 154 M30 152 L16 168" stroke-width="3.5" fill="none"/>
+<g class="part-weapon">
+<path d="M10 134 L2 128 L12 130Z M10 154 L2 160 L12 152Z" fill="#e8e0cc" stroke-width="3"/>
+</g>
+</g>
+</svg>

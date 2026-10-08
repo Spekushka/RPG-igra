@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" stroke="#14101c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<defs>
+<linearGradient id="gravewarden-g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ece6cc"/><stop offset="1" stop-color="#a89f82"/></linearGradient>
+<radialGradient id="gravewarden-g2"><stop offset="0" stop-color="#b6ffb0" stop-opacity=".9"/><stop offset="1" stop-color="#58d68d" stop-opacity="0"/></radialGradient>
+<linearGradient id="gravewarden-g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3350"/><stop offset="1" stop-color="#1e1830"/></linearGradient>
+</defs>
+<g class="part-extra">
+<path d="M190 112 C250 120 282 180 278 262 L292 300 L262 290 L246 308 L226 288 L204 306 L196 270 Z" fill="url(#gravewarden-g3)"/>
+<path d="M226 150 C250 180 258 230 252 280 M206 170 C220 210 222 250 214 290" fill="none" stroke="#14101c" stroke-width="2.5" opacity=".6"/>
+<path d="M262 292 C285 305 300 300 306 308" fill="none" stroke="#14101c" stroke-width="11"/>
+<path d="M262 292 C285 305 300 300 306 308" fill="none" stroke="#8e96a8" stroke-width="6" stroke-dasharray="8 4"/>
+</g>
+<g class="part-body">
+<path d="M104 308 L98 236 L128 232 L132 308 Z M182 308 L176 236 L206 232 L212 308 Z" fill="url(#gravewarden-g1)"/>
+<ellipse cx="100" cy="304" rx="0" ry="0"/>
+<path d="M82 308 Q84 296 104 296 L136 298 L134 308 Z M160 308 Q162 296 182 296 L216 298 L216 308 Z" fill="#a89f82"/>
+<circle cx="115" cy="270" r="9" fill="#ece6cc"/><circle cx="193" cy="270" r="9" fill="#ece6cc"/>
+<path d="M112 222 C112 204 130 196 154 196 C178 196 200 204 200 222 C200 242 180 248 154 248 C130 248 112 242 112 222 Z" fill="#d8d2b8"/>
+<ellipse cx="136" cy="226" rx="8" ry="10" fill="#14101c"/><ellipse cx="174" cy="226" rx="8" ry="10" fill="#14101c"/>
+<path d="M144 200 L148 150 L164 150 L166 200 Z" fill="#a89f82"/>
+<path d="M98 126 C94 160 106 196 154 204 C206 196 214 160 210 126 C190 108 118 108 98 126 Z" fill="url(#gravewarden-g1)"/>
+<path d="M102 142 Q154 158 206 142 M104 160 Q154 178 204 160 M110 178 Q154 196 198 178" fill="none" stroke-width="5"/>
+<path d="M154 116 L154 200" fill="none" stroke-width="5"/>
+<path d="M112 128 Q134 140 150 130 M196 128 Q176 140 158 130" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+<path d="M108 128 C140 170 180 190 214 212" fill="none" stroke="#14101c" stroke-width="13"/>
+<path d="M108 128 C140 170 180 190 214 212" fill="none" stroke="#8e96a8" stroke-width="8" stroke-dasharray="9 4"/>
+<path d="M200 124 C176 160 140 190 112 204" fill="none" stroke="#14101c" stroke-width="13"/>
+<path d="M200 124 C176 160 140 190 112 204" fill="none" stroke="#5d6577" stroke-width="8" stroke-dasharray="9 4"/>
+<rect x="144" y="166" width="22" height="22" rx="4" fill="#c9a23a"/><path d="M149 166 v-7 a6 6 0 0 1 12 0 v7" fill="none" stroke-width="3"/><circle cx="155" cy="177" r="3" fill="#14101c" stroke="none"/>
+</g>
+<g class="part-head" transform="translate(30 14)">
+<path d="M118 66 C116 30 148 12 176 22 C204 32 206 62 190 84 L186 112 L124 112 L126 88 C120 84 118 76 118 66 Z" transform="translate(-46 -2)" fill="#2d2540"/>
+<path d="M60 70 C56 38 84 20 110 28 C136 36 140 64 126 86 L126 104 L72 104 L72 88 C64 84 60 78 60 70 Z" fill="url(#gravewarden-g1)"/>
+<path d="M96 96 L98 118 L84 120 L70 106 L78 94 Z" fill="#d8d2b8" transform="translate(0 2)"/>
+<path d="M72 106 L72 116 M80 106 L80 118 M88 106 L88 118 M96 104 L96 116 M104 102 L104 112 M112 98 L112 108" stroke-width="3"/>
+<path d="M58 38 C70 14 108 8 128 28 L126 40 C110 24 76 26 60 46 Z" fill="#5d6577"/>
+<path d="M66 20 L60 2 L80 14 M118 18 L126 2 L134 24" fill="#8e96a8"/>
+<ellipse cx="82" cy="64" rx="13" ry="12" fill="#14101c"/><ellipse cx="116" cy="62" rx="10" ry="10" fill="#14101c"/>
+<circle cx="82" cy="65" r="12" fill="url(#gravewarden-g2)" stroke="none"/><circle cx="116" cy="62" r="9" fill="url(#gravewarden-g2)" stroke="none"/>
+<circle cx="81" cy="65" r="4.5" fill="#d8ffd0" stroke="none"/><circle cx="115" cy="62" r="3.5" fill="#d8ffd0" stroke="none"/>
+<path d="M62 84 L72 80 L76 90 L66 94 Z" fill="#14101c"/>
+<path d="M92 84 L98 96 L90 96 Z" fill="#14101c" stroke-width="3"/>
+<path d="M66 40 Q74 28 92 26" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+</g>
+<g class="part-arm-r">
+<path d="M108 120 C84 118 70 134 66 160 L60 196 L82 200 L90 164 C100 150 114 146 126 144 Z" fill="url(#gravewarden-g1)"/>
+<path d="M92 112 C78 100 104 92 126 104 L130 134 C110 140 92 130 92 112 Z" fill="#5d6577"/>
+<path d="M96 106 L90 86 L106 100 M112 100 L110 82 L122 100" fill="#8e96a8"/>
+<ellipse cx="72" cy="194" rx="14" ry="12" fill="#d8d2b8"/>
+<g class="part-weapon">
+<path d="M56 308 L76 4" stroke="#14101c" stroke-width="12" fill="none"/>
+<path d="M56 308 L76 4" stroke="#6b4a2f" stroke-width="6" fill="none"/>
+<path d="M78 14 C50 0 14 14 4 60 C24 34 50 30 80 40 Z" fill="#c8d0de"/>
+<path d="M78 14 C50 0 14 14 4 60 C24 34 50 30 80 40" fill="none"/>
+<path d="M24 34 C36 24 52 22 66 24" fill="none" stroke="#fff" stroke-width="2.5" opacity=".8"/>
+<rect x="64" y="172" width="18" height="30" rx="5" fill="#d8d2b8" transform="rotate(5 73 187)"/>
+<path d="M70 186 q6 4 10 -2 M69 194 q6 4 10 -2" fill="none" stroke-width="2.5"/>
+</g>
+</g>
+<g class="part-arm-l">
+<path d="M200 118 C232 118 252 140 254 170 L252 196 L230 192 L230 172 C222 156 212 148 196 142 Z" fill="#a89f82"/>
+<path d="M190 112 C196 98 226 100 232 118 L226 144 C206 146 190 132 190 112 Z" fill="#5d6577"/>
+<path d="M208 104 L214 84 L224 106 M226 110 L238 94 L238 118" fill="#8e96a8"/>
+<ellipse cx="242" cy="196" rx="13" ry="11" fill="#d8d2b8"/>
+<path d="M244 204 L248 252" fill="none" stroke-width="10"/><path d="M244 204 L248 252" fill="none" stroke="#8e96a8" stroke-width="5" stroke-dasharray="7 3"/>
+<circle cx="250" cy="282" r="38" fill="url(#gravewarden-g2)" stroke="none"/>
+<path d="M236 258 h28 l-4 -8 h-20 Z" fill="#5d6577"/>
+<path d="M238 260 L232 300 L268 300 L262 260 Z" fill="#8dffa0" fill-opacity=".85"/>
+<path d="M250 270 C240 282 244 292 250 296 C258 290 260 280 250 270 Z" fill="#effff0" stroke="none"/>
+<path d="M238 260 L232 300 M250 260 V300 M262 260 L268 300" fill="none" stroke-width="3"/>
+<path d="M228 300 h44 v7 h-44 Z M246 244 a4 4 0 1 1 8 0" fill="#5d6577"/>
+</g>
+</svg>

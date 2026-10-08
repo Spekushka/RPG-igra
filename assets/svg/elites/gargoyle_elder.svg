@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280">
+<defs>
+<linearGradient id="gelder-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6adbe"/><stop offset="1" stop-color="#5d6577"/></linearGradient>
+<linearGradient id="gelder-g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a7288"/><stop offset="1" stop-color="#2d2540"/></linearGradient>
+</defs>
+<g stroke="#14101c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<g class="part-extra">
+<path d="M140 128 L172 20 L194 62 L212 30 L226 96 L212 92 L214 150 L168 168Z" fill="url(#gelder-g2)"/>
+<path d="M172 20 L160 140 M194 62 L180 150 M212 30 L196 150 M226 96 L206 146" fill="none" stroke-width="3.5"/>
+<path d="M200 70 L212 96" stroke="#14101c" stroke-width="3" opacity=".6"/>
+</g>
+<g class="part-body">
+<path d="M84 216 Q72 246 76 268 L120 268 L122 232Z" fill="url(#gelder-g1)"/>
+<path d="M134 220 L142 268 L186 268 Q190 244 168 220Z" fill="url(#gelder-g1)"/>
+<path d="M76 266 L70 276 M90 268 L88 278 M106 268 L106 278 M144 268 L142 278 M160 268 L162 278 M176 268 L180 276" stroke-width="3.5" fill="none"/>
+<path d="M72 120 Q54 176 72 224 Q120 248 172 222 Q192 170 166 114 Q120 98 72 120Z" fill="url(#gelder-g1)"/>
+<path d="M82 150 Q120 188 160 152" fill="none" stroke-width="4" opacity=".55"/>
+<path d="M96 196 Q120 212 146 196" fill="none" stroke-width="3.5" opacity=".55"/>
+<path d="M104 130 L114 150 L106 164 M136 126 L130 146" fill="none" stroke-width="3.5" opacity=".7"/>
+<circle cx="120" cy="176" r="9" fill="#ffb02a" stroke-width="3.5"/>
+<circle cx="120" cy="176" r="4" fill="#fff4c0" stroke="none"/>
+<path d="M170 200 Q202 204 206 230 Q192 214 174 220Z" fill="url(#gelder-g2)"/>
+</g>
+<g class="part-arm-r">
+<path d="M158 124 Q190 138 186 176 L196 194 L172 198 L162 180 Q142 160 144 132Z" fill="url(#gelder-g1)"/>
+<path d="M196 194 L204 204 M184 198 L186 208" stroke-width="3.5" fill="none"/>
+</g>
+<g class="part-head">
+<path d="M58 62 L36 20 L84 42Z" fill="#c8d0de"/>
+<path d="M142 40 L184 14 L168 70Z" fill="#c8d0de"/>
+<path d="M60 52 Q116 28 160 50 Q180 90 156 124 Q116 142 70 126 Q42 94 60 52Z" fill="url(#gelder-g1)"/>
+<path d="M62 104 Q40 108 42 128 Q58 144 84 134Z" fill="#8e96a8"/>
+<path d="M66 118 Q90 138 122 132 Q104 156 88 158 Q72 150 66 118Z" fill="#7a8298"/>
+<path d="M74 126 L78 144 L86 130Z M100 132 L102 146 L110 130Z" fill="#f4f4f8" stroke-width="3"/>
+<path d="M68 66 L102 78 L96 94 L66 86Z" fill="#14101c" stroke-width="3.5"/>
+<path d="M130 70 L152 68 L150 88 L130 90Z" fill="#14101c" stroke-width="3.5"/>
+<circle cx="84" cy="82" r="5" fill="#ffb02a" stroke="none"/><circle cx="141" cy="79" r="5" fill="#ffb02a" stroke="none"/>
+<path d="M62 62 L104 74 M158 56 L130 68" fill="none" stroke-width="6"/>
+<path d="M104 46 L112 58 L122 46 M92 36 Q112 30 130 38" fill="none" stroke-width="3.5" opacity=".55"/>
+</g>
+<g class="part-arm-l">
+<path d="M76 124 Q38 134 28 168 L10 176 L18 196 L42 192 L58 188 Q84 172 92 142Z" fill="url(#gelder-g1)"/>
+<path d="M10 176 L6 168 M14 186 L5 190 M20 196 L10 208" stroke-width="4" fill="none"/>
+<path d="M34 150 L44 166 M48 142 L54 156" stroke-width="3" fill="none" opacity=".6"/>
+</g>
+</g>
+</svg>
