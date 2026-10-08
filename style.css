@@ -220,3 +220,60 @@ html, body { overscroll-behavior: none; }
 #stage.touch .sts .s, #stage.touch .sts .s img { width: 26px; height: 26px; }
 #stage.touch .hcard { padding-bottom: 12px; }
 #tip.rot { transform: rotate(90deg); transform-origin: 0 0; }
+
+/* ===== предметы, таланты, колесо, мини-игры ===== */
+.itembox { display: grid; place-items: center; border: 2px solid #4a3f66; border-radius: 10px; background: radial-gradient(#3b2f57, #1b1528); flex: none; }
+.itembox img { width: 82%; height: 82%; }
+.itembox.empty { opacity: .35; border-style: dashed; }
+.slotrow { display: flex; gap: 4px; margin-top: 4px; }
+.pcard .badge { position: absolute; top: -8px; right: -6px; background: var(--gold); color: #000; font-weight: 900; border-radius: 12px; padding: 0 8px; font-size: 14px; animation: pulse 1.2s infinite; }
+.pcard { position: relative; }
+.node.locked { opacity: .35; filter: grayscale(.8); cursor: not-allowed; }
+.node.locked::after { content: '🔒'; position: absolute; right: -4px; bottom: -4px; font-size: 20px; }
+
+.prize { display: flex; gap: 16px; align-items: center; padding: 14px 18px; border-radius: 14px; background: #0007; border: 2px solid #ffffff22; text-align: left; max-width: 480px; }
+.prize .pico { width: 72px; height: 72px; } .prize .pn { font-size: 22px; font-weight: 800; } .prize .ptxt { font-size: 15px; line-height: 1.4; }
+
+.wheelrow { display: flex; align-items: center; gap: 36px; }
+.wheelbox { width: 430px; height: 430px; filter: drop-shadow(0 8px 24px #000c); }
+.wheelsvg { width: 100%; height: 100%; overflow: visible; }
+.wheelrot { transform-origin: 0 0; transform-box: view-box; }
+.wheelside { width: 440px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; min-height: 260px; }
+.wheelout { min-height: 130px; } .landed { font-size: 34px; font-weight: 900; text-shadow: 0 3px 0 #000; }
+.wheelbtns { display: flex; gap: 12px; }
+
+.levelup { padding: 26px 30px; width: 1100px; max-height: 640px; overflow-y: auto; }
+.lvrow { display: flex; gap: 18px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffffff18; }
+.lvrow img.pt { width: 80px; height: 96px; object-fit: contain; }
+.lvrow .who { width: 220px; flex: none; } .lvrow .tcards { display: flex; gap: 12px; flex: 1; }
+.tcard { flex: 1; padding: 10px; border-radius: 12px; border: 2px solid var(--line); background: #241a36; text-align: center; cursor: pointer; transition: transform .12s, border-color .12s; }
+.tcard:hover { transform: translateY(-4px); border-color: var(--gold); } .tcard .tn { font-weight: 800; color: var(--gold); } .tcard .td { font-size: 14px; color: #cfc6e4; }
+.newskills { display: flex; gap: 5px; margin-top: 4px; } .newskills img { width: 34px; height: 34px; background: #0007; border-radius: 8px; border: 1px solid var(--gold); }
+
+.recruitcard { width: 270px; padding: 16px; border-radius: 16px; text-align: center; cursor: pointer; transition: transform .15s, border-color .15s; }
+.recruitcard:hover { transform: translateY(-8px); border-color: var(--gold); } .recruitcard img.big { width: 150px; height: 180px; object-fit: contain; }
+
+.gstat { font-size: 20px; font-weight: 800; text-shadow: 0 2px 0 #000; }
+.gamebox { width: 760px; padding: 22px 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.gamehost { width: 100%; min-height: 380px; display: flex; flex-direction: column; gap: 14px; align-items: center; justify-content: center; }
+.memgrid { display: grid; grid-template-columns: repeat(4, 110px); gap: 12px; }
+.memcard { width: 110px; height: 100px; position: relative; perspective: 600px; cursor: pointer; }
+.memcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; transition: transform .35s; border: 2px solid #6c5a96; background: #1b1528; }
+.memcard .face img { width: 70%; height: 70%; } .memcard .front { transform: rotateY(180deg); background: #2b2140; }
+.memcard.open .back { transform: rotateY(180deg); } .memcard.open .front { transform: rotateY(360deg); } .memcard.done .front { border-color: var(--green); box-shadow: 0 0 14px #58d68d88; }
+.fbar { position: relative; width: 620px; height: 46px; border-radius: 23px; background: #0009; border: 3px solid #5a4630; overflow: hidden; }
+.fzone { position: absolute; left: 35%; width: 30%; top: 0; bottom: 0; background: #2f9e6088; } .fperfect { position: absolute; left: 33%; width: 34%; top: 0; bottom: 0; background: #58d68daa; }
+.fcursor { position: absolute; top: -2px; bottom: -2px; width: 8px; margin-left: -4px; background: #fff; border-radius: 4px; box-shadow: 0 0 10px #fff; }
+.fanvil { position: relative; width: 160px; height: 160px; } .fanvil img { width: 100%; height: 100%; } .fanvil.hit { animation: anvilhit .25s; } @keyframes anvilhit { 40% { transform: scale(1.12) rotate(-3deg); } }
+.fspark { position: absolute; left: 30%; top: -10px; width: 90px !important; height: 90px !important; transition: opacity .2s; pointer-events: none; }
+.bigtap { font-size: 28px !important; padding: 20px 60px !important; }
+.ghfield { display: grid; grid-template-columns: repeat(3, 150px); gap: 12px; }
+.ghslot { position: relative; width: 150px; height: 110px; border-radius: 50% / 40%; background: radial-gradient(#00000099, #0000 70%); display: grid; place-items: center; }
+.ghost { width: 100px; height: 100px; animation: ghin .25s ease-out; cursor: pointer; touch-action: none; } .ghost.gone { transform: scale(.2); opacity: 0; transition: .2s; }
+@keyframes ghin { from { transform: translateY(40px) scale(.4); opacity: 0; } }
+.gfloat { position: absolute; font-size: 34px; font-weight: 900; animation: floatup .6s ease-out forwards; pointer-events: none; text-shadow: 0 2px 0 #000; } .gfloat.pos { color: #8cf0b4; } .gfloat.neg { color: #ff6a5a; }
+.cuptable { position: relative; width: 600px; height: 230px; }
+.cup { position: absolute; top: 40px; width: 20%; cursor: pointer; transition: left .3s, transform .3s; } .cup img { width: 100%; } .cup.up { transform: translateY(-50px); }
+.cupball { position: absolute; top: 150px; width: 40px; height: 40px; opacity: 0; transition: left .3s; }
+#stage.touch .tcard { padding: 14px; }
+.mbig { width: 90px; height: 108px; object-fit: contain; } .mskill { width: 56px; height: 56px; flex: none; }

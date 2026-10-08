@@ -34,18 +34,22 @@ export function botBattle(run, info, rng) {
   return st;
 }
 
-export function botRun(seed, asc = 0, party = ['knight', 'pyromancer', 'priestess', 'ranger']) {
+export function botRun(seed, asc = 0, party = ['knight']) {
   const rng = makeRng(seed ^ 0x9e3779b9);
   const run = R.createRun({ party, meta: defaultMeta(), asc, seed });
   let guard = 0;
   while (guard++ < 400) {
+    const rng2 = makeRng(seed + guard);
+    while (R.heroesWithTalents(run).length) { const hr = R.heroesWithTalents(run)[0]; R.applyTalent(run, hr, R.talentChoices(run)[0]); }
+    run.newSkills = [];
+    if (run.recruitPending) { const o = R.recruitOffers(run); if (o.length) R.recruit(run, rng2.pick(o)); else run.recruitPending = false; }
     const choices = R.currentChoices(run);
     // бот: предпочитает костёр если ранен, иначе бой, элиту берёт при хорошем HP
     const hpFrac = run.heroes.reduce((s, h) => s + h.hp / R.heroStats(run, h).maxHp, 0) / run.heroes.length;
     let idx = 0;
     const pref = hpFrac < 0.6 ? ['campfire', 'shop', 'event', 'treasure', 'battle', 'elite', 'boss'] : ['elite', 'treasure', 'battle', 'shop', 'event', 'campfire', 'boss'];
     let best = 1e9;
-    choices.forEach((c, i) => { const p = pref.indexOf(c.type); if (p < best) { best = p; idx = i; } });
+    choices.forEach((c, i) => { if (c.locked) return; const p = pref.indexOf(c.type); if (p < best) { best = p; idx = i; } });
     const node = R.chooseNode(run, idx);
     const info = node.info;
     const t = node.type;
@@ -58,6 +62,7 @@ export function botRun(seed, asc = 0, party = ['knight', 'pyromancer', 'priestes
       R.grantXp(run, rew.xp);
       const b = rng.pick(rew.choices);
       if (b) R.applyBoon(run, b);
+      R.applyPrize(run, R.spinWheel(run, t).wedge);
       if (t === 'boss') {
         const r = R.finishFloorAfterBoss(run);
         if (r === 'win') return { win: true, act: run.act, floor: run.floor + 1, run };
@@ -67,6 +72,8 @@ export function botRun(seed, asc = 0, party = ['knight', 'pyromancer', 'priestes
       R.campRest(run);
     } else if (t === 'shop') {
       for (const it of info.shop) if (it.kind === 'relic' || it.kind === 'upgrade') R.buy(run, info.shop, it.i);
+    } else if (t === 'minigame') {
+      R.minigamePrizes(run, rng.pick([0, 1, 1, 2, 2, 3]));
     } else if (t === 'treasure') {
       R.addRelic(run, info.relics[0].id); run.gold += 50;
     } else if (t === 'event') {

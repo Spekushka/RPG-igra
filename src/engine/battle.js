@@ -1,6 +1,7 @@
 // Боевая логика без DOM. Все функции мутируют state и возвращают массив событий для анимации.
 import { SKILLS } from '../data/skills.js';
 import { ENEMIES } from '../data/enemies.js';
+import { HEROES, skillUnlockLv } from '../data/heroes.js';
 
 let UID = 1;
 const MAX_ENEMIES = 5;
@@ -12,7 +13,7 @@ export function makeUnit(side, base) {
     atk: base.atk, def: base.def ?? 0, shield: 0, st: {}, cd: {}, mcd: {},
     skills: base.skills ?? [], skillLv: base.skillLv ?? {}, tier: base.tier ?? 0,
     minion: !!base.minion, dead: false, acted: false, intent: null, hero: base.hero ?? null,
-    moves: base.moves ?? null,
+    moves: base.moves ?? null, lvl: base.lvl ?? 99, hm: base.hm ?? {},
   };
 }
 
@@ -48,7 +49,7 @@ function snap(u) { return { hp: u.hp, shield: u.shield, max: u.maxHp }; }
 function critInfo(state, src) {
   if (src.side !== 'ally') return { chance: 0, mult: 1 };
   const m = state.mods;
-  return { chance: 0.08 + (m.critChance ?? 0) / 100, mult: 1.5 + (m.critMult ?? 0) };
+  return { chance: 0.08 + (m.critChance ?? 0) / 100 + (src.hm.crit ?? 0) / 100, mult: 1.5 + (m.critMult ?? 0) };
 }
 
 function calcDamage(state, src, tgt, m, fx = {}) {
@@ -93,12 +94,12 @@ function dealDamage(state, ev, src, tgt, amount, o = {}) {
   // ярость
   if (state.mods && !o.dot) {
     const g = (state.mods.rageGain ?? 0) / 100 + 1;
-    if (src && src.side === 'ally' && tgt.side === 'enemy') state.rage = Math.min(100, state.rage + 4 * g);
-    if (tgt.side === 'ally') state.rage = Math.min(100, state.rage + 6 * g);
+    if (src && src.side === 'ally' && tgt.side === 'enemy') state.rage = Math.min(100, state.rage + 4 * (g + (src.hm.rage ?? 0) / 100));
+    if (tgt.side === 'ally') state.rage = Math.min(100, state.rage + 6 * (g + (tgt.hm.rage ?? 0) / 100));
   }
   if (tgt.hp <= 0) kill(state, ev, tgt, src);
-  else if (!o.dot && !o.noThorns && tgt.side === 'ally' && src && !src.dead && state.mods.thornsPct) {
-    const back = Math.max(1, Math.round(amount * state.mods.thornsPct / 100));
+  else if (!o.dot && !o.noThorns && tgt.side === 'ally' && src && !src.dead && ((state.mods.thornsPct ?? 0) + (tgt.hm.thorns ?? 0)) > 0) {
+    const back = Math.max(1, Math.round(amount * ((state.mods.thornsPct ?? 0) + (tgt.hm.thorns ?? 0)) / 100));
     dealDamage(state, ev, tgt, src, back, { dot: 'thorns', noThorns: true });
   }
   return real;
@@ -129,7 +130,7 @@ function addStatus(state, ev, src, tgt, id, turns, v = 0) {
   if (kind === 'dot') {
     const plus = (state.mods[id + 'Pct'] ?? 0) / 100;
     val = Math.max(1, Math.round(src.atk * v * (1 + plus)));
-  } else if (id === 'regen') val = Math.max(1, Math.round(src.atk * v * (1 + (state.mods.healPct ?? 0) / 100)));
+  } else if (id === 'regen') val = Math.max(1, Math.round(src.atk * v * (1 + ((state.mods.healPct ?? 0) + (src.hm.heal ?? 0)) / 100)));
   const cur = tgt.st[id];
   if (cur) { cur.t = Math.max(cur.t, turns); cur.v = kind === 'dot' ? cur.v + val : Math.max(cur.v, val); }
   else tgt.st[id] = { t: turns, v: val };
@@ -186,7 +187,7 @@ function runEffects(state, ev, user, fxList, tgtKind, chosen, lv = 0) {
             const { amount, crit } = calcDamage(state, user, tg, fx.m * k, fx);
             const real = dealDamage(state, ev, user, tg, amount, { crit });
             if (fx.lifesteal && real > 0) healUnit(state, ev, user, Math.max(1, Math.round(real * fx.lifesteal)), user);
-            const ls = user.side === 'ally' ? (state.mods.lifesteal ?? 0) / 100 : 0;
+            const ls = user.side === 'ally' ? ((state.mods.lifesteal ?? 0) + (user.hm.ls ?? 0)) / 100 : 0;
             if (ls && real > 0) healUnit(state, ev, user, Math.max(1, Math.round(real * ls)), user);
           }
         }
@@ -196,7 +197,7 @@ function runEffects(state, ev, user, fxList, tgtKind, chosen, lv = 0) {
         const to = sub(fx.to) ?? targets;
         for (const tg of to) {
           if (!tg) continue;
-          const amt = Math.round(user.atk * fx.m * k * (1 + (state.mods.healPct ?? 0) / 100));
+          const amt = Math.round(user.atk * fx.m * k * (1 + ((state.mods.healPct ?? 0) + (user.hm.heal ?? 0)) / 100));
           healUnit(state, ev, tg, amt, user);
         }
         break;
@@ -354,6 +355,11 @@ export function canUse(state, unit, skillId) {
   const sk = SKILLS[skillId];
   if (!sk || unit.dead || unit.acted || state.result) return { ok: false, why: 'Недоступно' };
   if (unit.cd[skillId] > 0) return { ok: false, why: `Перезарядка: ${unit.cd[skillId]}` };
+  if (unit.side === 'ally' && !unit.minion && HEROES[unit.id]) {
+    const idx = HEROES[unit.id].skills.indexOf(skillId);
+    const need = idx >= 0 ? skillUnlockLv(unit.id, idx) : 1;
+    if (unit.lvl < need) return { ok: false, why: `Откроется на ур. ${need}`, locked: need };
+  }
   if (sk.cost && state.rage < sk.cost) return { ok: false, why: `Нужно ярости: ${sk.cost}` };
   return { ok: true };
 }

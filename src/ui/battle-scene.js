@@ -67,7 +67,7 @@ export function mountBattle(G, info, done) {
     const intent = u.side === 'enemy' ? h('div', { class: 'intent', style: { bottom: hh + 8 + 'px' } }) : null;
     const root = h('div', { class: `unit ${u.side}${u.side === 'enemy' ? '' : ' ally'}${u.minion ? ' flip' : ''}`, style: { '--d': -Math.random() * 2.8 + 's' } },
       h('div', { class: 'shadow', style: { width: w * 0.85 + 'px' } }), h('div', { class: 'ring' }), spr, hit,
-      h('div', { class: 'ui' }, h('div', { class: 'nm' }, u.name), h('div', { class: 'bar' }, shbar, bar, hptxt), sts),
+      h('div', { class: 'ui' }, h('div', { class: 'nm' }, u.side === 'ally' && !u.minion ? `${u.name} · ${u.lvl}` : u.name), h('div', { class: 'bar' }, shbar, bar, hptxt), sts),
       intent);
     field.append(root);
     const o = { root, bar, shbar, hptxt, sts, intent, hit, u, w, h: hh };
@@ -141,7 +141,7 @@ export function mountBattle(G, info, done) {
         const b = h('button', { class: 'skill' + (sk.cost ? ' ult' : '') + (targeting?.sid === sid ? ' on' : ''), disabled: !can.ok, onclick: () => pickSkill(sid) },
           img(`assets/svg/icons/skills/${sk.icon}.svg`), h('div', { class: 'sn' }, sk.name + (lv ? ' ' + '★'.repeat(lv) : '')),
           sk.cost ? h('div', { class: 'cost' }, sk.cost) : null,
-          sel.cd[sid] > 0 ? h('div', { class: 'cdv' }, sel.cd[sid]) : null);
+          can.locked ? h('div', { class: 'cdv', style: { fontSize: '20px' } }, `🔒${can.locked}`) : sel.cd[sid] > 0 ? h('div', { class: 'cdv' }, sel.cd[sid]) : null);
         b.dataset.idx = idx + 1;
         tooltip(b, () => skillTip(sel, sid, can));
         skills.append(b);

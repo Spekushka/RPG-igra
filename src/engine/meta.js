@@ -10,6 +10,11 @@ export const FORGE = {
   shield: { name: 'Заговор', desc: '+4% стартового щита за уровень', max: 5, cost: (l) => 35 + 30 * l, mod: (l) => ({ startShield: 4 * l }) },
   xp: { name: 'Мудрость', desc: '+10% опыта за уровень', max: 5, cost: (l) => 30 + 25 * l, mod: (l) => ({ xpPct: 10 * l }) },
   relic: { name: 'Наследие', desc: 'Старт забега с реликвиями (1 за уровень)', max: 3, cost: (l) => 90 + 110 * l, mod: () => ({}) },
+  luck: { name: 'Удача фортуны', desc: 'Колесо чаще выпадает на редкие предметы (+18% за уровень)', max: 5, cost: (l) => 40 + 35 * l, mod: () => ({}) },
+  respin: { name: 'Вторая попытка', desc: '+1 повторная прокрутка колеса за забег', max: 3, cost: (l) => 60 + 60 * l, mod: () => ({}) },
+  startparty: { name: 'Закалённый вожак', desc: 'Начинать забег с двумя героями', max: 1, cost: () => 220, mod: () => ({}) },
+  startitem: { name: 'Запасливость', desc: 'Старт забега с обычным предметом (1 за уровень)', max: 3, cost: (l) => 70 + 70 * l, mod: () => ({}) },
+  scout: { name: 'Разведчики', desc: 'Вербовка: на выбор на одного героя больше', max: 1, cost: () => 150, mod: () => ({}) },
   revive: { name: 'Последний шанс', desc: 'Один раз за забег отряд воскресает', max: 1, cost: () => 350, mod: (l) => (l ? { reviveOnce: 1 } : {}) },
 };
 
@@ -30,7 +35,7 @@ export const ACHIEVEMENTS = {
 
 export function defaultMeta() {
   return { v: 1, ash: 0, unlocked: Object.keys(HEROES).filter((k) => HEROES[k].start), forge: {}, wins: 0, runs: 0,
-    ascUnlocked: 0, bestiary: {}, relicsSeen: {}, ach: {}, kills: 0, elites: 0, bestFloor: 0, endlessBest: 0 };
+    totalAsh: 0, ascUnlocked: 0, bestiary: {}, relicsSeen: {}, ach: {}, kills: 0, elites: 0, bestFloor: 0, endlessBest: 0 };
 }
 
 export function loadMeta() {
@@ -42,8 +47,13 @@ export function loadMeta() {
 }
 export function saveMeta(meta) { try { globalThis.localStorage?.setItem('pepel_meta', JSON.stringify(meta)); } catch {} }
 
+export const rankOf = (meta) => Math.floor(Math.sqrt((meta.totalAsh ?? 0) / 30));
+export const rankNeed = (r) => Math.ceil((r + 1) * (r + 1) * 30);
+
 export function forgeMods(meta) {
   const m = {};
+  const rk = rankOf(meta);
+  m.hpPct = rk; m.dmgPct = rk; // ранг пепла: +1% здоровья и урона за ранг
   for (const [k, def] of Object.entries(FORGE)) {
     const l = meta.forge[k] ?? 0;
     for (const [mk, mv] of Object.entries(def.mod(l))) m[mk] = (m[mk] ?? 0) + mv;

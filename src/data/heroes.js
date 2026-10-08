@@ -27,3 +27,10 @@ export const HEROES = {
 };
 
 export const CLASS_NAMES = { warrior: 'Воин', mage: 'Маг', support: 'Поддержка', rogue: 'Стрелок/Вор' };
+
+// Навыки открываются с уровнем героя: 4 навыка — [1,2,3,5], 5 навыков — [1,2,3,4,6]
+export function skillUnlockLv(heroId, idx) {
+  const n = HEROES[heroId].skills.length;
+  return (n >= 5 ? [1, 2, 3, 4, 6] : [1, 2, 3, 5])[idx];
+}
+export const unlockedSkills = (heroId, lvl) => HEROES[heroId].skills.filter((_, i) => skillUnlockLv(heroId, i) <= lvl);
