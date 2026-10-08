@@ -5,6 +5,8 @@ import { itemBox, itemTip, itemName, slotRow, prizeView, talentTip, comboView } 
 import { ITEMS, RARITY, itemStats, fmtStat, SLOTS, setScore } from '../data/items.js';
 import { TALENTS } from '../data/talents.js';
 import { skillUnlockLv, unlockedSkills } from '../data/heroes.js';
+import { exportSave, importSave } from '../engine/save.js';
+import { isMuted, toggleMute } from './sfx.js';
 import { sfx } from './sfx.js';
 import { HEROES, CLASS_NAMES } from '../data/heroes.js';
 import { SKILLS, describeSkill } from '../data/skills.js';
@@ -41,14 +43,71 @@ export function createGame(stage) {
       img('assets/svg/ui/logo.svg', 'logo'),
       h('button', { class: 'iconbtn fsbtn', title: 'Во весь экран', onclick: goFullscreen }, '⛶'),
       h('div', { class: 'chip ash' }, img('assets/svg/ui/ash.svg'), G.meta.ash, h('span', { class: 'dim', style: { fontSize: '14px' } }, ' пепла')),
-      h('div', { class: 'btns' },
+      h('div', { class: 'btns', style: { top: '340px', gap: '10px' } },
         saved ? h('button', { class: 'btn gold', onclick: () => { sfx.click(); G.run = saved; mapScreen(); } }, `Продолжить (акт ${saved.act}, этаж ${saved.floor + 1})`) : null,
         h('button', { class: 'btn', onclick: () => { sfx.click(); pickParty('normal'); } }, 'Новый забег'),
         h('button', { class: 'btn alt', onclick: () => { sfx.click(); hub('heroes'); } }, 'Герои и Кузня'),
         h('button', { class: 'btn alt', onclick: () => { sfx.click(); dailyRun(); } }, 'Ежедневный забег'),
+        h('button', { class: 'btn alt', onclick: () => { sfx.click(); saveModal(); } }, '💾 Сохранение: экспорт / импорт'),
         h('button', { class: 'btn alt', onclick: () => { sfx.click(); howTo(); } }, 'Как играть')),
       h('div', { class: 'foot' }, `Побед: ${G.meta.wins} · Забегов: ${G.meta.runs} · Убито врагов: ${G.meta.kills}`));
     G.show(s);
+  }
+
+  // ============ СОХРАНЕНИЕ: ЭКСПОРТ / ИМПОРТ ============
+  function saveModal() {
+    const run = G.run ?? R.loadRun();
+    const settings = () => ({ mute: isMuted() ? 1 : 0, d3: G.use3d === false ? 0 : 1 });
+    let withRun = !!run;
+    const out = h('textarea', { class: 'savearea', readonly: true, rows: 5 });
+    const msg = h('div', { class: 'savemsg' });
+    const fill = () => { out.value = exportSave(G.meta, withRun ? run : null, settings()); };
+    const copy = async () => {
+      fill(); out.focus(); out.select();
+      try { await navigator.clipboard.writeText(out.value); msg.className = 'savemsg ok'; msg.textContent = 'Код скопирован. Сохраните его в заметках или отправьте себе.'; }
+      catch { msg.className = 'savemsg'; msg.textContent = 'Код выделен: нажмите «Копировать» в меню телефона или Ctrl+C.'; }
+    };
+    const inp = h('textarea', { class: 'savearea', rows: 5, placeholder: 'Вставьте сюда код сохранения (PEPEL1:…)' });
+    const imsg = h('div', { class: 'savemsg' });
+    const actions = h('div', { class: 'row', style: { display: 'flex', gap: '10px', flexWrap: 'wrap' } });
+    let pending = null;
+    const showPlan = () => {
+      actions.replaceChildren(h('button', { class: 'btn alt', onclick: preview }, 'Проверить код'));
+    };
+    const apply = () => {
+      const d = pending;
+      G.meta = d.meta; M.saveMeta(G.meta);
+      G.run = null; R.saveRun(d.run); if (d.run) G.run = null;
+      try { localStorage.setItem('pepel_3d', d.settings.d3 === 0 ? '0' : '1'); } catch {}
+      G.use3d = d.settings.d3 !== 0;
+      if (!!d.settings.mute !== isMuted()) toggleMute();
+      sfx.win();
+      m.remove(); menu(); toast('Прогресс загружен!');
+    };
+    const preview = () => {
+      imsg.className = 'savemsg'; pending = null;
+      let d;
+      try { d = importSave(inp.value); } catch (e) { imsg.className = 'savemsg err'; imsg.textContent = e.message; return; }
+      pending = d;
+      const when = d.t ? new Date(d.t).toLocaleString('ru-RU') : 'неизвестно';
+      imsg.className = 'savemsg ok';
+      imsg.textContent = `Код верный. Сохранён: ${when}. Пепла: ${d.meta.ash}, ранг ${M.rankOf(d.meta)}, побед: ${d.meta.wins}, героев открыто: ${d.meta.unlocked.length}/12${d.run ? `, забег: акт ${d.run.act}, этаж ${d.run.floor + 1}` : ', без текущего забега'}. Текущий прогресс на этом устройстве будет заменён.`;
+      actions.replaceChildren(h('button', { class: 'btn gold', onclick: apply }, 'Заменить мой прогресс'), h('button', { class: 'btn alt', onclick: () => { pending = null; imsg.textContent = ''; showPlan(); } }, 'Отмена'));
+    };
+    showPlan();
+    const file = h('input', { type: 'file', accept: '.txt,text/plain', style: { display: 'none' }, onchange: (e) => { const f = e.target.files?.[0]; if (!f) return; const r = new FileReader(); r.onload = () => { inp.value = String(r.result); preview(); }; r.readAsText(f); } });
+    const m = h('div', { class: 'modal', onclick: (e) => e.target === m && m.remove() },
+      h('div', { class: 'box panel' }, h('h2', { class: 'title' }, 'Сохранение прогресса'),
+        h('div', { class: 'dim', style: { margin: '6px 0 12px', fontSize: '15px' } }, 'Игра хранит прогресс в браузере. Чтобы перенести его на другое устройство или не потерять при очистке данных, скопируйте код и сохраните его.'),
+        h('h3', { style: { margin: '6px 0' } }, 'Экспорт'),
+        h('div', { class: 'dim', style: { fontSize: '14px' } }, `В коде: пепел, герои, Кузня, достижения, бестиарий, настройки${run ? ' и текущий забег' : ''}.`),
+        run ? h('label', { style: { display: 'block', margin: '6px 0', fontWeight: 700 } }, h('input', { type: 'checkbox', checked: true, onchange: (e) => { withRun = e.target.checked; fill(); } }), ' Включить текущий забег') : null,
+        out, h('div', { class: 'row', style: { display: 'flex', gap: '10px', margin: '8px 0' } }, h('button', { class: 'btn gold', onclick: () => { sfx.click(); copy(); } }, 'Копировать код'), h('button', { class: 'btn alt', onclick: () => { fill(); out.focus(); out.select(); } }, 'Выделить всё')), msg,
+        h('h3', { style: { margin: '14px 0 6px' } }, 'Импорт'), inp,
+        h('div', { class: 'row', style: { display: 'flex', gap: '10px', margin: '8px 0', flexWrap: 'wrap' } }, actions, h('button', { class: 'btn alt', onclick: () => file.click() }, 'Из файла…'), file), imsg,
+        h('button', { class: 'btn', style: { marginTop: '10px' }, onclick: () => m.remove() }, 'Закрыть')));
+    fill();
+    stage.append(m);
   }
 
   function howTo() {

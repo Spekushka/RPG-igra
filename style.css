@@ -292,3 +292,6 @@ html, body { overscroll-behavior: none; }
 canvas.scene3d { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; display: block; }
 .unit .ring { width: calc(140px * var(--s, 1)); height: calc(30px * var(--s, 1)); }
 .unit .ui { transform-origin: 50% 0; }
+.savearea { width: 100%; background: #0b0814; color: var(--text); border: 2px solid var(--line); border-radius: 10px; padding: 10px; font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace; resize: none; user-select: text; -webkit-user-select: text; word-break: break-all; }
+.savemsg { font-size: 14px; min-height: 18px; line-height: 1.4; } .savemsg.ok { color: var(--green); } .savemsg.err { color: #ff8a7a; }
+.modal textarea, .modal input { user-select: text; -webkit-user-select: text; }

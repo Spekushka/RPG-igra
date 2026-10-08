@@ -108,4 +108,18 @@ test('рюкзак: занятый слот, надеть, снять, подо�
   for (let i = 0; i < 20; i++) R.giveItem(run, { id: 'rusty_axe', r: 1 }, 'knight');
   assert.ok(run.bag.length <= R.BAG_MAX);
 });
+import { exportSave, importSave } from '../src/engine/save.js';
+test('экспорт и импорт прогресса', () => {
+  const meta = defaultMeta(); meta.ash = 123; meta.unlocked.push('berserker'); meta.forge.hp = 3; meta.wins = 2;
+  const run = R.createRun({ party: ['knight', 'priestess'], meta, seed: 3 });
+  const code = exportSave(meta, run, { mute: 1 });
+  assert.ok(code.startsWith('PEPEL1:'));
+  const back = importSave(code);
+  assert.equal(back.meta.ash, 123); assert.ok(back.meta.unlocked.includes('berserker')); assert.equal(back.meta.forge.hp, 3);
+  assert.equal(back.run.heroes.length, 2); assert.equal(back.settings.mute, 1);
+  assert.throws(() => importSave('мусор'));
+  assert.throws(() => importSave(code.slice(0, -6) + 'AAAAAA'));
+  const bad = importSave(exportSave({ ash: -5, unlocked: ['хакер', 'knight'], forge: { hp: 999, fake: 5 } }, null));
+  assert.equal(bad.meta.ash, 0); assert.deepEqual(bad.meta.unlocked.includes('хакер'), false); assert.equal(bad.meta.forge.hp, 10); assert.equal(bad.meta.forge.fake, undefined); assert.equal(bad.run, null);
+});
 console.log(`${n} tests passed`);
