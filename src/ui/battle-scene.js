@@ -328,6 +328,7 @@ export function mountBattle(G, info, done) {
   }
   window.addEventListener('keydown', onKey);
   screen.addEventListener('contextmenu', (e) => { e.preventDefault(); cancelTarget(); });
+  field.addEventListener('click', (e) => { if (e.target === field || e.target.classList.contains('unit')) cancelTarget(); });
 
   // ---------- Старт ----------
   G.show(screen);

@@ -195,3 +195,28 @@ h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: .5px; text-shadow: 0 2
 @keyframes swing { 30% { transform: rotate(-70deg); } 60% { transform: rotate(35deg); } }
 .unit.acted .sprite svg [class*="part-"] { animation-play-state: paused; }
 .unit.flip .sprite svg { transform: scaleX(-1); }
+
+/* ===== телефон / сенсор ===== */
+#stage { touch-action: none; -webkit-touch-callout: none; }
+html, body { overscroll-behavior: none; }
+.fsbtn { display: none; position: absolute; left: 18px; top: 16px; z-index: 30; }
+#stage.touch .fsbtn { display: grid; width: 48px; height: 48px; font-size: 24px; }
+#stage.touch .skill { width: 100px; height: 108px; }
+#stage.touch .skill img { width: 62px; height: 62px; }
+#stage.touch .skill .sn { font-size: 12px; }
+#stage.touch .skills { gap: 12px; }
+#stage.touch .hud { height: 138px; }
+#stage.touch .btn { padding: 15px 30px; font-size: 21px; }
+#stage.touch .btn.small { padding: 11px 18px; font-size: 17px; }
+#stage.touch .iconbtn { width: 50px; height: 50px; font-size: 22px; }
+#stage.touch .node { width: 84px; height: 84px; } #stage.touch .node img { width: 56px; height: 56px; }
+#stage.touch .node.boss { width: 100px; height: 100px; } #stage.touch .node.boss img { width: 70px; height: 70px; }
+#stage.touch .intent { font-size: 21px; padding: 4px 11px; }
+#stage.touch .unit .nm { font-size: 14px; }
+#stage.touch .hint { bottom: 148px; font-size: 20px; }
+#stage.touch .tab { padding: 12px 24px; font-size: 17px; }
+#stage.touch .card .d { font-size: 15px; }
+#stage.touch .relics img { width: 40px; height: 40px; }
+#stage.touch .sts .s, #stage.touch .sts .s img { width: 26px; height: 26px; }
+#stage.touch .hcard { padding-bottom: 12px; }
+#tip.rot { transform: rotate(90deg); transform-origin: 0 0; }

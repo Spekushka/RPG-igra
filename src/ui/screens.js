@@ -1,4 +1,4 @@
-import { h, img, sprite, tooltip } from './dom.js';
+import { h, img, sprite, tooltip, goFullscreen } from './dom.js';
 import { sfx } from './sfx.js';
 import { HEROES, CLASS_NAMES } from '../data/heroes.js';
 import { SKILLS, describeSkill } from '../data/skills.js';
@@ -32,6 +32,7 @@ export function createGame(stage) {
     const s = h('div', { class: 'screen menu' },
       img('assets/svg/bg/menu.svg', 'bg'), h('div', { class: 'shade' }),
       img('assets/svg/ui/logo.svg', 'logo'),
+      h('button', { class: 'iconbtn fsbtn', title: 'Во весь экран', onclick: goFullscreen }, '⛶'),
       h('div', { class: 'chip ash' }, img('assets/svg/ui/ash.svg'), G.meta.ash, h('span', { class: 'dim', style: { fontSize: '14px' } }, ' пепла')),
       h('div', { class: 'btns' },
         saved ? h('button', { class: 'btn gold', onclick: () => { sfx.click(); G.run = saved; mapScreen(); } }, `Продолжить (акт ${saved.act}, этаж ${saved.floor + 1})`) : null,
