@@ -8,6 +8,7 @@ import { RELICS } from '../data/relics.js';
 import { makeRng } from '../engine/rng.js';
 import * as B from '../engine/battle.js';
 import { partyUnits, battleMods } from '../engine/run.js';
+import { Stage3D, skillColor, statusColor } from './scene3d.js';
 
 const INTENT_ICON = { attack: '⚔️', heal: '💚', defend: '🛡️', buff: '⬆️', debuff: '☠️', summon: '👥', skip: '💤', idle: '…', none: '' };
 
@@ -26,17 +27,20 @@ export function mountBattle(G, info, done) {
   const state = B.createBattle({ party: partyUnits(run), enemies: info.enemies, mods: battleMods(run), rng: makeRng(), ascension: run.asc, enemyScale: info.scale });
   const els = new Map(); // uid -> {root, bar, shbar, hptxt, sts, intent, hit}
   let selected = null, targeting = null, busy = true;
+  let S3 = null, lastColor = 0xffe0c0;
 
+  const bgImg = img(`assets/svg/bg/${info.bg}.svg`, 'bg');
   const field = h('div', { class: 'field' });
   const hud = h('div', { class: 'hud' });
   const hint = h('div', { class: 'hint' });
   const roundChip = h('div', { class: 'chip' }, 'Раунд 1');
   const screen = h('div', { class: 'screen battle' },
-    img(`assets/svg/bg/${info.bg}.svg`, 'bg'), h('div', { class: 'shade' }), field,
+    bgImg, h('div', { class: 'shade' }), field,
     h('div', { class: 'topbar' }, roundChip,
       h('div', { class: 'chip' }, img('assets/svg/ui/coin.svg'), h('span', { id: 'goldv' }, run.gold)),
       h('div', { class: 'relics' }, run.relics.map((r) => { const i = img(`assets/svg/icons/relics/${r}.svg`); tooltip(i, `<b>${RELICS[r].name}</b><br>${RELICS[r].desc}`); return i; })),
       h('button', { class: 'iconbtn', title: 'Скорость', onclick: (e) => { G.fast = !G.fast; e.target.textContent = G.fast ? '⏩' : '▶'; } }, G.fast ? '⏩' : '▶'),
+      h('button', { class: 'iconbtn', title: '3D / 2D (со следующего боя)', onclick: (e) => { G.use3d = !G.use3d; try { localStorage.setItem('pepel_3d', G.use3d ? '1' : '0'); } catch {} e.target.textContent = G.use3d ? '3D' : '2D'; } }, G.use3d === false ? '2D' : '3D'),
       h('button', { class: 'iconbtn', title: 'Звук', onclick: (e) => { e.target.textContent = toggleMute() ? '🔇' : '🔊'; } }, isMuted() ? '🔇' : '🔊')),
     hint, hud);
 
@@ -53,24 +57,26 @@ export function mountBattle(G, info, done) {
   }
   function place(u, x, y) {
     const o = els.get(u.uid) ?? create(u);
-    o.root.style.left = x + 'px'; o.root.style.top = y + 'px';
     o.x = x; o.y = y;
+    if (o.h3) o.h3.setPos(x, y);
+    else { o.root.style.left = x + 'px'; o.root.style.top = y + 'px'; }
   }
 
   function create(u) {
     const [w, hh] = size(u);
-    const spr = sprite(spritePath(u));
-    spr.style.width = w + 'px'; spr.style.height = hh + 'px';
+    const spr = S3 ? null : sprite(spritePath(u));
+    if (spr) { spr.style.width = w + 'px'; spr.style.height = hh + 'px'; }
     const hit = h('div', { class: 'hit', style: { width: w * 0.7 + 'px', height: hh + 'px' } });
     const bar = h('i'), shbar = h('i', { class: 'sh' }), hptxt = h('span');
     const sts = h('div', { class: 'sts' });
     const intent = u.side === 'enemy' ? h('div', { class: 'intent', style: { bottom: hh + 8 + 'px' } }) : null;
     const root = h('div', { class: `unit ${u.side}${u.side === 'enemy' ? '' : ' ally'}${u.minion ? ' flip' : ''}`, style: { '--d': -Math.random() * 2.8 + 's' } },
-      h('div', { class: 'shadow', style: { width: w * 0.85 + 'px' } }), h('div', { class: 'ring' }), spr, hit,
+      S3 ? null : h('div', { class: 'shadow', style: { width: w * 0.85 + 'px' } }), h('div', { class: 'ring' }), spr, hit,
       h('div', { class: 'ui' }, h('div', { class: 'nm' }, u.side === 'ally' && !u.minion ? `${u.name} · ${u.lvl}` : u.name), h('div', { class: 'bar' }, shbar, bar, hptxt), sts),
       intent);
     field.append(root);
-    const o = { root, bar, shbar, hptxt, sts, intent, hit, u, w, h: hh };
+    const o = { root, bar, shbar, hptxt, sts, intent, hit, u, w, h: hh, sx: 0, sy: 0, ss: 1 };
+    if (S3) { o.h3 = S3.addUnit(u.uid, spritePath(u), { w, h: hh, flip: u.minion, side: u.side }); root.style.visibility = 'hidden'; }
     els.set(u.uid, o);
     hit.addEventListener('click', () => onUnitClick(u));
     tooltip(hit, () => unitTip(u));
@@ -100,6 +106,7 @@ export function mountBattle(G, info, done) {
   function refresh() {
     for (const u of [...state.allies, ...state.enemies]) {
       const o = els.get(u.uid); if (!o) continue;
+      if (o.h3) { if (u.dead) o.h3.die(); else if (o.h3.dead) o.h3.revive(); o.h3.setActed(u.side === 'ally' && u.acted && !u.dead); }
       o.root.classList.toggle('dead', u.dead);
       o.root.classList.toggle('acted', u.side === 'ally' && u.acted && !u.dead);
       o.root.classList.toggle('sel', selected === u);
@@ -183,13 +190,13 @@ export function mountBattle(G, info, done) {
       const list = sk.tgt === 'foe' ? B.alive(state.enemies) : B.alive(state.allies);
       if (sk.tgt === 'foe' && list.length === 1) { cast(u, sid, list[0]); return; }
       targeting = { sid, kind: sk.tgt };
-      for (const x of list) els.get(x.uid)?.root.classList.add('target-ok');
+      for (const x of list) { const o = els.get(x.uid); o?.root.classList.add('target-ok'); o?.h3?.setGlow(true); }
       renderHud();
     } else cast(u, sid, null);
   }
   function cancelTarget() {
     targeting = null;
-    for (const o of els.values()) o.root.classList.remove('target-ok');
+    for (const o of els.values()) { o.root.classList.remove('target-ok'); o.h3?.setGlow(false); }
     renderHud();
   }
   function onUnitClick(u) {
@@ -241,14 +248,22 @@ export function mountBattle(G, info, done) {
   function floatAt(u, text, cls, dy = 0) {
     const o = els.get(u.uid); if (!o) return;
     const n = h('div', { class: 'float ' + cls }, text);
-    n.style.left = o.x + (Math.random() * 30 - 15) + 'px';
-    n.style.top = (o.y - o.h * 0.7 + dy) + 'px';
+    const fx = o.h3 ? o.sx : o.x, fy = o.h3 ? o.sy : o.y, fs = o.h3 ? o.ss : 1;
+    n.style.left = fx + (Math.random() * 30 - 15) + 'px';
+    n.style.top = (fy - o.h * fs * 0.7 + dy) + 'px';
     field.append(n);
     setTimeout(() => n.remove(), 1200);
   }
+  const o3 = (u) => els.get(u.uid).h3;
   const byUid = (uid) => [...state.allies, ...state.enemies].find((u) => u.uid === uid);
-  function anim(u, cls, ms) {
+  function anim(u, cls, ms, extra) {
     const o = els.get(u.uid); if (!o) return;
+    if (o.h3) {
+      if (cls === 'hurt') o.h3.hurt(extra ?? 1);
+      else if (cls === 'cast') o.h3.cast();
+      else o.h3.lunge(extra ?? o.h3.pos.x + (u.side === 'ally' ? 3 : -3));
+      return;
+    }
     o.root.classList.remove(cls); void o.root.offsetWidth; o.root.classList.add(cls);
     setTimeout(() => o.root.classList.remove(cls), ms);
   }
@@ -271,9 +286,22 @@ export function mountBattle(G, info, done) {
           const o = els.get(u.uid);
           if (o) {
             const n = h('div', { class: 'skillname' }, e.name);
-            n.style.left = o.x + 'px'; n.style.top = (o.y - o.h - 6) + 'px'; field.append(n); setTimeout(() => n.remove(), 1200);
+            n.style.left = (o.h3 ? o.sx : o.x) + 'px'; n.style.top = ((o.h3 ? o.sy : o.y) - o.h * (o.h3 ? o.ss : 1) - 6) + 'px'; field.append(n); setTimeout(() => n.remove(), 1200);
           }
-          if (e.melee) anim(u, u.side === 'ally' ? 'lunge-r' : 'lunge-l', 460); else anim(u, 'cast', 520);
+          const tgtO = e.tgt ? els.get(e.tgt) : null;
+          if (S3) {
+            lastColor = sk ? skillColor(sk.icon) : 0xff5a4a;
+            const foes = (u.side === 'ally' ? state.enemies : state.allies).filter((x) => !x.dead);
+            const cx = foes.length ? foes.reduce((a, x) => a + (els.get(x.uid)?.h3?.pos.x ?? 0), 0) / foes.length : 0;
+            if (e.melee) anim(u, u.side === 'ally' ? 'lunge-r' : 'lunge-l', 460, tgtO?.h3 ? tgtO.h3.pos.x : cx);
+            else {
+              anim(u, 'cast', 520);
+              S3.aura(o3(u), lastColor);
+              const pt = tgtO?.h3 && tgtO.u.side !== u.side ? [tgtO.h3] : (sk && (sk.tgt === 'foes' || sk.tgt === 'foeRand')) ? foes.map((x) => els.get(x.uid)?.h3).filter(Boolean) : [];
+              pt.forEach((hd, i) => setTimeout(() => S3.projectile(o3(u), hd, lastColor), 140 + i * 90));
+            }
+            if (sk?.cost) { S3.punch(0.9); S3.flash(lastColor, 3); S3.shake(0.08); }
+          } else if (e.melee) anim(u, u.side === 'ally' ? 'lunge-r' : 'lunge-l', 460); else anim(u, 'cast', 520);
           if (sk?.cost) sfx.ult(); else if (!e.melee) sfx.magic();
           await T(e.melee ? 260 : 300);
           break;
@@ -283,18 +311,23 @@ export function mountBattle(G, info, done) {
           setBar(u, e.hp, e.shield, e.max);
           if (e.dot) floatAt(u, `${e.n}`, e.dot === 'thorns' ? 'dmg' : 'dot');
           else floatAt(u, e.hpLost === 0 && e.absorbed ? `🛡 ${e.n}` : `${e.n}${e.crit ? '!' : ''}`, e.crit ? 'crit' : 'dmg');
-          anim(u, 'hurt', 360);
+          anim(u, 'hurt', 360, u.side === 'enemy' ? 1 : -1);
+          if (S3 && els.get(u.uid)?.h3) {
+            const c = els.get(u.uid).h3.chest(), col = e.dot ? statusColor(e.dot) : lastColor;
+            S3.burst(c.x, c.y, c.z, col, e.crit ? 18 : 9, { speed: e.crit ? 3.6 : 2.4, size: e.crit ? 0.42 : 0.3 });
+            if (!e.dot) { S3.flash(col, e.crit ? 3.2 : 1.6); S3.shake(e.crit ? 0.2 : 0.07); if (e.crit) S3.punch(0.5); }
+          }
           e.crit ? sfx.crit() : sfx.hit();
           await T(e.dot ? 170 : 230);
           break;
         }
-        case 'heal': { const u = byUid(e.tgt); if (!u) break; setBar(u, e.hp, e.shield, e.max); floatAt(u, `+${e.n}`, 'heal'); sfx.heal(); await T(150); break; }
-        case 'shield': { const u = byUid(e.tgt); if (!u) break; setBar(u, e.hp, e.shield, e.max); floatAt(u, `+${e.n}`, 'shield'); sfx.shield(); await T(120); break; }
-        case 'status': { const u = byUid(e.tgt); if (!u) break; floatAt(u, STATUSES[e.id].name, 'msg', -22); sfx.status(); refresh(); await T(130); break; }
+        case 'heal': { const u = byUid(e.tgt); if (!u) break; setBar(u, e.hp, e.shield, e.max); floatAt(u, `+${e.n}`, 'heal'); if (S3) S3.aura(o3(u), 0x65e69a); sfx.heal(); await T(150); break; }
+        case 'shield': { const u = byUid(e.tgt); if (!u) break; setBar(u, e.hp, e.shield, e.max); floatAt(u, `+${e.n}`, 'shield'); if (S3) S3.aura(o3(u), 0x8cc7ff); sfx.shield(); await T(120); break; }
+        case 'status': { const u = byUid(e.tgt); if (!u) break; floatAt(u, STATUSES[e.id].name, 'msg', -22); if (S3 && els.get(u.uid)?.h3) { const hd = els.get(u.uid).h3.head(); S3.burst(hd.x, hd.y, hd.z, statusColor(e.id), 6, { speed: 1.2, up: 1.4, g: -0.5, size: 0.28 }); } sfx.status(); refresh(); await T(130); break; }
         case 'cleanse': { const u = byUid(e.tgt); if (u) floatAt(u, 'Очищено', 'heal'); refresh(); break; }
         case 'miss': { const u = byUid(e.tgt); if (u) floatAt(u, 'Мимо!', 'msg'); break; }
         case 'skip': { const u = byUid(e.tgt); if (u) floatAt(u, e.why === 'freeze' ? 'Заморожен' : 'Оглушён', 'msg'); await T(250); break; }
-        case 'death': { const u = byUid(e.tgt); if (!u) break; els.get(u.uid)?.root.classList.add('dead'); sfx.death(); await T(260); break; }
+        case 'death': { const u = byUid(e.tgt); if (!u) break; els.get(u.uid)?.root.classList.add('dead'); if (S3 && els.get(u.uid)?.h3) { const c = els.get(u.uid).h3.chest(); S3.burst(c.x, c.y, c.z, 0x9a8fb0, 14, { speed: 1.8, up: 1.2, g: -0.3, size: 0.5 }); S3.shake(0.12); } sfx.death(); await T(260); break; }
         case 'summon': { layout(); refresh(); await T(300); break; }
         case 'revive': { const u = byUid(e.tgt); if (!u) break; els.get(u.uid)?.root.classList.remove('dead'); setBar(u, e.hp, e.shield, e.max); floatAt(u, 'Воскрес!', 'heal'); sfx.heal(); await T(260); break; }
         case 'rage': renderHud(); break;
@@ -313,6 +346,7 @@ export function mountBattle(G, info, done) {
     else { sfx.lose(); banner('ПОРАЖЕНИЕ', true); }
     await T(1500);
     window.removeEventListener('keydown', onKey);
+    S3?.dispose();
     done(state);
   }
 
@@ -332,10 +366,28 @@ export function mountBattle(G, info, done) {
 
   // ---------- Старт ----------
   G.show(screen);
-  layout();
+  G.use3d ??= (() => { try { return localStorage.getItem('pepel_3d') !== '0'; } catch { return true; } })();
   const ev0 = B.startBattle(state);
-  refresh();
   (async () => {
+    if (G.use3d) {
+      S3 = await Stage3D.create(info.bg);
+      if (S3) {
+        bgImg.replaceWith(S3.canvas);
+        S3.onFrame = () => {
+          for (const o of els.values()) {
+            const sc = o.h3?.screen; if (!sc) continue;
+            o.sx = sc.x; o.sy = sc.y; o.ss = sc.s;
+            const st = o.root.style;
+            st.left = sc.x + 'px'; st.top = sc.y + 'px'; st.visibility = '';
+            st.setProperty('--s', sc.s.toFixed(3));
+            o.hit.style.width = o.w * 0.7 * sc.s + 'px'; o.hit.style.height = o.h * sc.s + 'px';
+            if (o.intent) o.intent.style.bottom = o.h * sc.s + 8 + 'px';
+          }
+        };
+      }
+    }
+    layout();
+    refresh();
     banner(info.type === 'boss' ? 'БОСС!' : info.type === 'elite' ? 'ЭЛИТА!' : 'БОЙ!', info.type !== 'battle');
     await T(900);
     await play(ev0);

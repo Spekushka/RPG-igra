@@ -4,6 +4,8 @@ import { ENEMIES } from '../data/enemies.js';
 import { HEROES, skillUnlockLv } from '../data/heroes.js';
 
 let UID = 1;
+// навыки ближнего боя (персонаж подбегает к цели); остальные — заклинания и выстрелы
+const MELEE = new Set(['slash', 'shield_bash', 'cleave', 'whirlwind', 'rage_strike', 'backstab', 'poison_blade', 'execute', 'silver_stake', 'taunt']);
 const MAX_ENEMIES = 5;
 const MAX_ALLIES = 5;
 
@@ -372,7 +374,7 @@ export function useSkill(state, unit, skillId, target) {
   if (sk.cost) { state.rage -= sk.cost; ev.push({ t: 'rage', v: state.rage }); }
   unit.cd[skillId] = sk.cd ?? 0;
   unit.acted = true;
-  ev.push({ t: 'act', src: unit.uid, name: sk.name, skill: skillId, tgt: target?.uid ?? null, melee: ['foe', 'foes'].includes(sk.tgt) && !['fireball', 'meteor'].includes(sk.icon) });
+  ev.push({ t: 'act', src: unit.uid, name: sk.name, skill: skillId, tgt: target?.uid ?? null, melee: ['foe', 'foes'].includes(sk.tgt) && MELEE.has(sk.icon) });
   runEffects(state, ev, unit, sk.fx, sk.tgt, target, unit.skillLv[skillId] ?? 0);
   return ev;
 }

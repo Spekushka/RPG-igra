@@ -98,6 +98,7 @@ export function fitStage() {
   const w = window.innerWidth, hh = window.innerHeight;
   view.rot = hh > w * 1.1;
   view.k = view.rot ? Math.min(hh / 1280, w / 720) : Math.min(w / 1280, hh / 720);
+  globalThis.__viewK = view.k;
   s.style.transform = `translate(-50%,-50%)${view.rot ? ' rotate(90deg)' : ''} scale(${view.k})`;
   const touch = globalThis.__touching || (window.matchMedia && matchMedia('(pointer: coarse)').matches);
   s.classList.toggle('touch', !!touch);

@@ -51,9 +51,11 @@ const svg = {};
 const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
 const body = fs.readFileSync(path.join(root, 'index.html'), 'utf8').match(/<body>([\s\S]*?)<script/)[1];
 const safe = (s) => s.replace(/<\/script/gi, '<\\/script');
+const three = fs.readFileSync(path.join(root, 'vendor/three.min.js'), 'utf8');
 const out = `<title>Пепельный Отряд</title>
 <style>${css}</style>
 ${body}
+<script>${safe(three)}</script>
 <script>window.__SVG = ${safe(JSON.stringify(svg))};</script>
 <script>
 ${safe(js)}
