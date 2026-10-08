@@ -8,7 +8,8 @@ export const RARITY = [
   { id: 3, name: 'Эпический', color: '#b36bff', mult: 2.6, sec: 2 },
   { id: 4, name: 'Легендарный', color: '#ffb02a', mult: 4, sec: 2 },
 ];
-const I = (id, name, slot, main, sec = []) => ({ id, name, slot, main, sec });
+const TAGMAP = {'bone_blade': ['shadow', 'blood'], 'rusty_axe': ['blood', 'wild'], 'holy_mace': ['holy', 'wild'], 'ember_staff': ['fire', 'shadow'], 'frost_wand': ['frost', 'holy'], 'night_dagger': ['shadow', 'wild'], 'hunter_bow': ['wild', 'fire'], 'plague_scythe': ['shadow', 'blood'], 'storm_hammer': ['fire', 'holy'], 'soul_spear': ['shadow', 'frost'], 'silver_rapier': ['holy', 'frost'], 'ash_sword': ['fire', 'blood'], 'iron_helm': ['holy', 'wild'], 'bone_plate': ['shadow', 'blood'], 'holy_robe': ['holy', 'frost'], 'shadow_cloak': ['shadow', 'wild'], 'dragon_mail': ['fire', 'blood'], 'thorn_vest': ['wild', 'blood'], 'frost_mantle': ['frost', 'shadow'], 'gravewalker_boots': ['shadow', 'wild'], 'knight_shield': ['holy', 'fire'], 'wolf_pelt': ['wild', 'frost'], 'ember_gauntlets': ['fire', 'wild'], 'bone_crown_helm': ['blood', 'shadow'], 'ruby_ring': ['blood', 'fire'], 'fang_necklace': ['wild', 'blood'], 'ghost_lantern': ['shadow', 'frost'], 'blood_vial': ['blood', 'holy'], 'lucky_coin': ['wild', 'holy'], 'war_horn': ['wild', 'fire'], 'rune_tablet': ['frost', 'holy'], 'spider_brooch': ['shadow', 'wild'], 'sun_pendant': ['holy', 'fire'], 'moon_charm': ['frost', 'shadow'], 'skull_trophy': ['blood', 'shadow'], 'ash_phial': ['fire', 'frost']};
+const I = (id, name, slot, main, sec = []) => ({ id, name, slot, main, sec, tags: TAGMAP[id] });
 const W = 'weapon', A = 'armor', T = 'trinket';
 export const ITEMS = Object.fromEntries([
   I('bone_blade', 'Костяной клинок', W, { atk: 8 }, [{ crit: 3 }, { ls: 3 }]),
@@ -63,3 +64,35 @@ export function itemStats(it) {
 }
 export const fmtStat = (s, v) => `+${v}${PCT.has(s) ? '%' : ''} ${STAT_NAMES[s]}`;
 export const itemPower = (it) => Object.values(itemStats(it)).reduce((a, b) => a + b, 0) + it.r * 3;
+
+// ===== Комбинации (сеты): 2 или 3 предмета с общей меткой дают бонус =====
+export const TAGS = {
+  fire: { name: 'Пламя', icon: '🔥', color: '#ff7a2a', b2: { atk: 12 }, b3: { atk: 25, crit: 10 } },
+  frost: { name: 'Стужа', icon: '❄️', color: '#7ccbff', b2: { def: 3, hp: 8 }, b3: { def: 6, rage: 15, hp: 8 } },
+  holy: { name: 'Свет', icon: '✨', color: '#ffe28a', b2: { heal: 20 }, b3: { heal: 35, hp: 10 } },
+  shadow: { name: 'Тень', icon: '🌑', color: '#b36bff', b2: { crit: 8 }, b3: { crit: 15, atk: 10 } },
+  blood: { name: 'Кровь', icon: '🩸', color: '#e24d4d', b2: { ls: 5 }, b3: { ls: 10, hp: 10 } },
+  wild: { name: 'Охота', icon: '🐺', color: '#8ef0b4', b2: { hp: 10, rage: 10 }, b3: { hp: 20, atk: 10 } },
+};
+export const tagList = (it) => ITEMS[it.id].tags;
+
+// Активные комбинации набора предметов [{id, r}] → [{tag, n, stats}]
+export function combos(items) {
+  const cnt = {};
+  for (const it of items) for (const t of ITEMS[it.id].tags) cnt[t] = (cnt[t] ?? 0) + 1;
+  const out = [];
+  for (const [t, n] of Object.entries(cnt)) if (n >= 2) out.push({ tag: t, n: Math.min(n, 3), stats: n >= 3 ? TAGS[t].b3 : TAGS[t].b2 });
+  return out;
+}
+export function comboStats(items) {
+  const m = {};
+  for (const c of combos(items)) for (const [k, v] of Object.entries(c.stats)) m[k] = (m[k] ?? 0) + v;
+  return m;
+}
+// Оценка набора (для подсказки «лучшее»): сумма статов предметов и комбинаций
+export function setScore(items) {
+  let sc = 0;
+  for (const it of items) sc += itemPower(it);
+  for (const v of Object.values(comboStats(items))) sc += v;
+  return sc;
+}

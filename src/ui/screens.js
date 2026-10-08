@@ -1,8 +1,8 @@
 import { h, img, sprite, tooltip, goFullscreen } from './dom.js';
 import { mountWheel } from './wheel.js';
 import { GAMES, startGame } from './minigames.js';
-import { itemBox, itemTip, itemName, slotRow, prizeView, talentTip } from './widgets.js';
-import { ITEMS, RARITY, itemStats, fmtStat, SLOTS } from '../data/items.js';
+import { itemBox, itemTip, itemName, slotRow, prizeView, talentTip, comboView } from './widgets.js';
+import { ITEMS, RARITY, itemStats, fmtStat, SLOTS, setScore } from '../data/items.js';
 import { TALENTS } from '../data/talents.js';
 import { skillUnlockLv, unlockedSkills } from '../data/heroes.js';
 import { sfx } from './sfx.js';
@@ -136,19 +136,49 @@ export function createGame(stage) {
   }
 
   function heroModal(hr) {
-    const hd = HEROES[hr.id], st = R.heroStats(G.run, hr);
-    const tal = Object.entries(hr.talents);
-    const m = h('div', { class: 'modal', onclick: (e) => e.target === m && m.remove() },
-      h('div', { class: 'box panel' },
-        h('div', { style: { display: 'flex', gap: '18px', alignItems: 'center' } }, img(`assets/svg/heroes/${hr.id}.svg`, 'mbig'), h('div', {}, h('h2', { class: 'title' }, `${hd.name} — ${hd.title}`), h('div', {}, `Уровень ${hr.lvl} · HP ${hr.hp}/${st.maxHp} · Атака ${st.atk} · Броня ${st.def}%`), h('div', { class: 'dim' }, hd.blurb),
-          h('div', { style: { marginTop: '8px', display: 'flex', gap: '14px', alignItems: 'center' } }, h('span', { class: 'dim' }, 'Предметы:'), slotRow(hr, 48)))),
+    const hd = HEROES[hr.id];
+    const slots = Object.keys(SLOTS);
+    const close = () => { m.remove(); mapScreen(); };
+    const m = h('div', { class: 'modal', onclick: (e) => e.target === m && close() });
+    const build = () => {
+      const st = R.heroStats(G.run, hr);
+      const tal = Object.entries(hr.talents);
+      const bag = G.run.bag;
+      const eq = Object.values(hr.items);
+      const curScore = setScore(eq);
+      const slotEls = slots.map((sl) => {
+        const it = hr.items[sl];
+        const cell = h('div', { class: 'slotcell' }, h('div', { class: 'dim', style: { fontSize: '12px' } }, SLOTS[sl]));
+        if (it) { const b = itemBox(it, 60); b.style.cursor = 'pointer'; b.addEventListener('click', () => { if (R.unequip(G.run, hr.id, sl)) { sfx.click(); save(); render(); } else toast('Рюкзак полон'); }); cell.append(b, h('div', { class: 'dim', style: { fontSize: '11px' } }, 'снять')); }
+        else { const e = h('div', { class: 'itembox empty', style: { width: '60px', height: '60px' } }); cell.append(e, h('div', { class: 'dim', style: { fontSize: '11px' } }, 'пусто')); }
+        return cell;
+      });
+      const bagEls = bag.map((it, idx) => {
+        const sl = ITEMS[it.id].slot;
+        const after = eq.filter((x) => ITEMS[x.id].slot !== sl).concat([it]);
+        const better = setScore(after) > curScore;
+        const b = itemBox(it, 54); b.style.cursor = 'pointer';
+        if (better) b.classList.add('better');
+        b.addEventListener('click', () => { if (R.equipFromBag(G.run, hr.id, idx)) { sfx.buy(); save(); render(); } });
+        return b;
+      });
+      return h('div', { class: 'box panel' },
+        h('div', { style: { display: 'flex', gap: '18px', alignItems: 'center' } }, img(`assets/svg/heroes/${hr.id}.svg`, 'mbig'), h('div', {}, h('h2', { class: 'title' }, `${hd.name} — ${hd.title}`), h('div', {}, `Уровень ${hr.lvl} · HP ${hr.hp}/${st.maxHp} · Атака ${st.atk} · Броня ${st.def}%`), h('div', { class: 'dim' }, hd.blurb))),
+        h('div', { class: 'eqrow' }, h('div', {}, h('div', { class: 'dim', style: { marginBottom: '4px' } }, 'Экипировка (3 слота, нажмите на предмет, чтобы снять)'), h('div', { class: 'slotline' }, slotEls)),
+          h('div', { style: { flex: 1 } }, h('div', { class: 'dim', style: { marginBottom: '4px' } }, 'Комбинации'), comboView(eq))),
+        h('div', { style: { marginTop: '10px' } }, h('div', { style: { display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '4px' } }, h('span', { class: 'dim' }, `Рюкзак (${bag.length}/${R.BAG_MAX}) — нажмите, чтобы надеть; ▲ = усилит героя`),
+          h('button', { class: 'btn small alt', onclick: () => { R.autoEquip(G.run, hr.id); sfx.buy(); save(); render(); } }, 'Подобрать лучшее')),
+          bag.length ? h('div', { class: 'bagrow' }, bagEls) : h('div', { class: 'dim', style: { fontSize: '14px' } }, 'Пусто. Когда слот занят, новые предметы попадают сюда.')),
         tal.length ? h('div', { style: { marginTop: '10px', display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' } }, h('span', { class: 'dim' }, 'Таланты:'), ...tal.map(([k, n]) => { const c = h('span', { class: 'chip', style: { fontSize: '14px', padding: '2px 10px', border: '1px solid var(--line)', borderRadius: '12px' } }, `${TALENTS[k].name}${n > 1 ? ' ×' + n : ''}`); tooltip(c, talentTip(k, n)); return c; })) : null,
-        h('div', { style: { marginTop: '12px' } }, hd.skills.map((sid, idx) => {
+        h('div', { style: { marginTop: '10px' } }, hd.skills.map((sid, idx) => {
           const sk = SKILLS[sid], lv = hr.skillLv[sid] ?? 0, need = skillUnlockLv(hr.id, idx), lock = hr.lvl < need;
-          return h('div', { style: { display: 'flex', gap: '12px', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #ffffff14', opacity: lock ? 0.5 : 1 } },
-            img(`assets/svg/icons/skills/${sk.icon}.svg`, 'mskill'), h('div', {}, h('b', {}, sk.name), lock ? h('span', { class: 'dim' }, ` 🔒 откроется на уровне ${need}`) : null, lv ? h('span', { class: 'gold' }, ' ' + '★'.repeat(lv)) : '', sk.cost ? h('span', { style: { color: '#ff8a5a' } }, ` · ярость ${sk.cost}`) : sk.cd ? h('span', { class: 'dim' }, ` · перезарядка ${sk.cd}`) : '', h('div', { class: 'dim', style: { fontSize: '14px' } }, describeSkill(sk, lv))));
+          return h('div', { style: { display: 'flex', gap: '12px', alignItems: 'center', padding: '4px 0', borderBottom: '1px solid #ffffff14', opacity: lock ? 0.5 : 1 } },
+            img(`assets/svg/icons/skills/${sk.icon}.svg`, 'mskill'), h('div', {}, h('b', {}, sk.name), lock ? h('span', { class: 'dim' }, ` 🔒 откроется на уровне ${need}`) : null, lv ? h('span', { class: 'gold' }, ' ' + '★'.repeat(lv)) : '', sk.cost ? h('span', { style: { color: '#ff8a5a' } }, ` · ярость ${sk.cost}`) : sk.cd ? h('span', { class: 'dim' }, ` · перезарядка ${sk.cd}`) : '', h('div', { class: 'dim', style: { fontSize: '13px' } }, describeSkill(sk, lv))));
         })),
-        h('button', { class: 'btn', style: { marginTop: '12px' }, onclick: () => m.remove() }, 'Закрыть')));
+        h('button', { class: 'btn', style: { marginTop: '12px' }, onclick: close }, 'Закрыть'));
+    };
+    const render = () => { const sc = m.firstChild?.scrollTop ?? 0; m.replaceChildren(build()); m.firstChild.scrollTop = sc; };
+    render();
     stage.append(m);
   }
 
@@ -173,7 +203,7 @@ export function createGame(stage) {
     });
     const bg = ['graveyard', 'castle', 'void'][run.act - 1];
     const s = h('div', { class: 'screen map' }, img(`assets/svg/bg/${bg}.svg`, 'bg'), h('div', { class: 'shade' }),
-      h('div', { class: 'topbar' }, h('div', { style: { fontWeight: 900, fontSize: '22px', color: 'var(--gold)' } }, `Акт ${run.act}${run.loop ? ` (круг ${run.loop + 1})` : ''}: ${act.name}`), goldChip(), relicRow(),
+      h('div', { class: 'topbar' }, h('div', { style: { fontWeight: 900, fontSize: '22px', color: 'var(--gold)' } }, `Акт ${run.act}${run.loop ? ` (круг ${run.loop + 1})` : ''}: ${act.name}`), goldChip(), (() => { const c = h('div', { class: 'chip' }, '🎒 ', run.bag.length); tooltip(c, `<b>Рюкзак: ${run.bag.length}/${R.BAG_MAX}</b><br>Нажмите на героя внизу, чтобы надеть предметы и собрать комбинации`); return c; })(), relicRow(),
         h('button', { class: 'iconbtn', title: 'В меню', onclick: () => { save(); menu(); } }, '☰')),
       h('div', { style: { position: 'absolute', top: '70px', left: 0, right: 0, textAlign: 'center', fontSize: '22px', fontWeight: 800, textShadow: '0 2px 4px #000' } },
         cur && cur[0].final ? 'Бог Пепла ждёт' : run.lastFight ? 'Выберите путь' : '⚔ Следующий узел — только бой (🔒 закрыто)'),
@@ -372,7 +402,7 @@ export function createGame(stage) {
         else if (it.kind === 'heal') { icon = 'assets/svg/icons/skills/heal.svg'; title = 'Лечебное зелье'; desc = `Отряд лечится на ${it.pct}%.`; }
         else if (it.kind === 'upgrade') { const sk = SKILLS[it.skill]; icon = `assets/svg/icons/skills/${sk.icon}.svg`; title = `Заточка: ${sk.name}`; desc = `${hd.name}: +20% силы навыка.`; }
         else { icon = 'assets/svg/icons/relics/soul_lantern.svg'; title = `Учитель: ${hd.name}`; desc = '+1 уровень герою.'; }
-        return h('div', { class: `card panel ${cls}${it.sold ? ' sold' : ''}${run.gold < it.price && !it.sold ? ' poor' : ''}`, style: { width: '190px', minHeight: '270px' }, onclick: () => { if (R.buy(run, items, it.i)) { sfx.buy(); save(); draw(); if (it.result && !it.result.equipped) toast(`Предмет продан за ${it.result.gold} золота: у героя уже есть лучше`); else if (it.result) toast(`${HEROES[it.result.hero].name}: предмет экипирован`); } } },
+        return h('div', { class: `card panel ${cls}${it.sold ? ' sold' : ''}${run.gold < it.price && !it.sold ? ' poor' : ''}`, style: { width: '190px', minHeight: '270px' }, onclick: () => { if (R.buy(run, items, it.i)) { sfx.buy(); save(); draw(); if (it.result && !it.result.equipped) toast(`${HEROES[it.result.hero].name}: слот занят, предмет в рюкзаке`); else if (it.result) toast(`${HEROES[it.result.hero].name}: предмет надет`); } } },
           iconEl ?? img(icon), h('div', { class: 't', style: { fontSize: '17px' } }, title), h('div', { class: 'd' }, desc), h('div', { class: 'price' }, it.sold ? 'Продано' : [img('assets/svg/ui/coin.svg'), it.price]));
       });
       const s = h('div', { class: 'screen' }, img('assets/svg/bg/camp.svg', 'bg'), h('div', { class: 'topbar' }, goldChip(), relicRow()),

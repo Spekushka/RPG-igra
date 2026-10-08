@@ -1,5 +1,5 @@
 import { h, img, tooltip } from './dom.js';
-import { ITEMS, RARITY, SLOTS, itemStats, fmtStat } from '../data/items.js';
+import { ITEMS, RARITY, SLOTS, TAGS, itemStats, fmtStat, combos } from '../data/items.js';
 import { HEROES } from '../data/heroes.js';
 import { RELICS } from '../data/relics.js';
 import { TALENTS } from '../data/talents.js';
@@ -17,7 +17,8 @@ export function itemBox(it, size = 56) {
 export function itemTip(it) {
   const def = ITEMS[it.id], R = RARITY[it.r];
   const st = itemStats(it);
-  return `<b style="color:${R.color}">${def.name}</b><div class="sub">${R.name} · ${SLOTS[def.slot]}</div>${Object.entries(st).map(([k, v]) => `<div>${fmtStat(k, v)}</div>`).join('')}`;
+  const tg = def.tags.map((t) => `<span style="color:${TAGS[t].color}">${TAGS[t].icon} ${TAGS[t].name}</span>`).join(' · ');
+  return `<b style="color:${R.color}">${def.name}</b><div class="sub">${R.name} · ${SLOTS[def.slot]}</div>${Object.entries(st).map(([k, v]) => `<div>${fmtStat(k, v)}</div>`).join('')}<div style="margin-top:4px">${tg}</div><div class="sub">2 предмета с общей меткой — бонус, 3 — большой бонус</div>`;
 }
 
 export const itemName = (it) => ITEMS[it.id].name;
@@ -45,10 +46,10 @@ export function prizeView(run, p) {
   if (p.t === 'item') {
     const R = RARITY[p.it.r];
     let msg;
-    if (p.equipped) msg = p.replaced ? `${heroName(p.hero)} меняет «${itemName(p.replaced)}» на новый предмет` : `${heroName(p.hero)} экипирует предмет`;
-    else msg = `У ${heroName(p.hero)} уже есть лучше — предмет продан за ${p.gold} золота`;
+    if (p.equipped) msg = `${heroName(p.hero)} надевает предмет`;
+    else msg = `Слот героя ${heroName(p.hero)} занят — предмет в рюкзаке.${p.soldItem ? ` Рюкзак полон: «${itemName(p.soldItem)}» продан за ${p.gold} золота.` : ''}`;
     return h('div', { class: 'prize' }, itemBox(p.it, 84), h('div', { class: 'ptxt' }, h('div', { class: 'pn', style: { color: R.color } }, `${itemName(p.it)}`), h('div', { class: 'dim' }, `${R.name} · ${SLOTS[ITEMS[p.it.id].slot]}`),
-      ...Object.entries(itemStats(p.it)).map(([k, v]) => h('div', {}, fmtStat(k, v))), h('div', { class: 'gold', style: { marginTop: '4px' } }, msg)));
+      ...Object.entries(itemStats(p.it)).map(([k, v]) => h('div', {}, fmtStat(k, v))), h('div', { style: { marginTop: '2px' } }, ITEMS[p.it.id].tags.map((t) => h('span', { style: { color: TAGS[t].color, marginRight: '8px' } }, `${TAGS[t].icon} ${TAGS[t].name}`))), h('div', { class: 'gold', style: { marginTop: '4px' } }, msg)));
   }
   if (p.t === 'gold') return h('div', { class: 'prize' }, img('assets/svg/ui/coin.svg', 'pico'), h('div', { class: 'ptxt' }, h('div', { class: 'pn gold' }, `+${p.n} золота`)));
   if (p.t === 'heal') return h('div', { class: 'prize' }, img('assets/svg/icons/skills/heal.svg', 'pico'), h('div', { class: 'ptxt' }, h('div', { class: 'pn', style: { color: 'var(--green)' } }, 'Отряд исцелён на 35%')));
@@ -56,3 +57,15 @@ export function prizeView(run, p) {
   if (p.t === 'relic') return h('div', { class: 'prize' }, img(`assets/svg/icons/relics/${p.id}.svg`, 'pico'), h('div', { class: 'ptxt' }, h('div', { class: 'pn', style: { color: 'var(--orange)' } }, RELICS[p.id].name), h('div', { class: 'dim' }, RELICS[p.id].desc)));
   return h('div');
 }
+
+// Активные комбинации набора предметов
+export function comboView(items) {
+  const cs = combos(items);
+  if (!cs.length) return h('div', { class: 'dim', style: { fontSize: '14px' } }, 'Комбинаций нет. Соберите 2–3 предмета с общей меткой (🔥 ❄️ ✨ 🌑 🩸 🐺).');
+  return h('div', { class: 'combos' }, cs.map((c) => {
+    const T = TAGS[c.tag];
+    const el = h('div', { class: 'combo' + (c.n >= 3 ? ' full' : ''), style: { borderColor: T.color } }, h('b', { style: { color: T.color } }, `${T.icon} ${T.name} ${c.n}/3`), h('span', {}, Object.entries(c.stats).map(([k, v]) => fmtStat(k, v)).join(', ')));
+    return el;
+  }));
+}
+export const tagBadges = (id) => ITEMS[id].tags.map((t) => `${TAGS[t].icon}`).join('');

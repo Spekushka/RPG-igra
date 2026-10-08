@@ -4,7 +4,7 @@ import { ENEMIES } from '../data/enemies.js';
 import { ACTS, FLOORS_PER_ACT } from '../data/acts.js';
 import { RELICS, sumMods } from '../data/relics.js';
 import { EVENTS } from '../data/events.js';
-import { ITEMS, itemStats, itemPower } from '../data/items.js';
+import { ITEMS, itemStats, itemPower, comboStats, setScore } from '../data/items.js';
 import { TALENTS, talentKeys } from '../data/talents.js';
 import { makeRng } from './rng.js';
 import { forgeMods } from './meta.js';
@@ -12,7 +12,8 @@ import { forgeMods } from './meta.js';
 const R = (run) => { const r = makeRng(run.rs); run.rs = (Math.imul(run.rs, 1664525) + 1013904223) >>> 0; return r; };
 export const FIGHT = new Set(['battle', 'elite', 'boss']);
 export const MAX_PARTY = 4;
-export const RUN_VERSION = 2;
+export const RUN_VERSION = 3;
+export const BAG_MAX = 10;
 
 export function createRun({ party, meta, asc = 0, mode = 'normal', seed }) {
   const rs = (seed ?? (Math.random() * 4294967296)) >>> 0 || 1;
@@ -20,7 +21,7 @@ export function createRun({ party, meta, asc = 0, mode = 'normal', seed }) {
     v: RUN_VERSION, rs, asc, mode, loop: 0, act: 1, floor: 0, gold: 60, relics: [], metaMods: meta ? forgeMods(meta) : {},
     heroes: [], unlocked: meta ? meta.unlocked.slice() : Object.keys(HEROES).filter((k) => HEROES[k].start),
     forge: meta ? { ...meta.forge } : {},
-    map: null, node: null, lastFight: true, recruitPending: false, recruitDone: 0, respins: meta?.forge?.respin ?? 0,
+    bag: [], map: null, node: null, lastFight: true, recruitPending: false, recruitDone: 0, respins: meta?.forge?.respin ?? 0,
     stats: { battles: 0, kills: 0, elites: 0, floors: 0, bosses: 0, items: 0, games: 0 }, over: null, ashEarned: 0,
   };
   for (const id of party) run.heroes.push(newHero(id, 1));
@@ -43,6 +44,7 @@ export const xpNeed = (lvl) => 1 + lvl;
 export function heroMods(h) {
   const m = {};
   for (const it of Object.values(h.items)) for (const [k, v] of Object.entries(itemStats(it))) m[k] = (m[k] ?? 0) + v;
+  for (const [k, v] of Object.entries(comboStats(Object.values(h.items)))) m[k] = (m[k] ?? 0) + v;
   for (const [t, n] of Object.entries(h.talents)) for (const [k, v] of Object.entries(TALENTS[t].stats)) m[k] = (m[k] ?? 0) + v * n;
   return m;
 }
@@ -243,20 +245,71 @@ export function rollItem(run, rarity) {
   const rng = R(run);
   return { id: rng.pick(Object.keys(ITEMS)), r: rarity };
 }
-// Выдать предмет случайному (или указанному) герою. Возвращает описание результата.
+// Выдать предмет случайному (или указанному) герою: пустой слот — сразу надевает, иначе в рюкзак.
 export function giveItem(run, it, heroId) {
   const rng = R(run);
   const h = heroId ? heroOf(run, heroId) : rng.pick(run.heroes);
   const slot = ITEMS[it.id].slot;
-  const old = h.items[slot];
-  if (!old || itemPower(it) > itemPower(old)) {
+  run.stats.items++;
+  if (!h.items[slot]) {
     keepHp(run, h, () => { h.items[slot] = it; });
-    run.stats.items++;
-    return { hero: h.id, it, equipped: true, replaced: old ?? null };
+    return { hero: h.id, it, equipped: true };
   }
-  const gold = 10 + 15 * it.r;
-  run.gold += gold;
-  return { hero: h.id, it, equipped: false, gold, kept: old };
+  run.bag.push(it);
+  const res = { hero: h.id, it, equipped: false, bagged: true };
+  if (run.bag.length > BAG_MAX) { // рюкзак полон: продаётся самый слабый предмет
+    let wi = 0;
+    run.bag.forEach((x, i) => { if (itemPower(x) < itemPower(run.bag[wi])) wi = i; });
+    const sold = run.bag.splice(wi, 1)[0];
+    const gold = 10 + 15 * sold.r; run.gold += gold;
+    res.soldItem = sold; res.gold = gold;
+  }
+  return res;
+}
+
+// Надеть предмет из рюкзака на героя (старый предмет уходит в рюкзак)
+export function equipFromBag(run, heroId, bagIndex) {
+  const h = heroOf(run, heroId), it = run.bag[bagIndex];
+  if (!it) return false;
+  const slot = ITEMS[it.id].slot, old = h.items[slot];
+  keepHp(run, h, () => { h.items[slot] = it; });
+  run.bag.splice(bagIndex, 1);
+  if (old) run.bag.push(old);
+  return true;
+}
+// Снять предмет в рюкзак
+export function unequip(run, heroId, slot) {
+  const h = heroOf(run, heroId), it = h.items[slot];
+  if (!it || run.bag.length >= BAG_MAX) return false;
+  keepHp(run, h, () => { delete h.items[slot]; });
+  run.bag.push(it);
+  return true;
+}
+// Лучший набор из надетого и рюкзака по слотам (перебор)
+export function bestSetFor(run, heroId) {
+  const h = heroOf(run, heroId);
+  const slots = ['weapon', 'armor', 'trinket'];
+  const pool = slots.map((sl) => [...(h.items[sl] ? [h.items[sl]] : []), ...run.bag.filter((x) => ITEMS[x.id].slot === sl)]);
+  let best = null, bs = -1;
+  const opts = pool.map((p) => (p.length ? p : [null]));
+  for (const a of opts[0]) for (const b of opts[1]) for (const c of opts[2]) {
+    const set = [a, b, c].filter(Boolean);
+    const sc = setScore(set);
+    if (sc > bs) { bs = sc; best = [a, b, c]; }
+  }
+  return best;
+}
+export function autoEquip(run, heroId) {
+  const h = heroOf(run, heroId);
+  const best = bestSetFor(run, heroId);
+  if (!best) return false;
+  const slots = ['weapon', 'armor', 'trinket'];
+  // вернуть всё в рюкзак, затем надеть лучшее
+  keepHp(run, h, () => {
+    for (const sl of slots) if (h.items[sl]) { run.bag.push(h.items[sl]); delete h.items[sl]; }
+    best.forEach((it, i) => { if (!it) return; const bi = run.bag.indexOf(it); if (bi >= 0) run.bag.splice(bi, 1); h.items[slots[i]] = it; });
+  });
+  return true;
 }
 
 // ---------- Колесо фортуны ----------

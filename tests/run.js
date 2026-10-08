@@ -82,4 +82,30 @@ test('колесо и мини-игры выдают призы', () => {
   for (let i = 0; i < 30; i++) assert.ok(R.applyPrize(run, R.spinWheel(run, 'battle').wedge));
   for (let t = 0; t <= 3; t++) assert.ok(R.minigamePrizes(run, t).length);
 });
+import { combos, comboStats, setScore } from '../src/data/items.js';
+test('комбинации предметов дают бонусы', () => {
+  const two = [{ id: 'bone_blade', r: 1 }, { id: 'bone_plate', r: 1 }];
+  assert.deepEqual(combos(two).map((c) => c.tag).sort(), ['blood', 'shadow']);
+  const three = [...two, { id: 'skull_trophy', r: 1 }];
+  assert.ok(combos(three).find((c) => c.tag === 'blood' && c.n === 3));
+  assert.ok(setScore(three) > setScore([{ id: 'bone_blade', r: 1 }]));
+  assert.equal(Object.keys(comboStats([{ id: 'bone_blade', r: 1 }])).length, 0);
+});
+test('рюкзак: занятый слот, надеть, снять, подобрать лучшее', () => {
+  const run = R.createRun({ party: ['knight'], meta: defaultMeta(), seed: 21 });
+  R.giveItem(run, { id: 'rusty_axe', r: 1 }, 'knight');
+  const r = R.giveItem(run, { id: 'bone_blade', r: 3 }, 'knight');
+  assert.equal(r.bagged, true);
+  assert.equal(run.bag.length, 1);
+  R.giveItem(run, { id: 'bone_plate', r: 2 }, 'knight');
+  R.giveItem(run, { id: 'skull_trophy', r: 2 }, 'knight');
+  R.autoEquip(run, 'knight');
+  const h = run.heroes[0];
+  assert.equal(Object.keys(h.items).length, 3);
+  assert.equal(run.bag.length, 1);
+  assert.ok(R.unequip(run, 'knight', 'armor'));
+  assert.equal(h.items.armor, undefined);
+  for (let i = 0; i < 20; i++) R.giveItem(run, { id: 'rusty_axe', r: 1 }, 'knight');
+  assert.ok(run.bag.length <= R.BAG_MAX);
+});
 console.log(`${n} tests passed`);
